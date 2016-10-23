@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <title>Header</title>
@@ -35,7 +36,7 @@
   
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <div class="container-fluid" style="background-color:;height:180px;">
-		 <a class="brand" href="gotohome"><img src="insta.gif" alt="Brand"></a>
+		 <a class="brand" href="home"><img src="insta.gif" alt="Brand"></a>
 
 </div>
 
@@ -51,12 +52,12 @@
 				    <span class="icon-bar"></span>
 				</button>
 				
-								<a class="navbar-brand" href="gotohome">MobilJe</a>
+			<a class="navbar-brand" href="gotohome">MobilJe</a>
 								<br>
 			</div>
 				<div class="collapse navbar-collapse" >
 					      <ul class="nav navbar-nav ">
-					        <li class="active"><a href="gotohome">Home</a></li>
+					        <li class="active"><a href="home">Home</a></li>
 					        <li class="dropdown">
 					          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products<span class="caret"></span></a>
 					          <ul class="dropdown-menu">
@@ -66,12 +67,12 @@
 					            <li><a href="#">Office and Study</a></li>
 					          </ul>
 					        </li>
-					        <li><a href="gotoabout">About Us</a></li>
-					        <li><a href="gotocontact">Contact Us</a></li>
+					        <li><a href="about_us">About Us</a></li>
+					        <li><a href="contact_us">Contact Us</a></li>
 					      </ul>
 					      <ul class="nav navbar-nav navbar-right">
-					        <li><a href="gotologin" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					        <li><a href="gotoreg"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					        <li><a href="login_page" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					        <li><a href="reg_page"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					      </ul>
 				</div>
   		</div>

@@ -14,6 +14,20 @@ public class MainController {
 		return "index";
 	}
 	
+	@RequestMapping("/login_page")
+	public String gotologin(Model m)
+	{
+		m.addAttribute("onclickLogin",1);
+		return "index";
+	}
+	
+	@RequestMapping("/login_page")
+	public String gotoreg(Model m)
+	{
+		m.addAttribute("onclickReg",1);
+		return "index";
+	}
+	
 	
 	
 }
