@@ -14,6 +14,14 @@ public class MainController {
 		return "index";
 	}
 	
+	@RequestMapping("/home")
+	public String gotoindex(Model m)
+	{
+		m.addAttribute("onclickhome",1);
+		return "index";
+	}
+	
+	
 	@RequestMapping("/login_page")
 	public String gotologin(Model m)
 	{
@@ -21,7 +29,7 @@ public class MainController {
 		return "index";
 	}
 	
-	@RequestMapping("/login_page")
+	@RequestMapping("/reg_page")
 	public String gotoreg(Model m)
 	{
 		m.addAttribute("onclickReg",1);

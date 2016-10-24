@@ -4,13 +4,14 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <title>Header</title>
-  <meta charset="utf-8">
+<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Header</title>
   <style>
   .navbar-custom{
   border-radius:0;
@@ -52,7 +53,7 @@
 				    <span class="icon-bar"></span>
 				</button>
 				
-			<a class="navbar-brand" href="gotohome">MobilJe</a>
+			<a class="navbar-brand" href="home">MobilJe</a>
 								<br>
 			</div>
 				<div class="collapse navbar-collapse" >
@@ -71,8 +72,8 @@
 					        <li><a href="contact_us">Contact Us</a></li>
 					      </ul>
 					      <ul class="nav navbar-nav navbar-right">
-					        <li><a href="login_page" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					        <li><a href="reg_page"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					        <li><a href="reg_page" target="_blank"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					        <li><a href="login_page" target="_blank"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					      </ul>
 				</div>
   		</div>
