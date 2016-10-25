@@ -29,12 +29,6 @@ public class MainController {
 		return "index";
 	}
 	
-	@RequestMapping("/reg_page")
-	public String gotoreg(Model m)
-	{
-		m.addAttribute("onclickReg",1);
-		return "index";
-	}
 	
 	
 	
