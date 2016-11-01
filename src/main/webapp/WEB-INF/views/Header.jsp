@@ -22,7 +22,7 @@
   .affix {
       top:0;
       width: 100%;
-      z-index: 9999 !important;
+      z-index: 9999; <!-- important -->
   }
   .navbar {
       margin-bottom: 0px;
@@ -68,12 +68,11 @@
 					            <li><a href="#">Office and Study</a></li>
 					          </ul>
 					        </li>
-					        <li><a href="about_us">About Us</a></li>
 					        <li><a href="contact_us">Contact Us</a></li>
 					      </ul>
 					      <ul class="nav navbar-nav navbar-right">
-					        <li><a href="reg_page" target="_blank"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					        <li><a href="login_page" target="_blank"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					        <li><a href="reg_page"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					        <li><a href="login_page"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					      </ul>
 				</div>
   		</div>

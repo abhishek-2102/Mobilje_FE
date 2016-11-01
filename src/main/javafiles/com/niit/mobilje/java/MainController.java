@@ -22,12 +22,8 @@ public class MainController {
 	}
 	
 	
-	@RequestMapping("/login_page")
-	public String gotologin(Model m)
-	{
-		m.addAttribute("onclickLogin",1);
-		return "index";
-	}
+	
+	
 	
 	
 	

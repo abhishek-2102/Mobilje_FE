@@ -11,10 +11,42 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 	
 <title>Footer</title>
-<style >
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
 
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
 
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
 
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
 </style>
 </head>
 
@@ -35,7 +67,7 @@
 				<!-- end col-sm-2 -->
 
 				<div class="col-sm-8">
-					<h6>About Us</h6>
+					<h6><a herf="#">About Us</a></h6>
 
 					<p>Pickled cold-pressed kale chips, shabby chic freegan
 						chartreuse coloring book church-key chicharrones venmo banjo
@@ -61,7 +93,7 @@
 
 					<p class="txt-railway">Follow us</p>
 
-					<a href="#"><span class="fa fa-facebook-square fa-2x " style="color:white" aria-hidden="true"></span></a> 
+					<a href="#"><span class="fa fa-facebook-square fa-2x" style="color:white" aria-hidden="true"></span></a> 
 					<a href="#"><span class="fa fa-linkedin-square fa-2x" style="color:white" aria-hidden="true"></span></a>
 					<a href="#"><span class="fa fa-twitter fa-2x" style="color:white" aria-hidden="true"></span></a>
 					<a href="#"><span class="fa fa-google-plus-official fa-2x" style="color:white" aria-hidden="true"></span></a>

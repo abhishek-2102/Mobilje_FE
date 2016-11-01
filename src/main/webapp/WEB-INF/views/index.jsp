@@ -17,27 +17,32 @@
 <jsp:include page="Header.jsp"/>
 
 <c:choose>
-
-
 <c:when test="${onclickhome == 1}">
 <jsp:include page="home.jsp"/>
 </c:when>
 
-<c:when test="${onclickLogin == 1}">
+<c:when test="${onclicklogin == 1}"> <!--Login page  -->
 <jsp:include page="LoginPage.jsp"/>
 </c:when>
 
-<c:when test="${onclickReg == 1}">
+<c:when test="${onclickloginbutton == 1}"> <!-- Login Success -->
+<jsp:include page="LoginSucces.jsp"/>
+</c:when>
+
+<c:when test="${onclickRegPage == 1 }">  <!-- Registration Page -->
 <jsp:include page="RegPage.jsp"/>
+</c:when>
+
+<c:when test="${onclickReg == 1}">  <!-- Registration Success -->
+<jsp:include page="RegSuccess.jsp"/>
 </c:when>
 
 <c:otherwise>
 <jsp:include page="home.jsp"/>
 </c:otherwise>
 
+
 </c:choose>
-
-
 <jsp:include page="Footer.jsp"/>
 </body>
 </html>

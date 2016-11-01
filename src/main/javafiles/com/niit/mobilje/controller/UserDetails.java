@@ -5,7 +5,7 @@ public String username;
 public String email;
 public String number;
 public String password;
-public String profession;
+public String address;
 
 public String getUsername() {
 	return username;
@@ -31,11 +31,11 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
-public String getProfession() {
-	return profession;
+public String getAddress() {
+	return address;
 }
-public void setProfession(String profession) {
-	this.profession = profession;
+public void setAddress(String address) {
+	this.address = address;
 }
 
 }

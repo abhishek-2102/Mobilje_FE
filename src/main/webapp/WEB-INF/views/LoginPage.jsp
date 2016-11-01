@@ -8,6 +8,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form method="post">
+  <div class="form-group">
+    <label for="LoginEmail">Email address:</label>
+    <input type="email" class="form-control" id="LoginEmail">
+  </div>
+  <div class="form-group">
+    <label for="LoginPassword">Password:</label>
+    <input type="password" class="form-control" id="LoginPassword">
+  </div>
+  
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
 
 </body>
 </html>
