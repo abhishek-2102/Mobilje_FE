@@ -22,10 +22,6 @@ public class Registration {
 		m.addAttribute("onclickRegPage",1);
 		UserDetails user= new UserDetails();
 		model.put("user_form",user);
-		List<String> proflist= new ArrayList<String>();
-		proflist.add("Designer");
-		proflist.add("Developer");
-		model.put("profession",proflist); //proflist is the value.
 		return "index";
 	}
 
@@ -37,7 +33,8 @@ public class Registration {
 	        System.out.println("password: " + u.getPassword());
 	        System.out.println("email: " + u.getEmail());
 	        System.out.println("birth date: " + u.getNumber());
-	        System.out.println("profession: " + u.getAddress());
+	        System.out.println("address: " + u.getAddress());
+	        System.out.println("DOB: " + u.getDob());
 	         	
 		return "index";
 	}

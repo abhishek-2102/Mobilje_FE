@@ -29,18 +29,41 @@
                </div>
                </div><!-- end password -->               
                <br>
+               
+<div class="row">	
+<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Password:</b></div>     
+<div class="col-sm-4"><form:input path="confirm_password" class="form-control" type="password" required="true"></form:input>
+               </div>
+               </div><!-- end confirm_password -->               
+               <br>
+               
 <div class="row">	
 <div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>E-mail:</b></div>     
 <div class="col-sm-4"><form:input path="email" class="form-control" type="email" required="true"></form:input>
                </div>
                </div>  <!-- end email -->
                <br>
+               
+<div class="row">	
+<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Confirm E-mail:</b></div>     
+<div class="col-sm-4"><form:input path="confirm_email" class="form-control" type="email" required="true"></form:input>
+               </div>
+               </div>  <!-- end confirm_email -->
+               <br>
+               
+<div class="row">	
+<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Date Of birth:</b></div>     
+<div class="col-sm-4"><form:input path="dob" class="form-control" type="date" required="true" placeholder="mm/dd/yyyy"></form:input>
+               </div>
+               </div><!-- end dob -->
+               <br>
 <div class="row">	
 <div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Number:</b></div>     
 <div class="col-sm-4"><form:input path="number" class="form-control" type="tele" required="true"></form:input>
                </div>
-               </div>     <!-- end number tag -->          
+               </div><!-- end number tag -->          
                <br>
+               
 <div class="row">	
 <div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Address:</b></div>     
 <div class="col-sm-4"><form:textarea path="address" class="form-control" ></form:textarea>
@@ -49,9 +72,8 @@
                <br>
                    
  <div class="col-sm-2 col-sm-offset-5">
-				<form:button type="submit" class="btn btn-success">Start Shopping</form:button></div>
+<form:button type="submit" class="btn btn-success">Submit</form:button></div>
 </form:form><!-- End form tag -->
-<br><br>
 </div>
 </div>
 </body>

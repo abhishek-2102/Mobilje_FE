@@ -1,20 +1,19 @@
 package com.niit.mobilje.controller;
 
 public class LoginDetails {
-private String LoginEmail;
-private String LoginPassword;
+private String login_email;
+private String login_password;
 
-public String getLoginEmail() {
-	return LoginEmail;
+public String getLogin_email() {
+	return login_email;
 }
-public void setLoginEmail(String loginEmail) {
-	LoginEmail = loginEmail;
+public void setLogin_email(String login_email) {
+	this.login_email = login_email;
 }
-public String getLoginPassword() {
-	return LoginPassword;
+public String getLogin_password() {
+	return login_password;
 }
-public void setLoginPassword(String loginPassword) {
-	LoginPassword = loginPassword;
+public void setLogin_password(String login_password) {
+	this.login_password = login_password;
 }
-
 }

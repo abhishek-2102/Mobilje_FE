@@ -37,7 +37,7 @@
   
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <div class="container-fluid" style="background-color:;height:180px;">
-		 <a class="brand" href="home"><img src="insta.gif" alt="Brand"></a>
+		 <a class="brand" href="home"><img class ="img-responsive" src="img/insta.gif" alt="Brand"></a>
 
 </div>
 
@@ -58,7 +58,7 @@
 			</div>
 				<div class="collapse navbar-collapse" >
 					      <ul class="nav navbar-nav ">
-					        <li class="active"><a href="home">Home</a></li>
+					        <li><a href="home">Home</a></li>
 					        <li class="dropdown">
 					          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products<span class="caret"></span></a>
 					          <ul class="dropdown-menu">
