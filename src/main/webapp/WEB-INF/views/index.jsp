@@ -14,10 +14,10 @@
   
 </head>
 <body>
-<jsp:include page="Header.jsp"/>
+<jsp:include page="Header.jsp"/> <!-- Include Header -->
 
 <c:choose>
-<c:when test="${onclickhome == 1}">
+<c:when test="${onclickhome == 1}"><!-- Home -->
 <jsp:include page="home.jsp"/>
 </c:when>
 
@@ -37,12 +37,16 @@
 <jsp:include page="RegSuccess.jsp"/>
 </c:when>
 
+<c:when test="${onclickAbout_Us == 1}">  <!-- About Us -->
+<jsp:include page="AboutUs.jsp"/>
+</c:when>
+
 <c:otherwise>
-<jsp:include page="home.jsp"/>
+<jsp:include page="home.jsp"/><!-- Default Page -->
 </c:otherwise>
 
 
 </c:choose>
-<jsp:include page="Footer.jsp"/>
+<jsp:include page="Footer.jsp"/><!-- Include Footer -->
 </body>
 </html>

@@ -56,10 +56,12 @@
 		<div class="container" style="color: #ffffff">
 			<div class="row">
 				<div class="col-sm-2">
+				<h3 style="color:#0080ff;">MOBILJE</h3>
 					<h6>
 						Copyright &copy; 2016 <br>Mobilje
 						<p>
 							<br>Logo Credits:<br>Shanawaz
+							<p>Call us:9876543210</p>	
 						</p>
 					</h6>
 
@@ -67,13 +69,14 @@
 				<!-- end col-sm-2 -->
 
 				<div class="col-sm-8">
-					<h6><a herf="#">About Us</a></h6>
-
-					<p>Pickled cold-pressed kale chips, shabby chic freegan
-						chartreuse coloring book church-key chicharrones venmo banjo
-						disrupt gastropub. Pickled williamsburg chicharrones bespoke
-						fingerstache. Asymmetrical austin shabby chic hexagon meditation.
-						Fam whatever hexagon, bushwick cliche prism messenger bag blog.</p>
+				<br>
+					<h5 style="color:#0080ff;">About Us</a></h5>
+						
+						<p style="text-align:justify"> We aspire to get you the best products with 
+						world class service with best advice at your door step. You will not have to
+						get out of your house or roam around to pick any furniture for your house.</p>
+						<p> For more details <a href="about_us">Click Here</a></p>
+					
 				</div>
 				<!-- end col-sm-4 -->
 
@@ -90,14 +93,14 @@
 					</div><!-- end col-sm-2 -->
 
 				<div class="col-sm-2">
-
-					<p class="txt-railway">Follow us</p>
-
+<br>
+					<p class="txt-railway" style="color:#0080ff;">Follow us</p>
+					
 					<a href="#"><span class="fa fa-facebook-square fa-2x" style="color:white" aria-hidden="true"></span></a> 
 					<a href="#"><span class="fa fa-linkedin-square fa-2x" style="color:white" aria-hidden="true"></span></a>
 					<a href="#"><span class="fa fa-twitter fa-2x" style="color:white" aria-hidden="true"></span></a>
 					<a href="#"><span class="fa fa-google-plus-official fa-2x" style="color:white" aria-hidden="true"></span></a>
-
+	
 				</div>
 				<!-- end col-sm-2 -->
 

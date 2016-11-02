@@ -21,6 +21,13 @@ public class MainController {
 		return "index";
 	}
 	
+	@RequestMapping("/about_us")
+	public String gotoaboutus(Model m)
+	{
+		m.addAttribute("onclickAbout_Us",1);
+		return"index";
+	}
+	
 	
 	
 	

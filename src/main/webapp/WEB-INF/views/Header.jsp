@@ -38,23 +38,16 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <div class="container-fluid" style="background-color:;height:180px;">
 		 <a class="brand" href="home"><img class ="img-responsive" src="img/insta.gif" alt="Brand"></a>
-
 </div>
-
   	<div class="navbar navbar-inverse navbar-custom">
-
-
 		<div class="container-fluid">
-			<div class="navbar-header">
-			
+			<div class="navbar-header">	
   				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         			<span class="icon-bar"></span>
 				    <span class="icon-bar"></span>
 				    <span class="icon-bar"></span>
-				</button>
-				
-			<a class="navbar-brand" href="home">MobilJe</a>
-								<br>
+				</button>		
+			<a class="navbar-brand" href="home">MobilJe</a>						
 			</div>
 				<div class="collapse navbar-collapse" >
 					      <ul class="nav navbar-nav ">
