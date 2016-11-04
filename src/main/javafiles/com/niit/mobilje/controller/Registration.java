@@ -33,7 +33,7 @@ public class Registration {
 	        System.out.println("birth date: " + u.getNumber());
 	        System.out.println("address: " + u.getAddress());
 	        System.out.println("DOB: " + u.getDob());
-	         	
+	        System.out.println("Gender: " + u.getGender()); 	
 		return "index";
 	}
 }

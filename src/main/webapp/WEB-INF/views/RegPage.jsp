@@ -45,6 +45,17 @@
                <br>
                
 <div class="row">	
+<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Gender:</b></div>     
+<div class="col-sm-4">
+      <form:select path="gender" class="form-control" required="true">
+      	<option>Select..</option>
+        <option>Female</option>
+        <option>Male</option>
+      </form:select></div>
+               </div><!-- end gender !!!!!edit this!!!! -->               
+               <br>
+               
+<div class="row">	
 <div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Confirm E-mail:</b></div>     
 <div class="col-sm-4"><form:input path="confirm_email" class="form-control" type="email" required="true"></form:input>
                </div>

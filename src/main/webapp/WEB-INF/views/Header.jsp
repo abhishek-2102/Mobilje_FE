@@ -36,7 +36,7 @@
   </head>
   
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-<div class="container-fluid" style="background-color:;height:180px;">
+<div class="container-fluid" style="background-color:white;height:180px;">
 		 <a class="brand" href="home"><img class ="img-responsive" src="img/insta.gif" alt="Brand"></a>
 </div>
   	<div class="navbar navbar-inverse navbar-custom">

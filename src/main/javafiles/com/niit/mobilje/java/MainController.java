@@ -28,6 +28,12 @@ public class MainController {
 		return"index";
 	}
 	
+	@RequestMapping("/contact_us")
+	public String gotocontactus(Model m)
+	{
+		m.addAttribute("onclickContact",1);
+		return"index";
+	}
 	
 	
 	

@@ -6,20 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <style>
-body
-{
-}
 #C01{
-background-position:0px;
+background-position:200px;
 background-image:url("img/about_us.jpg");
-margin-bottom:px;
 }
 </style>
 </head>
-<body style="marhin-top:0px">
-<div id="C01">
-<div class="container" style="margin-top:0px">
+<body id="C01" >
+<div class="container">
+<img src="img/about-us.png" style="width:59%"/>
 <div class="col-sm-6">
+<div class="well">
 <h1>WHO WE ARE</h1>
 <p style="text-align:justify"> We're a different kind of furniture company. 
 						We work every day to find new, unique products and styles that offer the very best in today's affordable modern furniture. 
@@ -32,15 +29,22 @@ margin-bottom:px;
 						your living room or bedroom, we're committed to combining excellent product quality AND service into an 
 						experience you just can't beat!</p>
 </div><!-- End col span -->
-
+</div><!-- End Well -->
 <div class="col-sm-6">
+<div class="well">
 <h1>Our Story</h1>
-<p style="text-align:justify">We started with an idea of providing economic and </p>
-
-
-
+<p style="text-align:justify">We started with an idea of providing economic andSuspendisse faucibus proin hac taciti, et hendrerit nunc, 
+						eu et scelerisque porta parturient magna. Cum at arcu quam tellus magna. Dolor rutrum augue nulla quis feugiat suspendisse, 
+						nunc aenean, donec sed erat, suspendisse sodales et natoque, consectetuer malesuada. 
+						Quo sollicitudin ante suspendisse, vehicula elit vehicula ante nec, mauris mollis est nam orci. 
+						Purus dui turpis wisi suspendisse mattis, sodales tincidunt fermentum, sollicitudin rutrum 
+						scelerisque erat maecenas sit proin. Luctus erat in nunc habitasse. Aenean enim. Eget in magna, 
+						donec viverra eu quam nibh cubilia porttitor. We work every day to find new, unique products and styles that offer the very best in today's affordable modern furniture. 
+						While our competitors invent new sales or promotions to play the pricing game, 
+						</p>
 </div><!-- End Col span -->
+</div><!-- End Well -->
+<br><br>
 </div><!-- End container -->
-</div>
 </body>
 </html>

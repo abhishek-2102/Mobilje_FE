@@ -9,7 +9,14 @@ public String number;
 public String password;
 public String confirm_password;
 public String address;
+public String gender;
 
+public String getGender() {
+	return gender;
+}
+public void setGender(String gender) {
+	this.gender = gender;
+}
 public String getConfirm_password() {
 	return confirm_password;
 }
