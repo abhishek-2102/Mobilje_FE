@@ -85,7 +85,7 @@
  <div class="col-sm-2 col-sm-offset-5">
 <form:button type="submit" class="btn btn-success">Submit</form:button></div>
 </form:form><!-- End form tag -->
-</div>
-</div>
+</div><!-- End Jummbotron-->
+</div><!-- End Container -->
 </body>
 </html>

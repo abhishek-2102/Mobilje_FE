@@ -1,15 +1,19 @@
 package com.niit.mobilje.controller;
 
-public class UserDetails {
-public String username;
-public String email;
-public String confirm_email;
-public String dob;
-public String number;
-public String password;
-public String confirm_password;
-public String address;
-public String gender;
+import javax.persistence.Id;
+
+public class RegisterDetails {
+	//@Id
+	public String username;
+	
+	public String email;
+	public String confirm_email;
+	public String dob;
+	public String number;
+	public String password;
+	public String confirm_password;
+	public String address;
+	public String gender;
 
 public String getGender() {
 	return gender;

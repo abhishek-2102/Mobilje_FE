@@ -35,10 +35,11 @@ public class MainController {
 		return"index";
 	}
 	
-	
-	
-	
-	
-	
-	
+	@RequestMapping("/Category")
+	public String gotocategory(Model m)
+	{
+		m.addAttribute("onclickCategory",1);
+		return "index";
+	}
+
 }

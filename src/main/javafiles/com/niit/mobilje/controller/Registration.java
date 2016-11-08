@@ -18,13 +18,13 @@ public class Registration {
 	public String viewRegPage(Map<String, Object> model,Model m)
 	{
 		m.addAttribute("onclickRegPage",1);
-		UserDetails user= new UserDetails();
+		RegisterDetails user= new RegisterDetails();
 		model.put("user_form",user);
 		return "index";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String prosReg(@ModelAttribute("user_form") UserDetails u, Map<String,Object> model,Model m)
+	public String prosReg(@ModelAttribute("user_form") RegisterDetails u, Map<String,Object> model,Model m)
 	{
 			m.addAttribute("onclickReg",1);
 			System.out.println("username: " + u.getUsername());
