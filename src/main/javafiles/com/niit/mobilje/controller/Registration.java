@@ -35,13 +35,7 @@ public class Registration {
 	{
 			m.addAttribute("onclickReg",1);
 			reg.saveRegister(u);
-			System.out.println("username: " + u.getUsername());
-	        System.out.println("password: " + u.getPassword());
-	        System.out.println("email: " + u.getEmail());
-	        System.out.println("birth date: " + u.getNumber());
-	        System.out.println("address: " + u.getAddress());
-	        System.out.println("DOB: " + u.getDob());
-	        System.out.println("Gender: " + u.getGender()); 	
+			System.out.println("Data received");
 		return "index";
 	}
 }

@@ -23,6 +23,14 @@
                </div>
                </div><!-- end user name -->
                <br>
+               
+               <div class="row">	
+<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Name:</b></div>     
+<div class="col-sm-4"><form:input path="name" class="form-control" type="text" required="true"></form:input>
+               </div>
+               </div><!-- end user name -->
+               <br>
+               
 <div class="row">	
 <div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Password:</b></div>     
 <div class="col-sm-4"><form:input path="password" class="form-control" type="password" required="true"></form:input>
@@ -31,8 +39,8 @@
                <br>
                
 <div class="row">	
-<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Password:</b></div>     
-<div class="col-sm-4"><form:input path="confirm_password" class="form-control" type="password" required="true"></form:input>
+<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Confirm Password:</b></div>     
+<div class="col-sm-4"><input name="confirm_password" class="form-control" type="password" required="true"></input>
                </div>
                </div><!-- end confirm_password -->               
                <br>
@@ -45,6 +53,13 @@
                <br>
                
 <div class="row">	
+<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Confirm E-mail:</b></div>     
+<div class="col-sm-4"><input name="confirm_email" class="form-control" type="email" required="true"></input>
+               </div>
+               </div>  <!-- end confirm_email -->
+               <br>
+                              
+<div class="row">	
 <div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Gender:</b></div>     
 <div class="col-sm-4">
       <form:select path="gender" class="form-control" required="true">
@@ -53,13 +68,6 @@
         <option>Male</option>
       </form:select></div>
                </div><!-- end gender !!!!!edit this!!!! -->               
-               <br>
-               
-<div class="row">	
-<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Confirm E-mail:</b></div>     
-<div class="col-sm-4"><form:input path="confirm_email" class="form-control" type="email" required="true"></form:input>
-               </div>
-               </div>  <!-- end confirm_email -->
                <br>
                
 <div class="row">	

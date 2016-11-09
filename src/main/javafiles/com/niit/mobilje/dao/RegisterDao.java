@@ -1,6 +1,5 @@
 package com.niit.mobilje.dao;
 
-import java.util.List;
 
 import com.niit.mobilje.trans.RegisterDetails;
 

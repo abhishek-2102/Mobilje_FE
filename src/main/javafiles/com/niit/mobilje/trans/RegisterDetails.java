@@ -14,11 +14,12 @@ public class RegisterDetails {
 
 	@Id
 	public String username;
+	
+	@Column
+	public String name;
 
 	@Column
 	public String email;
-
-	public String confirm_email;
 
 	@Column
 	public String dob;
@@ -28,49 +29,24 @@ public class RegisterDetails {
 
 	@Column
 	public String password;
-
-	public String confirm_password;
-
+	
 	@Column
 	public String address;
 
 	@Column
 	public String gender;
-
 	
 	
-	public String getGender() {
-		return gender;
+	//getter setters
+
+	public String getName() {
+		return name;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public String getConfirm_password() {
-		return confirm_password;
-	}
-
-	public void setConfirm_password(String confirm_password) {
-		this.confirm_password = confirm_password;
-	}
-
-	public String getConfirm_email() {
-		return confirm_email;
-	}
-
-	public void setConfirm_email(String confirm_email) {
-		this.confirm_email = confirm_email;
-	}
-
-	public String getDob() {
-		return dob;
-	}
-
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
-
+	
 	public String getUsername() {
 		return username;
 	}
@@ -85,6 +61,14 @@ public class RegisterDetails {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
 	}
 
 	public String getNumber() {
@@ -110,4 +94,13 @@ public class RegisterDetails {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
+	}
