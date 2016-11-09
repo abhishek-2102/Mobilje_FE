@@ -14,7 +14,9 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.mobilje.trans.CategoryDetails;
 import com.niit.mobilje.trans.RegisterDetails;
+import com.niit.mobilje.trans.SupplierDetails;
 
 @Configuration
 	@ComponentScan("com.niit")
@@ -45,6 +47,8 @@ import com.niit.mobilje.trans.RegisterDetails;
 			LocalSessionFactoryBuilder session = new LocalSessionFactoryBuilder(ds);
 			session.addProperties(getHibernateProperties());
 			session.addAnnotatedClass(RegisterDetails.class);
+			session.addAnnotatedClass(CategoryDetails.class);
+			session.addAnnotatedClass(SupplierDetails.class);
 			return session.buildSessionFactory();
 		}
 		

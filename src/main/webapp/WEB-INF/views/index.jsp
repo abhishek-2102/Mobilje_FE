@@ -15,41 +15,60 @@
   
 </head>
 <body>
-<jsp:include page="Header.jsp"/> <!-- Include Header -->
+<jsp:include page="Header.jsp"/> 				<!-- Include Header -->
 
 <c:choose> 
-<c:when test="${onclickhome == 1}"><!-- Home -->
+<c:when test="${onclickhome == 1}">				<!-- Home -->
 <jsp:include page="home.jsp"/>
 </c:when>
 
-<c:when test="${onclickContact == 1}"><!-- Home -->
+<c:when test="${onclickContact == 1}">			<!-- Home -->
 <jsp:include page="ContactUs.jsp"/>
 </c:when>
 
-<c:when test="${onclicklogin == 1}"> <!--Login page  -->
+<c:when test="${onclicklogin == 1}"> 			<!--Login page  -->
 <jsp:include page="LoginPage.jsp"/>
 </c:when>
 
-<c:when test="${onclickloginbutton == 1}"> <!-- Login Success -->
-<jsp:include page="LoginSucces.jsp"/>
-</c:when>
-
-<c:when test="${onclickRegPage == 1 }">  <!-- Registration Page -->
+<c:when test="${onclickRegPage == 1 }">  		<!-- Registration Page -->
 <jsp:include page="RegPage.jsp"/>
 </c:when>
 
-<c:when test="${onclickReg == 1}">  <!-- Registration Success -->
-<jsp:include page="RegSuccess.jsp"/>
-</c:when>
-
-<c:when test="${onclickAbout_Us == 1}">  <!-- About Us -->
+<c:when test="${onclickAbout_Us == 1}">  		<!-- About Us -->
 <jsp:include page="AboutUs.jsp"/>
 </c:when>
 
+<c:when test="${onclickCategory == 1}">	  		<!-- Category -->
+<jsp:include page="Category.jsp"/>
+</c:when>
+
+<c:when test="${onclickSupplier == 1}">	  		<!-- Supplier -->
+<jsp:include page="Supplier.jsp"/>
+</c:when>
+
+<c:when test="${onclickCat == 1}">	  			<!-- Category Success -->
+<jsp:include page="CatSuccess.jsp"/>
+</c:when>
+
+<c:when test="${onclickloginbutton == 1}"> 		<!-- Login Success -->
+<jsp:include page="LoginSucces.jsp"/>
+</c:when>
+
+<c:when test="${onclickReg == 1}">  			<!-- Registration Success -->
+<jsp:include page="RegSuccess.jsp"/>
+</c:when>
+
+<c:when test="${onclickSup == 1}">	  			<!-- Category Success -->
+<jsp:include page="SupSuccess.jsp"/>
+</c:when>
+
+
 <c:otherwise>
-<jsp:include page="home.jsp"/><!-- Default Page -->
+<jsp:include page="home.jsp"/>					<!-- Default Page -->
 </c:otherwise>
 </c:choose>
-<jsp:include page="Footer.jsp"/><!-- Include Footer -->
+
+
+<jsp:include page="Footer.jsp"/>				<!-- Include Footer -->
 </body>
 </html>
