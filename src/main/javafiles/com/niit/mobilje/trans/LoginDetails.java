@@ -1,4 +1,4 @@
-package com.niit.mobilje.controller;
+package com.niit.mobilje.trans;
 
 public class LoginDetails {
 private String login_email;

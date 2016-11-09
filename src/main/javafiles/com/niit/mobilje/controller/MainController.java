@@ -1,4 +1,4 @@
-package com.niit.mobilje.java;
+package com.niit.mobilje.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

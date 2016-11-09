@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.niit.mobilje.trans.LoginDetails;
+
 @Controller
 @RequestMapping(value="/login_page")
 public class Login {
