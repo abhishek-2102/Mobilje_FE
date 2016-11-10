@@ -22,6 +22,11 @@
 <jsp:include page="home.jsp"/>
 </c:when>
 
+ 
+<c:when test="${onclickAdminHome == 1}">		<!-- Admin Home -->
+<jsp:include page="AdminHome.jsp"/>
+</c:when>
+
 <c:when test="${onclickContact == 1}">			<!-- Home -->
 <jsp:include page="ContactUs.jsp"/>
 </c:when>
@@ -46,8 +51,16 @@
 <jsp:include page="Supplier.jsp"/>
 </c:when>
 
+<c:when test="${onclickProduct == 1}">	  		<!-- Product -->
+<jsp:include page="Product.jsp"/>
+</c:when>
+
 <c:when test="${onclickCat == 1}">	  			<!-- Category Success -->
 <jsp:include page="CatSuccess.jsp"/>
+</c:when>
+
+<c:when test="${onclickProd == 1}">	  			<!-- Product Success -->
+<jsp:include page="ProdSuccess.jsp"/>
 </c:when>
 
 <c:when test="${onclickloginbutton == 1}"> 		<!-- Login Success -->

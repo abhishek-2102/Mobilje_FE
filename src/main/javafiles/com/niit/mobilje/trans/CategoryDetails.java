@@ -1,8 +1,12 @@
 package com.niit.mobilje.trans;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -21,6 +25,10 @@ public class CategoryDetails {
 	@Column
 	private String c_desc;
 	
+	public Set<ProductDetails> product;
+	
+	/*@OneToMany(mappedBy="category",fetch=FetchType.EAGER)
+	public Set<ProdectDetails> */
 	
 	public String getC_id() {
 		return c_id;

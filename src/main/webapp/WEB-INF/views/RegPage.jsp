@@ -47,14 +47,14 @@
                
 <div class="row">	
 <div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>E-mail:</b></div>     
-<div class="col-sm-4"><form:input path="email" class="form-control" type="email" required="true"></form:input>
+<div class="col-sm-4"><form:input id="email-1" path="email" class="form-control" type="email" required="true"></form:input>
                </div>
                </div>  <!-- end email -->
                <br>
                
 <div class="row">	
 <div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Confirm E-mail:</b></div>     
-<div class="col-sm-4"><input name="confirm_email" class="form-control" type="email" required="true"></input>
+<div class="col-sm-4"><input id="confirm_email"name="confirm_email" class="form-control" type="email" required="true"></input>
                </div>
                </div>  <!-- end confirm_email -->
                <br>

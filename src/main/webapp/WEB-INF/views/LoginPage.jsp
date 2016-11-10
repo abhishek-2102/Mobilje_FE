@@ -35,7 +35,5 @@
 
 </div><!-- End jumbotron -->
 </div><!-- End Container -->
-
-
 </body>
 </html>

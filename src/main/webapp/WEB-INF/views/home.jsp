@@ -19,7 +19,7 @@
   </style>
 </head>
 <body>
-<div>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -53,22 +53,5 @@
       <span class="sr-only">Next</span>
     </a>
   </div>							<!-- End Corousel -->
- </div>
- <div class="container">
- <div class="row">
- <div class="col-sm-6">
- <br>
- <a class="btn btn-success" href="categoryPage">Category</a>
-</div><!-- End col -->
-
-<div class="col-sm-6">
- <br>
- <a class="btn btn-success" href="supplierPage">Supplier</a>
-<br>
- </div>								<!-- End col -->
- </div>								<!-- End row -->
- </div>								<!-- End container -->
-
-
 </body>
 </html>
