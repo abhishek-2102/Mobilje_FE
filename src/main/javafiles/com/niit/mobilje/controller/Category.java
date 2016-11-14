@@ -27,7 +27,7 @@ public class Category {
 			m.addAttribute("onclickCategory",1);
 			CategoryDetails cat= new CategoryDetails();
 			model.put("cat_form",cat);
-			return "index";
+			return "AdminHome";
 		}//end get
 
 		@RequestMapping(method = RequestMethod.POST)
@@ -36,7 +36,7 @@ public class Category {
 				m.addAttribute("onclickCat",1);
 				cat.saveCategory(c);
 				System.out.println("Data received");
-				return "index";
+				return "AdminHome";
 		}//end post
 		
 }//end class

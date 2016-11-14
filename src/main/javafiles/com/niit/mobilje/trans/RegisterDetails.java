@@ -36,11 +36,22 @@ public class RegisterDetails {
 	@Column
 	public String gender;
 	
+	@Column
+	public String role="user";
+	
 	
 	//getter setters
 
 	public String getName() {
 		return name;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public void setName(String name) {
@@ -103,4 +114,5 @@ public class RegisterDetails {
 		this.gender = gender;
 	}
 	
-	}
+		
+}

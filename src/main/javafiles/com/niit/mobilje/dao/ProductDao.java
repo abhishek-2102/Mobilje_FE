@@ -1,5 +1,9 @@
 package com.niit.mobilje.dao;
 
-public interface ProductDao {
+import com.niit.mobilje.trans.ProductDetails;
 
+public interface ProductDao {
+	
+	public boolean saveProduct(ProductDetails prod);
+	
 }

@@ -6,6 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Page</title>
+<style>
+.jumbotron{
+
+background-size:1150px 500px;
+background-image:url("img/save_web.jpg");
+background-repeat:no-repeat;
+}
+</style>
 </head>
 <body>
 <div class="container">

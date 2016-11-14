@@ -27,7 +27,7 @@ public class Supplier {
 		m.addAttribute("onclickSupplier",1);
 		SupplierDetails sup= new SupplierDetails();
 		model.put("sup_form",sup);
-		return "index";
+		return "AdminHome";
 	}//end get
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -36,6 +36,6 @@ public class Supplier {
 			m.addAttribute("onclickSup",1);
 			sup.saveSupplier(s);
 			System.out.println("Data received");
-			return "index";
+			return "AdminHome";
 	}//end post
 }

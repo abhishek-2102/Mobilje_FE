@@ -43,44 +43,10 @@
 <jsp:include page="AboutUs.jsp"/>
 </c:when>
 
-<c:when test="${onclickCategory == 1}">	  		<!-- Category -->
-<jsp:include page="Category.jsp"/>
-</c:when>
-
-<c:when test="${onclickSupplier == 1}">	  		<!-- Supplier -->
-<jsp:include page="Supplier.jsp"/>
-</c:when>
-
-<c:when test="${onclickProduct == 1}">	  		<!-- Product -->
-<jsp:include page="Product.jsp"/>
-</c:when>
-
-<c:when test="${onclickCat == 1}">	  			<!-- Category Success -->
-<jsp:include page="CatSuccess.jsp"/>
-</c:when>
-
-<c:when test="${onclickProd == 1}">	  			<!-- Product Success -->
-<jsp:include page="ProdSuccess.jsp"/>
-</c:when>
-
-<c:when test="${onclickloginbutton == 1}"> 		<!-- Login Success -->
-<jsp:include page="LoginSucces.jsp"/>
-</c:when>
-
-<c:when test="${onclickReg == 1}">  			<!-- Registration Success -->
-<jsp:include page="RegSuccess.jsp"/>
-</c:when>
-
-<c:when test="${onclickSup == 1}">	  			<!-- Category Success -->
-<jsp:include page="SupSuccess.jsp"/>
-</c:when>
-
-
 <c:otherwise>
 <jsp:include page="home.jsp"/>					<!-- Default Page -->
 </c:otherwise>
 </c:choose>
-
 
 <jsp:include page="Footer.jsp"/>				<!-- Include Footer -->
 </body>

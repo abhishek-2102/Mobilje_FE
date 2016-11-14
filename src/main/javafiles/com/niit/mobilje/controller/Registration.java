@@ -38,5 +38,7 @@ public class Registration {
 			System.out.println("Data received");
 		return "index";
 	}//end post
+	
+	
 }//end class
 

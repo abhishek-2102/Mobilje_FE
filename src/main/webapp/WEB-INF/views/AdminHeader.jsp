@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<html><head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -37,7 +36,7 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <div class="container-fluid" style="background-color:white;height:180px;">
 		 <a class="brand" href="home"><img class ="img-responsive" src="img/insta.gif" alt="Brand"></a>
-</div><!-- End top -->
+</div>
   	<div class="navbar navbar-inverse navbar-custom">
 		<div class="container-fluid">
 			<div class="navbar-header">	
@@ -46,29 +45,21 @@
 				    <span class="icon-bar"></span>
 				    <span class="icon-bar"></span>
 				</button>		
-			<a class="navbar-brand" href="home">MobilJe</a>						
-			</div><!-- End Collaps -->
+			<a class="navbar-brand" href="#">MobilJe</a>						
+			</div>
 				<div class="collapse navbar-collapse" >
 					      <ul class="nav navbar-nav ">
-					        <li><a href="home">Home</a></li>
-					        <li class="dropdown">
-					          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products<span class="caret"></span></a>
-					          <ul class="dropdown-menu">
-					            <li><a href="#">Bedroom</a></li>
-					            <li><a href="#">Living Room</a></li>
-					            <li><a href="#">Kitchen and Dining</a></li>
-					            <li><a href="#">Office and Study</a></li>
-					          </ul><!-- End Drop down for products -->
-					        </li>
-					        <li><a href="contact_us">Contact Us</a></li>
-					      </ul><!-- End left side navbar -->
+					          <li><a  href="productPage">Products</a></li>
+					          <li><a  href="supplierPage">Supplier</a></li>
+					          <li><a  href="categoryPage">Category</a></li>					        
+					      </ul>
+
 					      <ul class="nav navbar-nav navbar-right">
-					        <li><a href="reg_page"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					        <li><a href="login_page"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-					        <li><a href="adminHome"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
-					      </ul><!-- End Right side navbar -->
-				</div> <!-- End Dropdown for collaps -->
-  		</div><!-- End container fluid -->
-  	</div>		<!-- End navbar -->
+					        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+					        <li><a href="reg_page"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+					      </ul>
+				</div>
+  		</div>
+  	</div>		
 </body>
 </html>

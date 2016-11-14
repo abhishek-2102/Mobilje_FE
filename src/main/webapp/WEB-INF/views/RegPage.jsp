@@ -6,7 +6,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registration from</title>
+<style>
+.jumbotron{
 
+background-size:1150px 800px;
+margin-bottom:300px;
+background-image:url("img/save_web.jpg");
+background-repeat:no-repeat; 
+
+}
+</style>
 </head>
 
 <body>

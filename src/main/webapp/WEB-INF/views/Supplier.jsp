@@ -10,7 +10,7 @@
 <body>
 <div class="container">
 <div class="jumbotron">
-<h3 style="text-align:center">Enter Category Details</h3>
+<h3 style="text-align:center">Enter Supplier Details</h3>
     <br>
 <form:form class="form-group" commandName="sup_form" method="post" action="supplierPage">
 <div class="row">	
@@ -46,7 +46,8 @@
                
 <div class="col-sm-2 col-sm-offset-5">
 <form:button type="submit" class="btn btn-success">Submit</form:button>
-</div>												<!-- End Sumbit -->
+</div><!-- End Sumbit -->
+
 </form:form><!-- End Form -->
 </div><!-- End Jumbotron -->
 </div><!-- End Container -->

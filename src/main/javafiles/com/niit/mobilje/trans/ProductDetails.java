@@ -1,9 +1,17 @@
 package com.niit.mobilje.trans;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name="product")
+@Component
 public class ProductDetails {
+	
 	@Id
 	private String p_id;
 	
@@ -25,9 +33,6 @@ public class ProductDetails {
 	@Column
 	private String p_desc;
 
-	
-	
-	
 	
 	public String getP_id() {
 		return p_id;
@@ -84,7 +89,4 @@ public class ProductDetails {
 	public void setP_desc(String p_desc) {
 		this.p_desc = p_desc;
 	}
-	
-	
-	
 }
