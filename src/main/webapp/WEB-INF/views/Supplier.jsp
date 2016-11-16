@@ -31,6 +31,10 @@
 	${supMessage}
 	<br>
 			</c:if>
+			<c:if test="${delete == true}">
+	${supMessage}
+	<br>
+			</c:if>
 </div>
 <div class="jumbotron">
 <h3 style="text-align:center">Enter Supplier Details</h3>
@@ -67,8 +71,8 @@
                </div><!-- end supplier-number-->
                <br>
                
-<div class="col-sm-2 col-sm-offset-5">
-<form:button type="submit" class="btn btn-success">Submit</form:button>
+<div class="col-sm-4 col-sm-offset-4">
+<form:button type="submit" class="btn btn-success btn-block">Submit</form:button>
 </div><!-- End Sumbit -->
 
 </form:form><!-- End Form -->
@@ -84,8 +88,7 @@
 					<th>Address</th>
 					<th>E-mail</th>
 					<th>Phone</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					
 				</tr></thead>
 				<tbody>
 				<tr ng-repeat="s in sup">
@@ -94,9 +97,9 @@
 					<th>{{s.s_address}}</th>
 					<th>{{s.s_email}}</th>
 					<th>{{s.s_numb}}</th>
-					<th><a class="btn btn-default" hrfe="">Edit</a></th>
+					<th><a class="btn btn-default" href="updateSup?sid={{s.s_id}}">Edit</a></th>
 					<th><a class="btn btn-danger" href="deleteSup?sid={{s.s_id}}">Delete</a></th>
-					<th></th>
+					
 				</tr></tbody>
 			</table>
 		</div>

@@ -4,9 +4,10 @@ import com.niit.mobilje.trans.SupplierDetails;
 
 public interface SupplierDao {
 	public boolean saveSupplier(SupplierDetails sup);
-	public boolean deleteSupplier(SupplierDetails s);
+	public boolean deleteSupplier(String sid);
 	public SupplierDetails getSupplier(String s_id);
+	public boolean updateSupplier(SupplierDetails sup);
 	
-	public String supList(SupplierDetails s);
+	public String supplierList(SupplierDetails s);
 	
 }

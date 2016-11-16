@@ -48,7 +48,7 @@ margin-left:20px;
 			</c:if>
 		</div>
 		
-		<div class="jumbotron">
+<div class="jumbotron">
 		
 <c:if test="${whenSave == true}">
 			<h3 style="text-align: center">Product Entry</h3>
@@ -152,8 +152,8 @@ margin-left:20px;
 				<!-- Product Description-->
 				<br>
 
-				<div class="col-sm-2 col-sm-offset-5">
-					<form:button type="submit" class="btn btn-success">Sumbit</form:button>
+				<div class="col-sm-4 col-sm-offset-4">
+					<form:button type="submit" class="btn btn-success btn-block">Sumbit</form:button>
 				</div>
 			</form:form>
 			<!-- End form -->
@@ -262,22 +262,18 @@ margin-left:20px;
 				<!-- Product Description-->
 				<br>
 
-				<div class="col-sm-2 col-sm-offset-5">
-					<form:button type="submit" class="btn btn-warning">Update</form:button>
+				<div class="col-sm-4 col-sm-offset-4">
+					<form:button type="submit" class="btn btn-warning btn-block">Update</form:button>
 				</div>
-			</form:form>
-			<!-- End form -->
-
+			</form:form><!-- End form -->
 </c:if>	<!-- End update -->
-		</div>
-		<!-- End jumbotron -->
-
+		</div><!-- End jumbotron -->
 		<div>
 			<h3 style="margin-bottom: 10px">
 				<b>Product List</b>
 			</h3>
 			<table class="table table-bordered table-hover table-striped">
-				<tr>
+				<thead><tr>
 					<th>Product ID</th>
 					<th>Product Name</th>
 					<th>Price</th>
@@ -287,9 +283,9 @@ margin-left:20px;
 					<th>Product Description</th>
 					<th></th>
 					<th></th>
-				</tr>
+				</tr></thead>
 
-				<tr class="success" ng-repeat="pr in prod">
+				<tbody><tr ng-repeat="pr in prod">
 					<th>{{pr.p_id}}</th>
 					<th>{{pr.p_name}}</th>
 					<th>{{pr.p_price}}</th>
@@ -297,15 +293,12 @@ margin-left:20px;
 					<th>{{pr.s_id}}</th>
 					<th>{{pr.stock}}</th>
 					<th>{{pr.p_desc}}</th>
-					<th><a class="btn btn-default" id="b1" href="updateProd?pid={{pr.p_id}}">Edit</a></th>
+					<th><a class="btn btn-primary" id="b1" href="updateProd?pid={{pr.p_id}}">Edit</a></th>
 					<th><a class="btn btn-danger" id="b1" href="deleteProd?pid={{pr.p_id}}">Delete</a></th>
-				</tr>
+				</tr></tbody>
 
-			</table>
-			<!-- End view prodt -->
-		</div>
-		<!-- End ng-controller for view products -->
-	</div>
-	<!-- End container -->
+			</table><!-- End view prodt -->
+		</div><!-- End ng-controller for view products -->
+	</div><!-- End container -->
 </body>
 </html>

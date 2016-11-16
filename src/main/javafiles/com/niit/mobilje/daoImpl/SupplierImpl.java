@@ -35,28 +35,35 @@ public class SupplierImpl implements SupplierDao{
 			e.printStackTrace();
 			return false;
 		}//end try catch
-		
-	}//end save Supp
+
+	}//end save Supplier
 	
-	public boolean deleteSupplier(SupplierDetails s) 
+	public boolean deleteSupplier(String sid) 
 	{
 		try {
-			sessionFactory.getCurrentSession().delete(s);
+			SupplierDetails sup= (SupplierDetails) sessionFactory.getCurrentSession().get(SupplierDetails.class, sid);
+			sessionFactory.getCurrentSession().delete(sup);
 			return true;
-		}
-		catch (HibernateException e) 
-		{
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
-	}
+	}//end delete supplier
 	
 	public SupplierDetails getSupplier(String s_id) {
 		
 		return (SupplierDetails) sessionFactory.getCurrentSession().get(SupplierDetails.class,s_id);
 	}
 	
-	public String supList(SupplierDetails s) 
+	
+
+	public boolean updateSupplier(SupplierDetails sup) {
+		
+		return false;
+	}//end update supplier
+	
+	public String supplierList(SupplierDetails s) 
 	{
 		
 		@SuppressWarnings("unchecked")
@@ -65,11 +72,8 @@ public class SupplierImpl implements SupplierDao{
 		String sup_list=gson.toJson(supList);
 		return sup_list;
 	
-	}
+	}//end suplier list
 
-	
-
-	
 }
 
 
