@@ -17,18 +17,19 @@ background-repeat:no-repeat;
 </head>
 <body>
 <div class="container">
+<br><br>
 <div class="jumbotron">
-<h3 style="text-align:center;">Login to shop</h3>
+<h3 style="text-align:center; color:white">Login to shop</h3>
 <form:form action="login_page" class="form-group" method="post" commandName="login_form">
 <div class="row">	
-<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>User Name:</b></div>     
+<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px; color:white"><b>User Name:</b></div>     
 <div class="col-sm-4"><form:input path="login_email" class="form-control" type="text" required="true"></form:input>
                </div>
                </div><!-- end user name -->
                <br>
                
 <div class="row">	
-<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px"><b>Password:</b></div>     
+<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px; color:white"><b>Password:</b></div>     
 <div class="col-sm-4"><form:input path="login_password" class="form-control" type="password" required="true"></form:input>
                </div>
                </div><!-- end user name -->

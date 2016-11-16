@@ -11,5 +11,6 @@ public interface ProductDao {
 	public String categoryList(CategoryDetails c);
 	
 	public String supplierList(SupplierDetails s);
-	
+
+	public String productList(ProductDetails p);
 }

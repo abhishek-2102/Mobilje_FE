@@ -56,4 +56,14 @@ public class ProductImpl implements ProductDao{
 			String sup_list = gson.toJson(supList);
 			return sup_list;
 		}
+		
+		@Transactional
+		public String productList(ProductDetails p) {
+			@SuppressWarnings("unchecked")
+			List<ProductDetails> prodList = sessionFactory.getCurrentSession().createCriteria(ProductDetails.class).list();
+			Gson gson=new Gson();
+			String prod_list=gson.toJson(prodList);
+			System.out.println(prod_list);
+			return prod_list;
+		}
 }

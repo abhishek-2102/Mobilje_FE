@@ -27,6 +27,7 @@ public class Category {
 			m.addAttribute("onclickCategory",1);
 			CategoryDetails cat= new CategoryDetails();
 			model.put("cat_form",cat);
+			
 			return "AdminHome";
 		}//end get
 

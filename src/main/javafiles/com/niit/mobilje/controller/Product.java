@@ -31,8 +31,11 @@ public class Product {
 		model.put("prod_form",prod);
 		String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 		String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
+		String prodData=this.prod.productList(new ProductDetails());  //instance variable
+
 		m.addAttribute("categoryData",cateData);
 		m.addAttribute("supplierData",supData);
+		m.addAttribute("productData",prodData);
 		return "AdminHome";
 	}//end get
 
@@ -41,6 +44,14 @@ public class Product {
 	{
 			m.addAttribute("onclickProd",1);
 			prod.saveProduct(p);
+			String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
+			String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
+			String prodData=this.prod.productList(new ProductDetails());  //instance variable
+
+			m.addAttribute("categoryData",cateData);
+			m.addAttribute("supplierData",supData);
+			m.addAttribute("productData",prodData);
+
 			System.out.println("Data received");
 			return "AdminHome";
 	}//end post

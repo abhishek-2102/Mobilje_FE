@@ -10,17 +10,20 @@
 <script>
 var cate=${categoryData}
 var sup=${supplierData}
+var prod=${productData}
 
 angular.module('prodModule',[]).controller('prodController',function($scope)
 		{
 			$scope.cate=cate;
 			$scope.sup=sup;
+			$scope.prod=prod;
 		});
 </script>
+
 </head>
 <body ng-app="prodModule" ng-controller="prodController">
 <div class="container">
-<div class="jumbotron">
+<br><br><div class="jumbotron">
 <h3 style="text-align:center">Product Entry</h3>
 
 <form:form class="form-group" method="post" commandName="prod_form" action="productPage">
@@ -83,6 +86,33 @@ angular.module('prodModule',[]).controller('prodController',function($scope)
 </div>                                                           
 </form:form><!-- End form -->
 </div><!-- End jumbotron -->
+
+<div>
+<h3 style="margin-bottom:10px"><b>Product List</b></h3>
+<table class="table table-bordered table-hover table-striped">
+<tr>
+<th>Product ID</th>
+<th>Product Name</th>
+<th>Price</th>
+<th>Category</th>
+<th>Supplier</th>
+<th>Stock</th>
+<th>Product Description</th>
+
+</tr>
+
+<tr class="success" ng-repeat="pr in prod" >
+<th>{{pr.p_id}}</th>
+<th>{{pr.p_name}}</th>
+<th>{{pr.p_price}}</th>
+<th>{{pr.c_id}}</th>
+<th>{{pr.s_id}}</th>
+<th>{{pr.stock}}</th>
+<th>{{pr.p_desc}}</th>
+</tr>
+
+</table><!-- End view prodt -->
+</div><!-- End ng-controller for view products -->
 </div><!-- End container -->
 </body>
 </html> 
