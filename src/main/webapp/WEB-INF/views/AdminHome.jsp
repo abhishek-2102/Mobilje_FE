@@ -32,26 +32,6 @@
 <jsp:include page="Product.jsp"/>
 </c:when>
 
-<c:when test="${onclickCat == 1}">	  			<!-- Category Success -->
-<jsp:include page="CatSuccess.jsp"/>
-</c:when>
-
-<c:when test="${onclickProd == 1}">	  			<!-- Product Success -->
-<jsp:include page="ProdSuccess.jsp"/>
-</c:when>
-
-<c:when test="${onclickloginbutton == 1}"> 		<!-- Login Success -->
-<jsp:include page="LoginSucces.jsp"/>
-</c:when>
-
-<c:when test="${onclickReg == 1}">  			<!-- Registration Success -->
-<jsp:include page="RegSuccess.jsp"/>
-</c:when>
-
-<c:when test="${onclickSup == 1}">	  			<!-- Category Success -->
-<jsp:include page="SupSuccess.jsp"/>
-</c:when>
-
 <c:otherwise>
 <jsp:include page="AdminDemo.jsp"/>				<!-- Admin Default -->
 </c:otherwise>

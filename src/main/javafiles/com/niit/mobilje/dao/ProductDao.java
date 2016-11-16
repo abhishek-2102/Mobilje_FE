@@ -7,6 +7,7 @@ import com.niit.mobilje.trans.SupplierDetails;
 public interface ProductDao {
 	
 	public boolean saveProduct(ProductDetails prod);
+	public boolean deleteProduct(String pid);
 	
 	public String categoryList(CategoryDetails c);
 	

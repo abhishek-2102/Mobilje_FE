@@ -38,12 +38,12 @@ public class CategoryImpl implements CategoryDao{
 	}//end catch
 	}//end saveCat
 
-	public String categoryList(CategoryDetails c) {
+	public String catList(CategoryDetails c) {
 		@SuppressWarnings("unchecked")
 		List<CategoryDetails> catList = sessionFactory.getCurrentSession().createCriteria(CategoryDetails.class).list();
 		Gson gson= new Gson();
 		String cat_list = gson.toJson(catList);
 		return cat_list;
-	}
+	}//end catList 
 	
 }//end impl

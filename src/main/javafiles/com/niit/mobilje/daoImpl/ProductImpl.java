@@ -16,12 +16,12 @@ import com.niit.mobilje.trans.SupplierDetails;
 
 @Repository
 @Transactional
-
 public class ProductImpl implements ProductDao{
 	
 		
 		@Autowired
 		SessionFactory sessionFactory;
+		
 		
 		public ProductImpl(SessionFactory sess) {
 			super();
@@ -39,7 +39,14 @@ public class ProductImpl implements ProductDao{
 			
 		}
 		
-		@Transactional
+		
+		public boolean deleteProduct(String pid) {
+			ProductDetails prod=(ProductDetails) sessionFactory.getCurrentSession().get(ProductDetails.class,pid);
+			sessionFactory.getCurrentSession().delete(prod);
+			return true;
+		}
+
+		
 		public String categoryList(CategoryDetails c) {
 			@SuppressWarnings("unchecked")
 			List<CategoryDetails> catList = sessionFactory.getCurrentSession().createCriteria(CategoryDetails.class).list();
@@ -48,7 +55,7 @@ public class ProductImpl implements ProductDao{
 			return cat_list;
 		}
 		
-		@Transactional
+		
 		public String supplierList(SupplierDetails s) {
 			@SuppressWarnings("unchecked")
 			List<CategoryDetails> supList = sessionFactory.getCurrentSession().createCriteria(SupplierDetails.class).list();
@@ -57,13 +64,13 @@ public class ProductImpl implements ProductDao{
 			return sup_list;
 		}
 		
-		@Transactional
 		public String productList(ProductDetails p) {
-			@SuppressWarnings("unchecked")
+				@SuppressWarnings("unchecked")
 			List<ProductDetails> prodList = sessionFactory.getCurrentSession().createCriteria(ProductDetails.class).list();
 			Gson gson=new Gson();
 			String prod_list=gson.toJson(prodList);
 			System.out.println(prod_list);
 			return prod_list;
 		}
+
 }

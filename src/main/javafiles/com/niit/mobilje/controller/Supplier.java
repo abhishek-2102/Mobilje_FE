@@ -27,15 +27,39 @@ public class Supplier {
 		m.addAttribute("onclickSupplier",1);
 		SupplierDetails sup= new SupplierDetails();
 		model.put("sup_form",sup);
+		String supData = this.sup.supList(new SupplierDetails()); // instance
+		System.out.println(supData);
+		m.addAttribute("supData", supData);
+				
 		return "AdminHome";
 	}//end get
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String prosReg(@ModelAttribute("sup_form") SupplierDetails s, Map<String,Object> model,Model m)
 	{
-			m.addAttribute("onclickSup",1);
-			sup.saveSupplier(s);
-			System.out.println("Data received");
-			return "AdminHome";
+			
+			if(sup.saveSupplier(s))
+			{	
+				System.out.println("Data received");
+				m.addAttribute("supMessage", "Supplier entred succesfully");
+				m.addAttribute("entry", true);
+				String supData = this.sup.supList(new SupplierDetails()); // instance
+				System.out.println(supData);
+				m.addAttribute("supData", supData);
+				m.addAttribute("onclickSup",1);
+				return "AdminHome";
+			}				
+			else
+			{
+				m.addAttribute("onclickCat", 1);
+				m.addAttribute("supMessage", "Supplier error");
+				m.addAttribute("error", true);
+				String supData = this.sup.supList(new SupplierDetails()); // instance
+				System.out.println(supData);
+				m.addAttribute("supData", supData);
+				m.addAttribute("onclickSup",1);
+				System.out.println("Data received");
+				return "AdminHome";
+			}
 	}//end post
 }

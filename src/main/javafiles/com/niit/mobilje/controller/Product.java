@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.mobilje.dao.ProductDao;
 import com.niit.mobilje.trans.CategoryDetails;
@@ -17,13 +18,12 @@ import com.niit.mobilje.trans.SupplierDetails;
 
 @Controller
 @Transactional
-@RequestMapping(value="productPage")
 public class Product {
 	
 	@Autowired
 	ProductDao prod;
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value="productPage",method = RequestMethod.GET)
 	public String viewCatPage(Map<String,Object> model,Model m)
 	{
 		m.addAttribute("onclickProduct",1);
@@ -32,27 +32,65 @@ public class Product {
 		String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 		String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 		String prodData=this.prod.productList(new ProductDetails());  //instance variable
-
+		
 		m.addAttribute("categoryData",cateData);
 		m.addAttribute("supplierData",supData);
 		m.addAttribute("productData",prodData);
 		return "AdminHome";
 	}//end get
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value="productPage", method = RequestMethod.POST)
 	public String prosReg(@ModelAttribute("prod_form") ProductDetails p, Map<String,Object> model,Model m)
 	{
-			m.addAttribute("onclickProd",1);
-			prod.saveProduct(p);
-			String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
-			String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
-			String prodData=this.prod.productList(new ProductDetails());  //instance variable
+			if(prod.saveProduct(p))
+			{
+				m.addAttribute("onclickProduct",1);
+				m.addAttribute("proMessage", "Product entred succesfully");
+				m.addAttribute("entry", true);
+				
+				String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
+				String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
+				String prodData=this.prod.productList(new ProductDetails());  //instance variable
+	
+				m.addAttribute("categoryData",cateData);
+				m.addAttribute("supplierData",supData);
+				m.addAttribute("productData",prodData);
+				
+				return "AdminHome";
+			}
+			else
+			{			
+				m.addAttribute("proMessage", "Error");
+				m.addAttribute("error", true);
+				m.addAttribute("onclickProduct",1);
+				String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
+				String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
+				String prodData=this.prod.productList(new ProductDetails());  //instance variable
 
-			m.addAttribute("categoryData",cateData);
-			m.addAttribute("supplierData",supData);
-			m.addAttribute("productData",prodData);
-
-			System.out.println("Data received");
-			return "AdminHome";
+				m.addAttribute("categoryData",cateData);
+				m.addAttribute("supplierData",supData);
+				m.addAttribute("productData",prodData);
+	
+				System.out.println("Data received");
+				return "AdminHome";	
+			}
 	}//end post
+	
+	@RequestMapping(value="/deleteProd", method=RequestMethod.GET)
+	public String deleteProd(@RequestParam("pid") String pid,Model m)
+	{	
+		m.addAttribute("onclickProduct",1);
+		
+		m.addAttribute("message","Product Deleted");
+		m.addAttribute("delete",true);
+		String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
+		String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
+		String prodData=this.prod.productList(new ProductDetails());  //instance variable
+		m.addAttribute("categoryData",cateData);
+		m.addAttribute("supplierData",supData);
+		m.addAttribute("productData",prodData);
+		System.out.println("Deleted Entry");
+		this.prod.deleteProduct(pid);
+		return "AdminHome";
+	}
 }

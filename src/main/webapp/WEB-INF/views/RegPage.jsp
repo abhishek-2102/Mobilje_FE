@@ -10,7 +10,7 @@
 .jumbotron{
 
 background-size:1150px 800px;
-margin-bottom:300px;
+margin-bottom:0px;
 background-image:url("img/save_web.jpg");
 background-repeat:no-repeat; 
 
