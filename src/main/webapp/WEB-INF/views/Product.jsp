@@ -7,6 +7,12 @@ s<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style>
+#b1 {
+width:100px;
+margin-left:20px;
+}
+</style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <script>
@@ -36,8 +42,15 @@ s<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	${proMessage}
 	<br>
 			</c:if>
+			<c:if test="${delete == true}">
+	${proMessage}
+	<br>
+			</c:if>
 		</div>
+		
 		<div class="jumbotron">
+		
+<c:if test="${whenSave == true}">
 			<h3 style="text-align: center">Product Entry</h3>
 
 			<form:form class="form-group" method="post" commandName="prod_form"
@@ -144,6 +157,118 @@ s<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 				</div>
 			</form:form>
 			<!-- End form -->
+</c:if><!-- End Save -->
+
+<c:if test="${whenUpdate == true}">
+
+			<h3 style="text-align: center">Product Entry</h3>
+
+			<form:form class="form-group" method="post" commandName="prod_form"
+				action="updatePage">
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-2"
+						style="text-align: right; margin-top: 6px">
+						<b>Product ID:</b>
+					</div>
+					<div class="col-sm-4">
+						<form:input path="p_id" class="form-control" type="text" disabled="true"
+							required="true" ></form:input>
+					</div>
+				</div>
+				<!-- Product ID-->
+				<br>
+
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-2"
+						style="text-align: right; margin-top: 6px">
+						<b>Product Name:</b>
+					</div>
+					<div class="col-sm-4">
+						<form:input path="p_name" class="form-control" type="text"
+							required="true"></form:input>
+					</div>
+				</div>
+				<!-- Product name-->
+				<br>
+
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-2"
+						style="text-align: right; margin-top: 6px">
+						<b>Price:</b>
+					</div>
+					<div class="col-sm-4">
+						<form:input path="p_price" class="form-control" type="number"
+							required="true"></form:input>
+					</div>
+				</div>
+				<!-- Product price-->
+				<br>
+
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-2"
+						style="text-align: right; margin-top: 6px">
+						<b>Category ID</b>
+					</div>
+					<div class="col-sm-4">
+						<form:select path="c_id" class="form-control" type="text"
+							required="true">
+							<form:option value="-1">Select Category</form:option>
+							<form:option ng-repeat="cat in cate" value="{{cat.c_id}}">{{cat.c_name}}</form:option>
+						</form:select>
+					</div>
+				</div>
+				<!-- Category  ID -->
+				<br>
+
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-2"
+						style="text-align: right; margin-top: 6px">
+						<b>Supplier ID</b>
+					</div>
+					<div class="col-sm-4">
+						<form:select path="s_id" class="form-control" type="text"
+							required="true">
+							<form:option value="-1">Select supplier</form:option>
+							<form:option ng-repeat="s in sup" value="{{s.s_id}}">{{s.s_name}}</form:option>
+						</form:select>
+					</div>
+				</div>
+				<!-- Supplier ID -->
+				<br>
+
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-2"
+						style="text-align: right; margin-top: 6px">
+						<b>Stock</b>
+					</div>
+					<div class="col-sm-4">
+						<form:input path="stock" class="form-control" type="number"
+							required="true"></form:input>
+					</div>
+				</div>
+				<!-- Stock -->
+				<br>
+
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-2"
+						style="text-align: right; margin-top: 6px">
+						<b>Product Desc:</b>
+					</div>
+					<div class="col-sm-4">
+						<form:input path="p_desc" class="form-control" type="text"
+							required="true"></form:input>
+					</div>
+				</div>
+				<!-- Product Description-->
+				<br>
+
+				<div class="col-sm-2 col-sm-offset-5">
+					<form:button type="submit" class="btn btn-warning">Update</form:button>
+				</div>
+			</form:form>
+			<!-- End form -->
+
+</c:if>	<!-- End update -->
 		</div>
 		<!-- End jumbotron -->
 
@@ -160,9 +285,8 @@ s<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 					<th>Supplier</th>
 					<th>Stock</th>
 					<th>Product Description</th>
-					<th>Edit</th>
-					<th>Delete</th>
-
+					<th></th>
+					<th></th>
 				</tr>
 
 				<tr class="success" ng-repeat="pr in prod">
@@ -173,8 +297,8 @@ s<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 					<th>{{pr.s_id}}</th>
 					<th>{{pr.stock}}</th>
 					<th>{{pr.p_desc}}</th>
-					<th></th>
-					<th><a class="btn btn-danger" href="deleteProd?pid={{pr.p_id}}">Delete</a></th>
+					<th><a class="btn btn-default" id="b1" href="updateProd?pid={{pr.p_id}}">Edit</a></th>
+					<th><a class="btn btn-danger" id="b1" href="deleteProd?pid={{pr.p_id}}">Delete</a></th>
 				</tr>
 
 			</table>

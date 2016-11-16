@@ -95,7 +95,7 @@
 					<th>{{s.s_email}}</th>
 					<th>{{s.s_numb}}</th>
 					<th><a class="btn btn-default" hrfe="">Edit</a></th>
-					<th><a class="btn btn-danger" href="delete?sid={{s.s_id}}">Delete</a></th>
+					<th><a class="btn btn-danger" href="deleteSup?sid={{s.s_id}}">Delete</a></th>
 					<th></th>
 				</tr></tbody>
 			</table>

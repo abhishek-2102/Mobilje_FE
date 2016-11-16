@@ -24,11 +24,13 @@ public class Product {
 	ProductDao prod;
 	
 	@RequestMapping(value="productPage",method = RequestMethod.GET)
-	public String viewCatPage(Map<String,Object> model,Model m)
-	{
+	public String viewProdPage(Map<String,Object> model,Model m)
+	{	
+		m.addAttribute("whenSave",true);	
 		m.addAttribute("onclickProduct",1);
 		ProductDetails prod= new ProductDetails();
 		model.put("prod_form",prod);
+		
 		String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 		String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 		String prodData=this.prod.productList(new ProductDetails());  //instance variable
@@ -40,57 +42,129 @@ public class Product {
 	}//end get
 
 	@RequestMapping(value="productPage", method = RequestMethod.POST)
-	public String prosReg(@ModelAttribute("prod_form") ProductDetails p, Map<String,Object> model,Model m)
+	public String prosProd(@ModelAttribute("prod_form") ProductDetails p, Map<String,Object> model,Model m)
 	{
 			if(prod.saveProduct(p))
-			{
+			{	
+				m.addAttribute("whenSave",true);
 				m.addAttribute("onclickProduct",1);
 				m.addAttribute("proMessage", "Product entred succesfully");
 				m.addAttribute("entry", true);
-				
 				String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 				String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 				String prodData=this.prod.productList(new ProductDetails());  //instance variable
-	
 				m.addAttribute("categoryData",cateData);
 				m.addAttribute("supplierData",supData);
 				m.addAttribute("productData",prodData);
 				
 				return "AdminHome";
-			}
+			}//end if
 			else
-			{			
+			{	
+				m.addAttribute("whenSave",true);		
 				m.addAttribute("proMessage", "Error");
 				m.addAttribute("error", true);
 				m.addAttribute("onclickProduct",1);
 				String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 				String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 				String prodData=this.prod.productList(new ProductDetails());  //instance variable
-
 				m.addAttribute("categoryData",cateData);
 				m.addAttribute("supplierData",supData);
 				m.addAttribute("productData",prodData);
-	
 				System.out.println("Data received");
 				return "AdminHome";	
-			}
+			}//end else
 	}//end post
 	
 	@RequestMapping(value="/deleteProd", method=RequestMethod.GET)
-	public String deleteProd(@RequestParam("pid") String pid,Model m)
+	public String deleteProd(@RequestParam("pid") String pid,Model m,Map<String,Object> model)
 	{	
-		m.addAttribute("onclickProduct",1);
+		if(this.prod.deleteProduct(pid))
+		{
+			m.addAttribute("whenSave",true);
+			m.addAttribute("onclickProduct",1);
+			m.addAttribute("message","Product Deleted");
+			m.addAttribute("delete",true);
+			String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
+			String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
+			String prodData=this.prod.productList(new ProductDetails());  //instance variable
+			m.addAttribute("categoryData",cateData);
+			m.addAttribute("supplierData",supData);
+			m.addAttribute("productData",prodData);
+			System.out.println("Entry Deleted");
+			ProductDetails prod= new ProductDetails();
+			model.put("prod_form",prod);
+			return "AdminHome";
+		}//end if
+		else
+		{	
+			m.addAttribute("whenSave",true);
+			m.addAttribute("onclickProduct",1);
+			m.addAttribute("message","Error while deleting product");
+			m.addAttribute("delete",false);
+			String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
+			String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
+			String prodData=this.prod.productList(new ProductDetails());  //instance variable
+			m.addAttribute("categoryData",cateData);
+			m.addAttribute("supplierData",supData);
+			m.addAttribute("productData",prodData);
+			System.out.println("Entry Deleted");
+			ProductDetails prod= new ProductDetails();
+			model.put("prod_form",prod);
+			return "AdminHome";
+		}//end else
 		
-		m.addAttribute("message","Product Deleted");
-		m.addAttribute("delete",true);
+	}//end delete product
+	
+	@RequestMapping(value="/updateProd", method=RequestMethod.GET)
+	public String getProduct(@RequestParam("pid") String pid,Model m,Map<String,Object> map)
+	{	
+		m.addAttribute("whenUpdate",true);
+		m.addAttribute("onclickProduct",1);	
 		String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 		String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 		String prodData=this.prod.productList(new ProductDetails());  //instance variable
 		m.addAttribute("categoryData",cateData);
 		m.addAttribute("supplierData",supData);
 		m.addAttribute("productData",prodData);
-		System.out.println("Deleted Entry");
-		this.prod.deleteProduct(pid);
+		ProductDetails prod=this.prod.getProduct(pid);
+		map.put("prod_form",prod);
 		return "AdminHome";
 	}
+	
+	@RequestMapping(value="/updatePage", method=RequestMethod.POST)
+	public String upateProduct(@ModelAttribute("prod_form") ProductDetails p, Map<String,Object> model,Model m)
+	{
+			if(this.prod.updateProduct(p))
+			{	
+				m.addAttribute("whenSave",true);
+				m.addAttribute("onclickProduct",1);
+				m.addAttribute("proMessage", "updated succesfully");
+				m.addAttribute("entry", true);
+				String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
+				String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
+				String prodData=this.prod.productList(new ProductDetails());  //instance variable
+				m.addAttribute("categoryData",cateData);
+				m.addAttribute("supplierData",supData);
+				m.addAttribute("productData",prodData);
+				return "AdminHome";
+			}//end if
+	
+			else
+			{
+				m.addAttribute("whenSave",true);
+				m.addAttribute("onclickProduct",1);
+				m.addAttribute("proMessage", "Product entred succesfully");
+				m.addAttribute("entry", true);
+				String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
+				String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
+				String prodData=this.prod.productList(new ProductDetails());  //instance variable
+				m.addAttribute("categoryData",cateData);
+				m.addAttribute("supplierData",supData);
+				m.addAttribute("productData",prodData);
+
+				return "AdminHome";
+					
+				}
+		}
 }
