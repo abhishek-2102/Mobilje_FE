@@ -134,6 +134,13 @@ margin-left:20px;
 			<h3 style="margin-bottom: 10px">
 				<b>Supplier List</b>
 			</h3>
+				<div class="col-sm-4">
+			<div class="input-group">
+  				<span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+  				<input class="form-control" type="text" placeholder="search here..." ng-model="searchSup">
+			</div><!-- End Search -->
+			</div><!-- End col for search -->
+			
 			<table class="table table-hover">
 				<thead><tr>
 					<th>ID</th>
@@ -141,12 +148,10 @@ margin-left:20px;
 					<th>Address</th>
 					<th>E-mail</th>
 					<th colspan="3">Phone</th>
-					
-					<!-- <th></th>
-					<th></th> -->
+				
 				</tr></thead>
 				<tbody>
-				<tr ng-repeat="s in sup">
+				<tr ng-repeat="s in sup|filter:searchSup">
 					<td>{{s.s_id}}</td>
 					<td>{{s.s_name}}</td>
 					<td>{{s.s_address}}</td>

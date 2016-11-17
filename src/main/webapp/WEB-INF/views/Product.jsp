@@ -272,6 +272,13 @@ margin-left:20px;
 			<h3 style="margin-bottom: 10px">
 				<b>Product List</b>
 			</h3>
+				<div class="col-sm-4">
+			<div class="input-group">
+  				<span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+  				<input class="form-control" type="text" placeholder="search here..." ng-model="searchProd">
+			</div><!-- End Search -->
+			</div><!-- End col for search -->
+			
 			<table class="table table-hover">
 				<thead><tr>
 					<th>Product ID</th>
@@ -284,7 +291,7 @@ margin-left:20px;
 					
 				</tr></thead>
 
-				<tbody><tr ng-repeat="pr in prod">
+				<tbody><tr ng-repeat="pr in prod|filter:searchProd">
 					<td>{{pr.p_id}}</td>
 					<td>{{pr.p_name}}</td>
 					<td>{{pr.p_price}}</td>
