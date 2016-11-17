@@ -153,7 +153,7 @@ margin-left:20px;
 				<br>
 
 				<div class="col-sm-4 col-sm-offset-4">
-					<form:button type="submit" class="btn btn-success btn-block">Sumbit</form:button>
+					<form:button type="submit" class="btn btn-success btn-block"><b>Sumbit</b></form:button>
 				</div>
 			</form:form>
 			<!-- End form -->
@@ -263,7 +263,7 @@ margin-left:20px;
 				<br>
 
 				<div class="col-sm-4 col-sm-offset-4">
-					<form:button type="submit" class="btn btn-warning btn-block">Update</form:button>
+					<form:button type="submit" class="btn btn-warning btn-block"><b>Update</b></form:button>
 				</div>
 			</form:form><!-- End form -->
 </c:if>	<!-- End update -->
@@ -272,7 +272,7 @@ margin-left:20px;
 			<h3 style="margin-bottom: 10px">
 				<b>Product List</b>
 			</h3>
-			<table class="table table-bordered table-hover table-striped">
+			<table class="table table-hover">
 				<thead><tr>
 					<th>Product ID</th>
 					<th>Product Name</th>
@@ -281,20 +281,19 @@ margin-left:20px;
 					<th>Supplier</th>
 					<th>Stock</th>
 					<th>Product Description</th>
-					<th></th>
-					<th></th>
+					
 				</tr></thead>
 
 				<tbody><tr ng-repeat="pr in prod">
-					<th>{{pr.p_id}}</th>
-					<th>{{pr.p_name}}</th>
-					<th>{{pr.p_price}}</th>
-					<th>{{pr.c_id}}</th>
-					<th>{{pr.s_id}}</th>
-					<th>{{pr.stock}}</th>
-					<th>{{pr.p_desc}}</th>
-					<th><a class="btn btn-primary" id="b1" href="updateProd?pid={{pr.p_id}}">Edit</a></th>
-					<th><a class="btn btn-danger" id="b1" href="deleteProd?pid={{pr.p_id}}">Delete</a></th>
+					<td>{{pr.p_id}}</td>
+					<td>{{pr.p_name}}</td>
+					<td>{{pr.p_price}}</td>
+					<td>{{pr.c_id}}</td>
+					<td>{{pr.s_id}}</td>
+					<td>{{pr.stock}}</td>
+					<td>{{pr.p_desc}}</td>
+					<td><a class="btn btn-primary" id="b1" href="updateProd?pid={{pr.p_id}}"><b>Edit</b></a></td>
+					<td><a class="btn btn-danger" id="b1" href="deleteProd?pid={{pr.p_id}}"><b>Delete</b></a></td>
 				</tr></tbody>
 
 			</table><!-- End view prodt -->

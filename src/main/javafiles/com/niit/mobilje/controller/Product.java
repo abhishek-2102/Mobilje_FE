@@ -17,7 +17,6 @@ import com.niit.mobilje.trans.ProductDetails;
 import com.niit.mobilje.trans.SupplierDetails;
 
 @Controller
-@Transactional
 public class Product {
 	
 	@Autowired

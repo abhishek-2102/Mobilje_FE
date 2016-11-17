@@ -132,15 +132,15 @@ margin-left:20px;
 </div><!-- End Jumbotron -->
 <div ng-app="supModule" ng-controller="supController">
 			<h3 style="margin-bottom: 10px">
-				<b>Category List</b>
+				<b>Supplier List</b>
 			</h3>
 			<table class="table table-hover">
 				<thead><tr>
-					<th><u><i>ID</i></u></th>
-					<th><u><i>Name</i></u></th>
-					<th><u><i>Address</i></u></th>
-					<th><u><i>E-mail</i></u></th>
-					<th colspan="3"><u><i>Phone</i></u></th>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Address</th>
+					<th>E-mail</th>
+					<th colspan="3">Phone</th>
 					
 					<!-- <th></th>
 					<th></th> -->

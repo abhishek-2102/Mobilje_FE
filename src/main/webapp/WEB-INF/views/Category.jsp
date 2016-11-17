@@ -7,6 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Category</title>
+<style>
+#b1 {
+width:100px;
+margin-left:20px;
+}
+</style>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <script>
@@ -31,10 +38,15 @@
 	${catMessage}
 	<br>
 			</c:if>
+			<c:if test="${update == true}">
+	${catMessage}
+	<br>
+			</c:if>
 		</div>
 		<div class="jumbotron">
 			<h3 style="text-align: center">Enter Category Details</h3>
 			<br>
+<c:if test="${whenCatSave==true}">
 			<form:form class="form-group" commandName="cat_form" method="post"
 				action="categoryPage">
 				<div class="row">
@@ -77,10 +89,59 @@
 				<br>
 
 				<div class="col-sm-4 col-sm-offset-4">
-					<form:button type="submit" class="btn btn-success btn-block">Submit</form:button>
+					<form:button type="submit" class="btn btn-success btn-block"><b>Submit</b></form:button>
 				</div>
 			</form:form>
 			<!-- End Form -->
+</c:if>
+<c:if test="${whenCatUpdate}">
+			<form:form class="form-group" commandName="cat_form" method="post"
+				action="cateUpdatePage">
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-2"
+						style="text-align: right; margin-top: 6px">
+						<b>Category ID:</b>
+					</div>
+					<div class="col-sm-4">
+						<form:input path="c_id" class="form-control" type="text"
+							required="true"></form:input>
+					</div>
+				</div>
+				<!-- end cat-id -->
+				<br>
+
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-2"
+						style="text-align: right; margin-top: 6px">
+						<b>Category Name:</b>
+					</div>
+					<div class="col-sm-4">
+						<form:input path="c_name" class="form-control" type="text"
+							required="true"></form:input>
+					</div>
+				</div>
+				<!-- end cat-name -->
+				<br>
+
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-2"
+						style="text-align: right; margin-top: 6px">
+						<b>Category Details:</b>
+					</div>
+					<div class="col-sm-4">
+						<form:input path="c_desc" class="form-control" type="text"
+							required="true"></form:input>
+					</div>
+				</div>
+				<!-- end cat desc -->
+				<br>
+
+				<div class="col-sm-4 col-sm-offset-4">
+					<form:button type="submit" class="btn btn-warning btn-block"><b>Update</b></form:button>
+				</div>
+			</form:form>
+			<!-- End Form -->
+</c:if>
 		</div>
 		<!-- End Jumbotron -->
 
@@ -88,7 +149,7 @@
 			<h3 style="margin-bottom: 10px">
 				<b>Category List</b>
 			</h3>
-			<table class="table table-striped table-bordered table-hover table-">
+			<table class="table table-hover">
 				<thead><tr>
 					<th>ID</th>
 					<th>Name</th>
@@ -96,9 +157,12 @@
 				</tr></thead>
 				<tbody>
 				<tr ng-repeat="c in cat">
-					<th>{{c.c_id}}</th>
-					<th>{{c.c_name}}</th>
-					<th>{{c.c_desc}}</th>
+					<td>{{c.c_id}}</td>
+					<td>{{c.c_name}}</td>
+					<td>{{c.c_desc}}</td>
+					<td><a href="updateCat?cid={{c.c_id}}" id="b1" class="btn btn-primary"><b>Edit</b></a></td>
+					<td><a href="deleteCat?cid={{c.c_id}}" id="b1" class="btn btn-danger"><b>Delete</b></a></td>
+					
 				</tr></tbody>
 			</table>
 		</div>

@@ -15,7 +15,7 @@ import com.niit.mobilje.trans.RegisterDetails;
 
 @Controller
 @RequestMapping(value="/reg_page")
-@Transactional
+
 public class Registration {
 	
 	@Autowired

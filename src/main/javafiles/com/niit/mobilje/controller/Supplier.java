@@ -15,7 +15,6 @@ import com.niit.mobilje.dao.SupplierDao;
 import com.niit.mobilje.trans.SupplierDetails;
 
 @Controller
-@Transactional
 public class Supplier {
 	
 	@Autowired

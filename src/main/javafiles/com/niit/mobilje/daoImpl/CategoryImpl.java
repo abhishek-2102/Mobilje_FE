@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.google.gson.Gson;
 import com.niit.mobilje.dao.CategoryDao;
 import com.niit.mobilje.trans.CategoryDetails;
+import com.niit.mobilje.trans.SupplierDetails;
 
 @Repository
 @Transactional
@@ -38,12 +39,47 @@ public class CategoryImpl implements CategoryDao{
 	}//end catch
 	}//end saveCat
 
+	public boolean deleteCategory(String cid) {
+		try {
+			CategoryDetails cat= (CategoryDetails) sessionFactory.getCurrentSession().get(CategoryDetails.class, cid);
+			sessionFactory.getCurrentSession().delete(cat);
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}//end delete Category
+	
+	public CategoryDetails getCategory(String cid) {
+		
+		return (CategoryDetails) sessionFactory.getCurrentSession().get(CategoryDetails.class,cid);
+	}//end get
+	
+	public boolean updateCategory(CategoryDetails c) {
+		try {
+			sessionFactory.getCurrentSession().update(c);
+			return true;
+		} //end try
+		catch (HibernateException e) {
+
+			e.printStackTrace();
+			return false;
+		}//end catch
+	}//end update
+	
+	
 	public String catList(CategoryDetails c) {
 		@SuppressWarnings("unchecked")
 		List<CategoryDetails> catList = sessionFactory.getCurrentSession().createCriteria(CategoryDetails.class).list();
 		Gson gson= new Gson();
 		String cat_list = gson.toJson(catList);
 		return cat_list;
-	}//end catList 
+	}//end category list
+
+	
+
+	
+
+	
 	
 }//end impl
