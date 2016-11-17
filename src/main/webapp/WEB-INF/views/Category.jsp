@@ -144,11 +144,18 @@ margin-left:20px;
 </c:if>
 		</div>
 		<!-- End Jumbotron -->
-
-		<div ng-app="catModule" ng-controller="catController">
-			<h3 style="margin-bottom: 10px">
+		
+		<h3 style="margin-bottom: 10px">
 				<b>Category List</b>
 			</h3>
+		<div ng-app="catModule" ng-controller="catController">
+			<div class="col-sm-4">
+			<div class="input-group">
+  				<span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+  				<input class="form-control" type="text" placeholder="search here..." ng-model="searchCat">
+			</div><!-- End Search -->
+			</div><!-- End col for search -->
+			
 			<table class="table table-hover">
 				<thead><tr>
 					<th>ID</th>
@@ -156,13 +163,12 @@ margin-left:20px;
 					<th>Description</th>
 				</tr></thead>
 				<tbody>
-				<tr ng-repeat="c in cat">
+				<tr ng-repeat="c in cat|filter:searchCat">
 					<td>{{c.c_id}}</td>
 					<td>{{c.c_name}}</td>
 					<td>{{c.c_desc}}</td>
-					<td><a href="updateCat?cid={{c.c_id}}" id="b1" class="btn btn-primary"><b>Edit</b></a></td>
-					<td><a href="deleteCat?cid={{c.c_id}}" id="b1" class="btn btn-danger"><b>Delete</b></a></td>
-					
+					<td><a href="updateCat?cid={{c.c_id}}" id="b1" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
+					<td><a href="deleteCat?cid={{c.c_id}}" id="b1" class="btn btn-danger"> <i class="fa fa-trash-o"></i></a></td>
 				</tr></tbody>
 			</table>
 		</div>

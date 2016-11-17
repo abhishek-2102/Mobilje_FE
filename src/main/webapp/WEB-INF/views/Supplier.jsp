@@ -152,8 +152,8 @@ margin-left:20px;
 					<td>{{s.s_address}}</td>
 					<td>{{s.s_email}}</td>
 					<td>{{s.s_numb}}</td>
-					<td><a class="btn btn-primary" id="b1" href="updateSup?sid={{s.s_id}}"><b>Edit</b></a></td>
-					<td><a class="btn btn-danger" id="b1" href="deleteSup?sid={{s.s_id}}"><b>Delete</a></b></td>
+					<td><a class="btn btn-primary" id="b1" href="updateSup?sid={{s.s_id}}"><i class="fa fa-pencil"></i></a></td>
+					<td><a class="btn btn-danger" id="b1" href="deleteSup?sid={{s.s_id}}"><i class="fa fa-trash-o"></i></a></td>
 					
 				</tr></tbody>
 			</table>

@@ -292,8 +292,8 @@ margin-left:20px;
 					<td>{{pr.s_id}}</td>
 					<td>{{pr.stock}}</td>
 					<td>{{pr.p_desc}}</td>
-					<td><a class="btn btn-primary" id="b1" href="updateProd?pid={{pr.p_id}}"><b>Edit</b></a></td>
-					<td><a class="btn btn-danger" id="b1" href="deleteProd?pid={{pr.p_id}}"><b>Delete</b></a></td>
+					<td><a class="btn btn-primary" id="b1" href="updateProd?pid={{pr.p_id}}"><i class="fa fa-pencil"></i></a></td>
+					<td><a class="btn btn-danger" id="b1" href="deleteProd?pid={{pr.p_id}}"><i class="fa fa-trash-o"></i></a></td>
 				</tr></tbody>
 
 			</table><!-- End view prodt -->

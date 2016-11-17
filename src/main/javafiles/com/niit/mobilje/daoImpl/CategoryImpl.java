@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.google.gson.Gson;
 import com.niit.mobilje.dao.CategoryDao;
 import com.niit.mobilje.trans.CategoryDetails;
-import com.niit.mobilje.trans.SupplierDetails;
 
 @Repository
 @Transactional
