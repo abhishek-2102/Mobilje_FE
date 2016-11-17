@@ -60,7 +60,13 @@ public class SupplierImpl implements SupplierDao{
 
 	public boolean updateSupplier(SupplierDetails sup) {
 		
-		return false;
+		try {
+			sessionFactory.getCurrentSession().update(sup);
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}//end try catch
 	}//end update supplier
 	
 	public String supplierList(SupplierDetails s) 
