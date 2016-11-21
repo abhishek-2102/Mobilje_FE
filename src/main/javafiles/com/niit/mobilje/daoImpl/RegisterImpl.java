@@ -1,13 +1,17 @@
 package com.niit.mobilje.daoImpl;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.mobilje.dao.RegisterDao;
-import com.niit.mobilje.trans.RegisterDetails;
+import com.niit.mobilje.trans.LoginDetails;
+import com.niit.mobilje.trans.Register;
 
 @Repository
 @Transactional
@@ -16,12 +20,14 @@ public class RegisterImpl implements RegisterDao {
 	@Autowired
 	SessionFactory sessionFactory;
 	
+	String r;
+	
 	public RegisterImpl(SessionFactory sess) {
 		super();
 		this.sessionFactory=sess;
 	}
 
-	public boolean saveRegister(RegisterDetails user) {
+	public boolean saveRegister(Register user) {
 		try {
 			sessionFactory.getCurrentSession().save(user);
 			System.out.println("Sent");
@@ -33,6 +39,37 @@ public class RegisterImpl implements RegisterDao {
 			return false;
 		}
 	}
+	
+	
+	public boolean isValidUser(LoginDetails log) {
+		
+		String email=log.getLogin_email();
+		String password=log.getLogin_password();
+		
+		Query query=sessionFactory.getCurrentSession().createQuery("from Register where email='"+email+"' and password='"+password+"'");
+		/*query.setParameter("e", email);
+		query.setParameter("p", password);*/
+		@SuppressWarnings("unchecked")
+		List<Register> reg=query.list();
+		
+		if(reg!=null){
+			for(Register r:reg){
+				this.r=r.getRole();
+			}
+			return true;
+		}
+		else{
+			return false;
+			}
+	}
+
+	public String isRole()
+	{
+		return r;
+	}
+		
+	
+	
 	
 	
 

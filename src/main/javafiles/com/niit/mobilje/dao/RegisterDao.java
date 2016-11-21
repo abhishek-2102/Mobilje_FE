@@ -1,13 +1,11 @@
 package com.niit.mobilje.dao;
 
-
-import com.niit.mobilje.trans.RegisterDetails;
+import com.niit.mobilje.trans.LoginDetails;
+import com.niit.mobilje.trans.Register;
 
 public interface RegisterDao {
-	boolean saveRegister(RegisterDetails user);
-	/*boolean updateRegister(RegisterDetails user);
-	boolean delRegister(RegisterDetails user);
-	List<RegisterDetails> list();
 	
-*/
+	public boolean saveRegister(Register user);
+	public boolean isValidUser(LoginDetails log);
+	public String isRole();
 }

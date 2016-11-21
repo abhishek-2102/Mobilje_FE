@@ -8,9 +8,9 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name = "register")
+@Table
 @Component
-public class RegisterDetails {
+public class Register {
 
 	@Id
 	public String username;

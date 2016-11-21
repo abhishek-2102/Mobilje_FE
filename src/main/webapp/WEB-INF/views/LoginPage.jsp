@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,9 +21,14 @@ background-repeat:no-repeat;
 <br><br>
 <div class="jumbotron">
 <h3 style="text-align:center; color:white">Login to shop</h3>
+	<c:if test="${error == true}">
+	<p style="color:white; text-align:center">${logError}</p>
+	<br>
+			</c:if>
+
 <form:form action="login_page" class="form-group" method="post" commandName="login_form">
 <div class="row">	
-<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px; color:white"><b>User Name:</b></div>     
+<div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px; color:white"><b>Email:</b></div>     
 <div class="col-sm-4"><form:input path="login_email" class="form-control" type="text" required="true"></form:input>
                </div>
                </div><!-- end user name -->

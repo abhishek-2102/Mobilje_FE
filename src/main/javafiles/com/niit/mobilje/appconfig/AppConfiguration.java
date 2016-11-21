@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.mobilje.trans.CategoryDetails;
 import com.niit.mobilje.trans.ProductDetails;
-import com.niit.mobilje.trans.RegisterDetails;
+import com.niit.mobilje.trans.Register;
 import com.niit.mobilje.trans.SupplierDetails;
 
 @Configuration
@@ -47,7 +47,7 @@ import com.niit.mobilje.trans.SupplierDetails;
 		public SessionFactory getSession(DataSource ds){
 			LocalSessionFactoryBuilder session = new LocalSessionFactoryBuilder(ds);
 			session.addProperties(getHibernateProperties());
-			session.addAnnotatedClass(RegisterDetails.class);
+			session.addAnnotatedClass(Register.class);
 			session.addAnnotatedClass(CategoryDetails.class);
 			session.addAnnotatedClass(SupplierDetails.class);
 			session.addAnnotatedClass(ProductDetails.class);
