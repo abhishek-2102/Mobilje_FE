@@ -96,4 +96,12 @@ public class ProductImpl implements ProductDao{
 			System.out.println(prod_list);
 			return prod_list;
 		}//end product list
+
+		public String dispProduct(String id) {
+			
+			
+			
+			
+			return null;
+		}
 }

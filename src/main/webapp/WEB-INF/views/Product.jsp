@@ -272,7 +272,7 @@ margin-left:20px;
 			<h3 style="margin-bottom: 10px">
 				<b>Product List</b>
 			</h3>
-				<div class="col-sm-4">
+			<div class="col-sm-4">
 			<div class="input-group">
   				<span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
   				<input class="form-control" type="text" placeholder="search here..." ng-model="searchProd">

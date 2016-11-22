@@ -1,16 +1,31 @@
 package com.niit.mobilje.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.niit.mobilje.dao.CategoryDao;
+import com.niit.mobilje.trans.CategoryDetails;
 
 
 @Controller
 public class MainController {
 	
+	@Autowired
+	CategoryDao cat;
+	
+	@Autowired
+	CategoryDetails c;
+	
 	@RequestMapping("/")
-	public String gotohome(Model m)
-	{
+	public String gotohome(Model m,HttpSession sess)
+	{	
+		
+		String cList=cat.catList(c);      
+		sess.setAttribute("categoryData", cList); //send list to jsp
 		return "index";
 	}
 	

@@ -163,6 +163,13 @@ public class Product {
 
 				return "AdminHome";
 					
-				}
-		}
+				}//end else
+		}//end update 
+	
+	@RequestMapping(value="/product")
+	public String dispProduct(@RequestParam("cid") String pid,Model m,Map<String,Object> map)
+	{
+		
+		return "";
+	}
 }

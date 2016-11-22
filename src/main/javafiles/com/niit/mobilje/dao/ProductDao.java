@@ -16,4 +16,6 @@ public interface ProductDao {
 	public String supplierList(SupplierDetails s);
 
 	public String productList(ProductDetails p);
+	
+	public String dispProduct(String id);
 }
