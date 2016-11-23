@@ -89,4 +89,6 @@ public class ProductDetails {
 	public void setP_desc(String p_desc) {
 		this.p_desc = p_desc;
 	}
+
+	
 }

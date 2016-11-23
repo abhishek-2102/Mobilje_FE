@@ -2,6 +2,8 @@ package com.niit.mobilje.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,7 @@ public class Product {
 	ProductDao prod;
 	
 	@RequestMapping(value="productPage",method = RequestMethod.GET)
-	public String viewProdPage(Map<String,Object> model,Model m)
+	public String viewProdPage(Map<String,Object> model,Model m,HttpSession sess)
 	{	
 		m.addAttribute("whenSave",true);	
 		m.addAttribute("onclickProduct",1);
@@ -165,11 +167,4 @@ public class Product {
 					
 				}//end else
 		}//end update 
-	
-	@RequestMapping(value="/product")
-	public String dispProduct(@RequestParam("cid") String pid,Model m,Map<String,Object> map)
-	{
-		
-		return "";
-	}
 }

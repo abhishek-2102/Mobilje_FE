@@ -29,8 +29,8 @@ margin-left:20px;
 </script>
 
 </head>
-<body ng-app="prodModule" ng-controller="prodController">
-	<div class="container">
+<body>
+	<div class="container" ng-app="prodModule" ng-controller="prodController">
 		<br>
 		<br>
 		<div style="text-align:center">

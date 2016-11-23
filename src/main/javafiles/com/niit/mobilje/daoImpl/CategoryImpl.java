@@ -74,11 +74,4 @@ public class CategoryImpl implements CategoryDao{
 		String cat_list = gson.toJson(catList);
 		return cat_list;
 	}//end category list
-
-	
-
-	
-
-	
-	
 }//end impl

@@ -2,6 +2,8 @@ package com.niit.mobilje.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,9 +20,11 @@ public class Login {
 	@Autowired
 	RegisterDao reg;
 	
+
 	@RequestMapping(method =RequestMethod.GET)
 	public String viewLoginPage(Map<String, Object> model,Model m)
 	{
+		
 		m.addAttribute("onclicklogin",1);
 		LoginDetails login = new LoginDetails();
 		model.put("login_form",login);
@@ -28,7 +32,7 @@ public class Login {
 	}
 	
 	@RequestMapping(method =RequestMethod.POST)
-	public String perfLogin(@ModelAttribute("login_form") LoginDetails l,Map<String, Object> model,Model m)
+	public String perfLogin(@ModelAttribute("login_form") LoginDetails l,Map<String, Object> model,Model m,HttpSession sess)
 	{
 		System.out.println(l.getLogin_email());
 		System.out.println(l.getLogin_password());
@@ -41,6 +45,7 @@ public class Login {
 				//admin
 				if(reg.isRole().equals("admin")){
 					m.addAttribute("onclickAdminHome",1);
+				
 					return "AdminHome";
 				}
 				else{

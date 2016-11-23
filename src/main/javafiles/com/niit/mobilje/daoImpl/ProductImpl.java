@@ -3,6 +3,7 @@ package com.niit.mobilje.daoImpl;
 import java.util.List;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,15 +36,12 @@ public class ProductImpl implements ProductDao{
 				sessionFactory.getCurrentSession().save(prod);
 				return true;
 			} 
-			
 			catch (HibernateException e) 
 			{
 				e.printStackTrace();
 				return false;
 			}
-			
 		}//end save
-		
 		
 		public boolean deleteProduct(String pid)
 		{
@@ -73,11 +71,10 @@ public class ProductImpl implements ProductDao{
 		{
 			@SuppressWarnings("unchecked")
 			List<CategoryDetails> catList = sessionFactory.getCurrentSession().createCriteria(CategoryDetails.class).list();
-			Gson gson= new Gson();
+			Gson gson= new Gson(); 
 			String cat_list = gson.toJson(catList);
 			return cat_list;
 		}//end category list
-		
 		
 		public String supplierList(SupplierDetails s) 
 		{
@@ -99,9 +96,13 @@ public class ProductImpl implements ProductDao{
 
 		public String dispProduct(String id) {
 			
-			
-			
-			
-			return null;
-		}
+			String hql="from ProductDetails where c_id='"+id+"'";
+			Query que=sessionFactory.getCurrentSession().createQuery(hql);
+			@SuppressWarnings("unchecked")
+			List<String> dispPro=que.list();
+			Gson gson=new Gson();
+			String prod_list=gson.toJson(dispPro);
+			System.out.println("list of product"+prod_list);
+			return prod_list;
+		}//end dsplay to user
 }
