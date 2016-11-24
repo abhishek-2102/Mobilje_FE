@@ -34,6 +34,9 @@ public class ProductImpl implements ProductDao{
 			try 
 			{
 				sessionFactory.getCurrentSession().save(prod);
+				
+				
+				
 				return true;
 			} 
 			catch (HibernateException e) 

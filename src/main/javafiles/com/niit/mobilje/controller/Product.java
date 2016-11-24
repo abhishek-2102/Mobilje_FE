@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.niit.mobilje.appconfig.UploadImage;
 import com.niit.mobilje.dao.ProductDao;
 import com.niit.mobilje.trans.CategoryDetails;
 import com.niit.mobilje.trans.ProductDetails;
@@ -43,7 +45,7 @@ public class Product {
 
 	@RequestMapping(value="productPage", method = RequestMethod.POST)
 	public String prosProd(@ModelAttribute("prod_form") ProductDetails p, Map<String,Object> model,Model m)
-	{
+	{		
 			if(prod.saveProduct(p))
 			{	
 				m.addAttribute("whenSave",true);
@@ -57,6 +59,8 @@ public class Product {
 				m.addAttribute("supplierData",supData);
 				m.addAttribute("productData",prodData);
 				
+				@SuppressWarnings("unused")
+				UploadImage up=new UploadImage(p.getImage(), p.getP_id());				
 				return "AdminHome";
 			}//end if
 			else
@@ -71,7 +75,6 @@ public class Product {
 				m.addAttribute("categoryData",cateData);
 				m.addAttribute("supplierData",supData);
 				m.addAttribute("productData",prodData);
-				System.out.println("Data received");
 				return "AdminHome";	
 			}//end else
 	}//end post
