@@ -94,15 +94,13 @@ public class ProductImpl implements ProductDao{
 			return prod_list;
 		}//end product list
 
-		public String dispProduct(String id) {
+		public List<String> dispProduct(String id) {
 			
 			String hql="from ProductDetails where c_id='"+id+"'";
 			Query que=sessionFactory.getCurrentSession().createQuery(hql);
 			@SuppressWarnings("unchecked")
 			List<String> dispPro=que.list();
-			Gson gson=new Gson();
-			String prod_list=gson.toJson(dispPro);
-			System.out.println("list of product"+prod_list);
-			return prod_list;
+		
+			return dispPro;
 		}//end dsplay to user
 }

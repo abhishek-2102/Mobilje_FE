@@ -1,5 +1,6 @@
 package com.niit.mobilje.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class UserProduct {
 	public String dispProduct(@RequestParam("cid") String cid,Model m,Map<String,Object> map)
 	{	
 		m.addAttribute("userProduct",1);
-		String prod=this.prod.dispProduct(cid);
+		List<String> prod=this.prod.dispProduct(cid);
 		System.out.println("prod to display"+prod);
 		m.addAttribute("pData",prod);
 		return "index";

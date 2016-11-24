@@ -20,6 +20,7 @@
     <value>.jsp</value>
  </property>
  </bean>
- <mvc:resources location="/WEB-INF/resources/Images/" mapping="/img/**"></mvc:resources>
  <mvc:annotation-driven/>
+ <mvc:resources location="/WEB-INF/resources/Images/" mapping="/img/**"></mvc:resources>
+ 
 </beans>

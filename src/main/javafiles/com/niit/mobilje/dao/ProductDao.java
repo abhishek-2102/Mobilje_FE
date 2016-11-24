@@ -1,5 +1,7 @@
 package com.niit.mobilje.dao;
 
+import java.util.List;
+
 import com.niit.mobilje.trans.CategoryDetails;
 import com.niit.mobilje.trans.ProductDetails;
 import com.niit.mobilje.trans.SupplierDetails;
@@ -21,5 +23,5 @@ public interface ProductDao {
 	public String productList(ProductDetails p);
 	
 	//display products to user according to the category selected
-	public String dispProduct(String id);
+	public List<String> dispProduct(String id);
 }
