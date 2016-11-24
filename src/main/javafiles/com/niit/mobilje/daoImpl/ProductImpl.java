@@ -29,14 +29,11 @@ public class ProductImpl implements ProductDao{
 			super();
 			this.sessionFactory=sess;
 		}//end constructor
-
+		
 		public boolean saveProduct(ProductDetails prod) {
 			try 
 			{
 				sessionFactory.getCurrentSession().save(prod);
-				
-				
-				
 				return true;
 			} 
 			catch (HibernateException e) 
@@ -45,7 +42,7 @@ public class ProductImpl implements ProductDao{
 				return false;
 			}
 		}//end save
-		
+
 		public boolean deleteProduct(String pid)
 		{
 			ProductDetails prod=(ProductDetails) sessionFactory.getCurrentSession().get(ProductDetails.class,pid);
@@ -87,7 +84,7 @@ public class ProductImpl implements ProductDao{
 			String sup_list = gson.toJson(supList);
 			return sup_list;
 		}//end supplier list
-		
+
 		public String productList(ProductDetails p) {
 				@SuppressWarnings("unchecked")
 			List<ProductDetails> prodList = sessionFactory.getCurrentSession().createCriteria(ProductDetails.class).list();
@@ -96,7 +93,7 @@ public class ProductImpl implements ProductDao{
 			System.out.println(prod_list);
 			return prod_list;
 		}//end product list
-
+		
 		public List<String> dispProduct(String id) {
 			
 			String hql="from ProductDetails where c_id='"+id+"'";

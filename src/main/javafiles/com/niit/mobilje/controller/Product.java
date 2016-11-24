@@ -52,16 +52,17 @@ public class Product {
 				m.addAttribute("onclickProduct",1);
 				m.addAttribute("proMessage", "Product entred succesfully");
 				m.addAttribute("entry", true);
+				
 				String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 				String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 				String prodData=this.prod.productList(new ProductDetails());  //instance variable
+				
 				m.addAttribute("categoryData",cateData);
 				m.addAttribute("supplierData",supData);
 				m.addAttribute("productData",prodData);
 				
 				@SuppressWarnings("unused")
 				UploadImage up=new UploadImage(p.getImage(), p.getP_id());				
-				return "AdminHome";
 			}//end if
 			else
 			{	
@@ -69,14 +70,16 @@ public class Product {
 				m.addAttribute("proMessage", "Error");
 				m.addAttribute("error", true);
 				m.addAttribute("onclickProduct",1);
+				
 				String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 				String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 				String prodData=this.prod.productList(new ProductDetails());  //instance variable
+				
 				m.addAttribute("categoryData",cateData);
 				m.addAttribute("supplierData",supData);
-				m.addAttribute("productData",prodData);
-				return "AdminHome";	
+				m.addAttribute("productData",prodData);	
 			}//end else
+			return "AdminHome";
 	}//end post
 	
 	@RequestMapping(value="/deleteProd", method=RequestMethod.GET)
@@ -88,16 +91,17 @@ public class Product {
 			m.addAttribute("onclickProduct",1);
 			m.addAttribute("message","Product Deleted");
 			m.addAttribute("delete",true);
+			
 			String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 			String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 			String prodData=this.prod.productList(new ProductDetails());  //instance variable
+			
 			m.addAttribute("categoryData",cateData);
 			m.addAttribute("supplierData",supData);
 			m.addAttribute("productData",prodData);
 			System.out.println("Entry Deleted");
 			ProductDetails prod= new ProductDetails();
 			model.put("prod_form",prod);
-			return "AdminHome";
 		}//end if
 		else
 		{	
@@ -105,51 +109,67 @@ public class Product {
 			m.addAttribute("onclickProduct",1);
 			m.addAttribute("message","Error while deleting product");
 			m.addAttribute("delete",false);
+			
 			String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 			String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 			String prodData=this.prod.productList(new ProductDetails());  //instance variable
+			
 			m.addAttribute("categoryData",cateData);
 			m.addAttribute("supplierData",supData);
 			m.addAttribute("productData",prodData);
-			System.out.println("Entry Deleted");
+		
 			ProductDetails prod= new ProductDetails();
 			model.put("prod_form",prod);
-			return "AdminHome";
 		}//end else
-		
+		return "AdminHome";
 	}//end delete product
 	
 	@RequestMapping(value="/updateProd", method=RequestMethod.GET)
 	public String getProduct(@RequestParam("pid") String pid,Model m,Map<String,Object> map)
 	{	
+		
 		m.addAttribute("whenUpdate",true);
 		m.addAttribute("onclickProduct",1);	
+		
 		String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 		String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 		String prodData=this.prod.productList(new ProductDetails());  //instance variable
+		
 		m.addAttribute("categoryData",cateData);
 		m.addAttribute("supplierData",supData);
 		m.addAttribute("productData",prodData);
 		ProductDetails prod=this.prod.getProduct(pid);
+		
 		map.put("prod_form",prod);
 		return "AdminHome";
 	}
 	
-	@RequestMapping(value="/updatePage", method=RequestMethod.POST)
+	@RequestMapping(value="/update", method=RequestMethod.POST)
 	public String upateProduct(@ModelAttribute("prod_form") ProductDetails p, Map<String,Object> model,Model m)
 	{
+		
+		       MultipartFile image=p.getImage();
+		       
+		       System.out.println("upload image"+image);
+		       
 			if(this.prod.updateProduct(p))
 			{	
-				m.addAttribute("whenSave",true);
+				System.out.println("Update Begins");
+				m.addAttribute("whenUpdate",true);
 				m.addAttribute("onclickProduct",1);
 				m.addAttribute("proMessage", "updated succesfully");
-				m.addAttribute("entry", true);
+				m.addAttribute("update", true);
+				
 				String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 				String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 				String prodData=this.prod.productList(new ProductDetails());  //instance variable
+				
 				m.addAttribute("categoryData",cateData);
 				m.addAttribute("supplierData",supData);
 				m.addAttribute("productData",prodData);
+				
+				UploadImage ap=new UploadImage(image, p.getP_id());
+				System.out.println("Image Inside"+ap);
 				return "AdminHome";
 			}//end if
 	
@@ -159,13 +179,15 @@ public class Product {
 				m.addAttribute("onclickProduct",1);
 				m.addAttribute("proMessage", "Product entred succesfully");
 				m.addAttribute("entry", true);
+				
 				String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 				String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 				String prodData=this.prod.productList(new ProductDetails());  //instance variable
+				
 				m.addAttribute("categoryData",cateData);
 				m.addAttribute("supplierData",supData);
 				m.addAttribute("productData",prodData);
-
+				
 				return "AdminHome";
 					
 				}//end else

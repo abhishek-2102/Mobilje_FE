@@ -21,6 +21,7 @@
  </bean>
  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
  <mvc:annotation-driven/>
+ <mvc:resources location="/WEB-INF/resources/Uploads/" mapping="/upimg/**"></mvc:resources>
  
  <mvc:resources location="/WEB-INF/resources/Images/" mapping="/img/**"></mvc:resources>
  

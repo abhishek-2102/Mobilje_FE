@@ -12,7 +12,6 @@ public class UploadImage {
 	
 	public UploadImage(MultipartFile img,String pid){
 		
-		
 		String path="E:\\maven workspace\\MobiljeFrontEnd\\src\\main\\webapp\\WEB-INF\\resources\\Uploads\\";
 		String filename=path+pid+".jpg";
 		File f=new File(filename);
@@ -23,7 +22,6 @@ public class UploadImage {
 			bos.write(byt);
 			bos.close();
 			System.out.println("Upload");
-			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

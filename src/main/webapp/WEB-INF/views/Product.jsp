@@ -127,6 +127,10 @@ margin-left:20px;
 	${proMessage}
 	<br>
 			</c:if>
+			<c:if test="${update == true}">
+	${proMessage}
+	<br>
+			</c:if>
 		</div>
 		
 <div class="jumbotron">
@@ -232,17 +236,18 @@ margin-left:20px;
 				</div>
 				<!-- Product Description-->
 				<br>
+				
 				<div class="row">
 					<div class="col-sm-2 col-sm-offset-2"
 						style="text-align: right; margin-top: 6px">
 						<b>Upload Image:</b>
 					</div>
-					<div class="col-sm-4">
 					
+					<div class="col-sm-4">
 					<div class="input-group image-preview">
                 		<input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
                 		<span class="input-group-btn">
-                    <!-- image-preview-clear button -->
+                    
                     	<button type="button" class="btn btn-default image-preview-clear" style="display:none;">
                         	<span class="glyphicon glyphicon-remove"></span> Clear
                     	</button>
@@ -250,12 +255,12 @@ margin-left:20px;
                     <div class="btn btn-default image-preview-input">
                         <span class="glyphicon glyphicon-folder-open"></span>
                         <span class="image-preview-input-title">Browse</span>
-                        <form:input type="file" path="image"/> <!-- rename it -->
-                    </div>
+                        <form:input type="file" path="image"/>
+                    </div><!-- End Image Upload -->
                 </span>
             </div><!-- /input-group image-preview [TO HERE]-->
 					</div>
-				</div>
+				</div> 
 				<br>
 				<div class="col-sm-4 col-sm-offset-4">
 					<form:button type="submit" class="btn btn-success btn-block"><b>Sumbit</b></form:button>
@@ -268,24 +273,21 @@ margin-left:20px;
 
 			<h3 style="text-align: center">Product Entry</h3>
 
-			<form:form class="form-group" method="post" commandName="prod_form"
-				action="updatePage">
+			<form:form class="form-group" method="post" commandName="prod_form" action="update" enctype="multipart/form-data">
 				<div class="row">
 					<div class="col-sm-2 col-sm-offset-2"
 						style="text-align: right; margin-top: 6px">
 						<b>Product ID:</b>
 					</div>
 					<div class="col-sm-4">
-						<form:input path="p_id" class="form-control" type="text" disabled="true"
-							required="true" ></form:input>
+						<form:input path="p_id" class="form-control" type="text" required="true" ></form:input>
 					</div>
 				</div>
 				<!-- Product ID-->
 				<br>
 
 				<div class="row">
-					<div class="col-sm-2 col-sm-offset-2"
-						style="text-align: right; margin-top: 6px">
+					<div class="col-sm-2 col-sm-offset-2" style="text-align: right; margin-top: 6px">
 						<b>Product Name:</b>
 					</div>
 					<div class="col-sm-4">
@@ -297,8 +299,7 @@ margin-left:20px;
 				<br>
 
 				<div class="row">
-					<div class="col-sm-2 col-sm-offset-2"
-						style="text-align: right; margin-top: 6px">
+					<div class="col-sm-2 col-sm-offset-2" style="text-align: right; margin-top: 6px">
 						<b>Price:</b>
 					</div>
 					<div class="col-sm-4">
@@ -310,8 +311,7 @@ margin-left:20px;
 				<br>
 
 				<div class="row">
-					<div class="col-sm-2 col-sm-offset-2"
-						style="text-align: right; margin-top: 6px">
+					<div class="col-sm-2 col-sm-offset-2" style="text-align: right; margin-top: 6px">
 						<b>Category ID</b>
 					</div>
 					<div class="col-sm-4">
@@ -326,8 +326,7 @@ margin-left:20px;
 				<br>
 
 				<div class="row">
-					<div class="col-sm-2 col-sm-offset-2"
-						style="text-align: right; margin-top: 6px">
+					<div class="col-sm-2 col-sm-offset-2" style="text-align: right; margin-top: 6px">
 						<b>Supplier ID</b>
 					</div>
 					<div class="col-sm-4">
@@ -366,7 +365,33 @@ margin-left:20px;
 				</div>
 				<!-- Product Description-->
 				<br>
-
+				
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-2"
+						style="text-align: right; margin-top: 6px">
+						<b>Upload Image:</b>
+					</div>
+					
+					<div class="col-sm-4">
+					<div class="input-group image-preview">
+                		<input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                		<span class="input-group-btn">
+                    
+                    	<button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                        	<span class="glyphicon glyphicon-remove"></span> Clear
+                    	</button>
+                    	<!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <span class="image-preview-input-title">Browse</span>
+                        <form:input type="file" path="image"/>
+                    </div><!-- End Image Upload -->
+                </span>
+            </div><!-- /input-group image-preview [TO HERE]-->
+					</div>
+				</div> 
+				<br>
+				
 				<div class="col-sm-4 col-sm-offset-4">
 					<form:button type="submit" class="btn btn-warning btn-block"><b>Update</b></form:button>
 				</div>
@@ -393,6 +418,7 @@ margin-left:20px;
 					<th>Supplier</th>
 					<th>Stock</th>
 					<th>Product Description</th>
+					<th>Image</th>
 					
 				</tr></thead>
 
@@ -404,6 +430,7 @@ margin-left:20px;
 					<td>{{pr.s_id}}</td>
 					<td>{{pr.stock}}</td>
 					<td>{{pr.p_desc}}</td>
+					<td><img src="upimg/{{pr.p_id}}.jpg" alt="No image" height="100px"></td>
 					<td><a class="btn btn-primary" id="b1" href="updateProd?pid={{pr.p_id}}"><i class="fa fa-pencil"></i></a></td>
 					<td><a class="btn btn-danger" id="b1" href="deleteProd?pid={{pr.p_id}}"><i class="fa fa-trash-o"></i></a></td>
 				</tr></tbody>

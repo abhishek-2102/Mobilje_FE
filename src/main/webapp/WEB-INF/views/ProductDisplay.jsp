@@ -15,25 +15,34 @@
 margin-top:10px;
 line-height:70%
 }
+#div1{
+margin-top:20px
+}
 </style>
 </head>
 <body>
 
 <div class="container-fluid">
 <c:forEach var="prod" items="${pData}">
-	<div class="col-sm-2 text-center " id="div1">
+	<div class="col-sm-3 text-center " id="div1">
 	<div class="panel panel-defualt">
-		<div class="body_img" >
-			<a href="#"><img class="img-rounded img-responsive" src="img/placeholder.gif" alt="Placeholder"></a>
+		<div>
+			<a href="#"><img class="img-rounded img-responsive" src="upimg/${prod.p_id}.jpg" alt="Placeholder"></a>
 		</div>
 		<div class="repeat2">
 			<p><span><b>${prod.p_name}</b></span></p>
 			<p style="color:blue"><span><b>Rs.${prod.p_price}</b></span></p>
 			<p style="color:green"><span><b>Stock:${prod.stock}</b></span></p>
 		</div><!-- end input text -->
-		<div>	
-		</div><!--  -->
+			<div class="row">
+				<a class="btn btn-success" href="#" >
+	 		 	<i class="fa fa-truck"></i><b> Buy now </b></a>
+	
+				<a class="btn btn-warning" href="#">
+	  			<i class="fa fa-tags "></i><b> Add to Cart </b></a>
+			</div>
 		</div><!-- End pannel -->
+
 	</div><!-- End col -->
 </c:forEach><!-- End ForEach -->
 
