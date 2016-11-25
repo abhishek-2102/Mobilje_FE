@@ -13,6 +13,7 @@ public class UploadImage {
 	public UploadImage(MultipartFile img,String pid){
 		
 		String path="E:\\maven workspace\\MobiljeFrontEnd\\src\\main\\webapp\\WEB-INF\\resources\\Uploads\\";
+		
 		String filename=path+pid+".jpg";
 		File f=new File(filename);
 		

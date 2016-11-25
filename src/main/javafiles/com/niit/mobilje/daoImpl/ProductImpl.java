@@ -95,12 +95,21 @@ public class ProductImpl implements ProductDao{
 		}//end product list
 		
 		public List<String> dispProduct(String id) {
-			
 			String hql="from ProductDetails where c_id='"+id+"'";
 			Query que=sessionFactory.getCurrentSession().createQuery(hql);
 			@SuppressWarnings("unchecked")
 			List<String> dispPro=que.list();
-		
 			return dispPro;
-		}//end dsplay to user
+		}//end display to user
+
+		
+		public List<String> dispIndiv(String id) {
+			System.out.println("Prod ID"+id);
+			String hpl="from ProductDetails where p_id='"+id+"'";
+			Query que=sessionFactory.getCurrentSession().createQuery(hpl);
+			@SuppressWarnings("unchecked")
+			List<String> indivPro=que.list();
+			System.out.println("Impl value:"+indivPro);
+			return indivPro;
+		}//end individual display
 }

@@ -24,4 +24,7 @@ public interface ProductDao {
 	
 	//display products to user according to the category selected
 	public List<String> dispProduct(String id);
+	
+	//display individual products
+	public List<String> dispIndiv(String id);
 }

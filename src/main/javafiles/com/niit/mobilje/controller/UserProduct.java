@@ -22,8 +22,18 @@ public class UserProduct {
 	{	
 		m.addAttribute("userProduct",1);
 		List<String> prod=this.prod.dispProduct(cid);
-		System.out.println("prod to display"+prod);
 		m.addAttribute("pData",prod);
+		return "index";
+	}
+	
+	@RequestMapping(value="/indivProdDisp")
+	public String dispIndiv(@RequestParam("pid") String pid,Model m,Map<String,Object> map)
+	{	
+		System.out.println("Product ID from jsp"+pid);
+		m.addAttribute("indivProduct",1);
+		List<String> prod=this.prod.dispIndiv(pid);
+		m.addAttribute("indivData",prod);	
+		System.out.println("Return Value"+prod);
 		return "index";
 	}
 }

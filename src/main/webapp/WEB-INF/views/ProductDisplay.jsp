@@ -11,6 +11,10 @@
     -webkit-filter: drop-shadow(3px 3px 5px black); /* Safari */
     filter: drop-shadow(3px 3px 5px black);
 }
+.panel{
+width:200px;
+height:200px;
+}
 .repeat2{
 margin-top:10px;
 line-height:70%
@@ -25,28 +29,24 @@ margin-top:20px
 <div class="container-fluid">
 <c:forEach var="prod" items="${pData}">
 	<div class="col-sm-3 text-center " id="div1">
-	<div class="panel panel-defualt">
-		<div>
-			<a href="#"><img class="img-rounded img-responsive" src="upimg/${prod.p_id}.jpg" alt="Placeholder"></a>
-		</div>
-		<div class="repeat2">
-			<p><span><b>${prod.p_name}</b></span></p>
-			<p style="color:blue"><span><b>Rs.${prod.p_price}</b></span></p>
-			<p style="color:green"><span><b>Stock:${prod.stock}</b></span></p>
-		</div><!-- end input text -->
+		<div class="panel panel-defualt" >
+			<div align="center">
+				<a href="indivProdDisp?pid=${prod.p_id}"><img class="img-rounded img-responsive" src="upimg/${prod.p_id}.jpg" alt="Placeholder" width="100px" height="100px"></a>
+			</div>
+			<div class="repeat2">
+				<p><span><b>${prod.p_name}</b></span></p>
+				<p style="color:blue"><span><b>Rs.${prod.p_price}</b></span></p>
+				<p style="color:green"><span><b>Stock:${prod.stock}</b></span></p>
+			</div><!-- end input text -->
 			<div class="row">
 				<a class="btn btn-success" href="#" >
-	 		 	<i class="fa fa-truck"></i><b> Buy now </b></a>
-	
+		 	 	<i class="fa fa-truck"></i></a>
 				<a class="btn btn-warning" href="#">
-	  			<i class="fa fa-tags "></i><b> Add to Cart </b></a>
+		  		<i class="fa fa-tags "></i></a>
 			</div>
 		</div><!-- End pannel -->
-
 	</div><!-- End col -->
 </c:forEach><!-- End ForEach -->
-
-
 </div><!-- End Container -->
 </body>
 </html>

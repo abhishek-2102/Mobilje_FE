@@ -33,7 +33,6 @@
 <jsp:include page="home.jsp"/>
 </c:when>
 
- 
 <c:when test="${onclickAdminHome == 1}">		<!-- Admin Home -->
 <jsp:include page="AdminHome.jsp"/>
 </c:when>
@@ -54,8 +53,12 @@
 <jsp:include page="AboutUs.jsp"/>
 </c:when>
 
-<c:when test="${userProduct == 1}">  		<!-- User display Product -->
+<c:when test="${userProduct == 1}">  			<!-- User display Product -->
 <jsp:include page="ProductDisplay.jsp"/>
+</c:when>
+
+<c:when test="${indivProduct == 1}">  			<!-- Individual Product -->
+<jsp:include page="ProductIndiv.jsp"/>
 </c:when>
 
 <c:otherwise>
