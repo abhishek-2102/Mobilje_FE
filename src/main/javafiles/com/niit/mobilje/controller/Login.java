@@ -36,24 +36,23 @@ public class Login {
 	{
 		System.out.println(l.getLogin_email());
 		System.out.println(l.getLogin_password());
+		
 			if(reg.isValidUser(l))
 				{
 				m.addAttribute("onclicklogin",1);
 				m.addAttribute("error",true);
 				m.addAttribute("logError","login successful");
-				
 				//admin
+				//if the person is admin or end user
 				if(reg.isRole().equals("admin")){
 					m.addAttribute("onclickAdminHome",1);
-				
 					return "AdminHome";
 				}
 				else{
 					return "index";
 				}
-				
-			}
-			//error message
+			}//error message
+			
 			else{
 				m.addAttribute("onclicklogin",1);
 				

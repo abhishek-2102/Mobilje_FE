@@ -272,6 +272,16 @@ margin-left:20px;
 				</div>
 				<!-- Product Description-->
 				<br>	
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-2"
+						style="text-align:right;">
+							<b>Update Image:</b>
+					</div>
+					<div class="col-sm-4">
+						<form:input path="image" type="file" required="true" multiple="true"></form:input>	
+					</div>
+				</div>
+				<br>
 				<div class="col-sm-4 col-sm-offset-4">
 					<form:button type="submit" class="btn btn-warning btn-block"><b>Update</b></form:button>
 				</div>
@@ -310,7 +320,7 @@ margin-left:20px;
 					<td>{{pr.s_id}}</td>
 					<td>{{pr.stock}}</td>
 					<td>{{pr.p_desc}}</td>
-					<td><img src="upimg/{{pr.p_id}}.jpg" alt="No image" height="100px"></td>
+					<td><img src="upimg/{{pr.image1}}" alt="No image" height="100px"></td>
 					<td><a class="btn btn-primary" id="b1" href="updateProd?pid={{pr.p_id}}"><i class="fa fa-pencil"></i></a></td>
 					<td><a class="btn btn-danger" id="b1" href="deleteProd?pid={{pr.p_id}}"><i class="fa fa-trash-o"></i></a></td>
 				</tr></tbody>

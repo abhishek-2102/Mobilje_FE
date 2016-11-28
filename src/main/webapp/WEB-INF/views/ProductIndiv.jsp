@@ -5,20 +5,40 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Product</title>
+<style>
+#small{
+padding:25px 10px 25px 10px;
+}
+#big{
+padding:25px 10px 25px 10px;
+width:500px;
+}
+</style>
 </head>
 
 <body>
 <div class="container">
 	<cw:forEach items="${indivData}" var="iData">
 		<div class="col-sm-6 panel panel-default" style="margin-top:40px">
-			<div class="col-sm-10 col-sm-offset-1 panel panel-default" style="margin-top:15px">
-				<img class="img-responsive" src="upimg/${iData.p_id}.jpg">
+			<div class="col-sm-10 col-sm-offset-1" id="big">
+				<img class="img-responsive" src="upimg/${iData.image1}">
 			</div>
-			<div class="col-sm-4 panel panel-default" >
-				<img class="img-responsive" src="upimg/${iData.p_id}.jpg">
+			
+			<div class="col-sm-4" id="small">
+				<img class="img-responsive" src="upimg/${iData.image1}">
 			</div>
+			
+			<div class="col-sm-4" id="small">
+				<img class="img-responsive" src="upimg/${iData.image2}">
+			</div>
+			
+			<div class="col-sm-4" id="small">
+				<img class="img-responsive" src="upimg/${iData.image3}">
+			</div>
+			
 		</div><!-- End Col for outter box-->
+		
 	</cw:forEach>
 </div>
 </body>

@@ -31,7 +31,7 @@ margin-top:20px
 	<div class="col-sm-3 text-center " id="div1">
 		<div class="panel panel-defualt" >
 			<div align="center">
-				<a href="indivProdDisp?pid=${prod.p_id}"><img class="img-rounded img-responsive" src="upimg/${prod.p_id}.jpg" alt="Placeholder" width="100px" height="100px"></a>
+				<a href="indivProdDisp?pid=${prod.p_id}"><img class="img-rounded img-responsive" src="upimg/${prod.image1}" alt="Placeholder" width="100px" height="100px"></a>
 			</div>
 			<div class="repeat2">
 				<p><span><b>${prod.p_name}</b></span></p>
