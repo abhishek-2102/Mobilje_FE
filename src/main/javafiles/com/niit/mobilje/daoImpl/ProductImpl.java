@@ -102,7 +102,6 @@ public class ProductImpl implements ProductDao{
 			return dispPro;
 		}//end display to user
 
-		
 		public List<String> dispIndiv(String id) {
 			System.out.println("Prod ID"+id);
 			String hpl="from ProductDetails where p_id='"+id+"'";

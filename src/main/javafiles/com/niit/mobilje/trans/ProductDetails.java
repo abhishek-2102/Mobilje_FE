@@ -1,5 +1,7 @@
 package com.niit.mobilje.trans;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -36,14 +38,48 @@ public class ProductDetails {
 	private String p_desc;
 	
 	@Transient
-	public MultipartFile image;
-
+	private List<MultipartFile> image;
 	
-	public MultipartFile getImage() {
+	@Column
+	private String image1;
+	
+	@Column
+	private String image2;
+	
+	@Column
+	private String image3;
+	
+	
+	
+	public String getImage1() {
+		return image1;
+	}
+
+	public void setImage1(String image1) {
+		this.image1 = image1;
+	}
+
+	public String getImage2() {
+		return image2;
+	}
+
+	public void setImage2(String image2) {
+		this.image2 = image2;
+	}
+
+	public String getImage3() {
+		return image3;
+	}
+
+	public void setImage3(String image3) {
+		this.image3 = image3;
+	}
+
+	public List<MultipartFile> getImage() {
 		return image;
 	}
 
-	public void setImage(MultipartFile image) {
+	public void setImage(List<MultipartFile> image) {
 		this.image = image;
 	}
 
