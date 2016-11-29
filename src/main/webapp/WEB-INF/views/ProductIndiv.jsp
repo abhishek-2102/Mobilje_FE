@@ -8,10 +8,10 @@
 <title>Product</title>
 <style>
 #small{
-padding:25px 10px 25px 10px;
+padding:0px 10px 25px 10px;
 }
 #big{
-padding:25px 10px 25px 10px;
+padding:25px 50px 25px 0px;
 width:500px;
 }
 </style>
@@ -22,24 +22,46 @@ width:500px;
 	<cw:forEach items="${indivData}" var="iData">
 		<div class="col-sm-6 panel panel-default" style="margin-top:40px">
 			<div class="col-sm-10 col-sm-offset-1" id="big">
-				<img class="img-responsive" src="upimg/${iData.image1}">
+				<img class="img-responsive" src="upimg/${iData.image1}" id="imgb">
+			
+			</div><!-- end top image -->
+			
+		<div class="row">
+		<h6 align="center">Click to change image</h6>
+			<div class="col-sm-4" id="small">
+				<img class="img-responsive" src="upimg/${iData.image1}" id="imgs1">
 			</div>
 			
 			<div class="col-sm-4" id="small">
-				<img class="img-responsive" src="upimg/${iData.image1}">
+				<img class="img-responsive" src="upimg/${iData.image2}" id="imgs2">
 			</div>
 			
 			<div class="col-sm-4" id="small">
-				<img class="img-responsive" src="upimg/${iData.image2}">
+				<img class="img-responsive" src="upimg/${iData.image3}" id="imgs3">
 			</div>
-			
-			<div class="col-sm-4" id="small">
-				<img class="img-responsive" src="upimg/${iData.image3}">
-			</div>
-			
+		</div><!-- end bottom image -->
 		</div><!-- End Col for outter box-->
 		
 	</cw:forEach>
 </div>
+<script>
+$(function(){
+	$('#imgs1').click(function(){
+		var val=$('#imgs1').attr('src');
+		
+		$('#imgb').attr('src',val);
+	});
+	$('#imgs2').click(function(){
+		var val=$('#imgs2').attr('src');
+			
+		$('#imgb').attr('src',val);
+	});
+	$('#imgs3').click(function(){
+		var val=$('#imgs3').attr('src');
+		
+		$('#imgb').attr('src',val);
+	});
+});
+</script>
 </body>
 </html>

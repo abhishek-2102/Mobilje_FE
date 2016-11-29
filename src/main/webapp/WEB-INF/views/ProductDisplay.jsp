@@ -11,16 +11,16 @@
     -webkit-filter: drop-shadow(3px 3px 5px black); /* Safari */
     filter: drop-shadow(3px 3px 5px black);
 }
-.panel{
-width:200px;
+#box{
+margin-top:20px;
+}
+#inbox{
 height:200px;
+padding:20px 10px 20px 10px;
 }
-.repeat2{
-margin-top:10px;
-line-height:70%
-}
-#div1{
-margin-top:20px
+#botbox{
+line-height:70%;
+padding:0px 10px 20px 10px;
 }
 </style>
 </head>
@@ -28,22 +28,27 @@ margin-top:20px
 
 <div class="container-fluid">
 <c:forEach var="prod" items="${pData}">
-	<div class="col-sm-3 text-center " id="div1">
-		<div class="panel panel-defualt" >
-			<div align="center">
-				<a href="indivProdDisp?pid=${prod.p_id}"><img class="img-rounded img-responsive" src="upimg/${prod.image1}" alt="Placeholder" width="100px" height="100px"></a>
-			</div>
-			<div class="repeat2">
+	<div class="col-sm-3 text-center" id="box">
+		<div class="panel panel-defualt">
+		<div class="panel-body" id="inbox">
+			<div >
+				<a href="indivProdDisp?pid=${prod.p_id}">
+				<img class="img-rounded img-responsive" src="upimg/${prod.image1}" >
+				</a>
+			</div><!-- end align -->
+		</div><!-- end panel body-->
+			<div id="botbox" >
+			
 				<p><span><b>${prod.p_name}</b></span></p>
 				<p style="color:blue"><span><b>Rs.${prod.p_price}</b></span></p>
 				<p style="color:green"><span><b>Stock:${prod.stock}</b></span></p>
-			</div><!-- end input text -->
-			<div class="row">
+				
 				<a class="btn btn-success" href="#" >
-		 	 	<i class="fa fa-truck"></i></a>
+		 	 	Buy Now <i class="fa fa-truck"></i></a>
 				<a class="btn btn-warning" href="#">
-		  		<i class="fa fa-tags "></i></a>
-			</div>
+		  		Add to cart <i class="fa fa-tags "></i></a>
+			
+			</div><!-- end panel footer -->
 		</div><!-- End pannel -->
 	</div><!-- End col -->
 </c:forEach><!-- End ForEach -->

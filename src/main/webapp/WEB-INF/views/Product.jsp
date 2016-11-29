@@ -320,7 +320,7 @@ margin-left:20px;
 					<td>{{pr.s_id}}</td>
 					<td>{{pr.stock}}</td>
 					<td>{{pr.p_desc}}</td>
-					<td><img src="upimg/{{pr.image1}}" alt="No image" height="100px"></td>
+					<td width="100px" ><img class="img-responsive" src="upimg/{{pr.image1}}" alt="No image" ></td>
 					<td><a class="btn btn-primary" id="b1" href="updateProd?pid={{pr.p_id}}"><i class="fa fa-pencil"></i></a></td>
 					<td><a class="btn btn-danger" id="b1" href="deleteProd?pid={{pr.p_id}}"><i class="fa fa-trash-o"></i></a></td>
 				</tr></tbody>

@@ -152,7 +152,8 @@ public class Product {
 			m.addAttribute("delete",true);
 			String path="E:\\maven workspace\\MobiljeFrontEnd\\src\\main\\webapp\\WEB-INF\\resources\\Uploads\\";
 			
-			for(int j=1;j<=3;j++){
+			for(int j=1;j<=3;j++)
+			{
 			String photoName=pid+"_"+j+".jpg";
 			
 			String filename=path+photoName;
@@ -164,6 +165,7 @@ public class Product {
 				System.out.println("Delted photo "+j);
 				}//end delete if
 			}//end for loop
+			
 			String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 			String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 			String prodData=this.prod.productList(new ProductDetails());  //instance variable
