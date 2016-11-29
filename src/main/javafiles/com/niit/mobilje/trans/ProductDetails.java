@@ -49,8 +49,18 @@ public class ProductDetails {
 	@Column
 	private String image3;
 	
+	@Transient
+	private MultipartFile desc_text;
 	
 	
+	public MultipartFile getDesc_text() {
+		return desc_text;
+	}
+
+	public void setDesc_text(MultipartFile desc_text) {
+		this.desc_text = desc_text;
+	}
+
 	public String getImage1() {
 		return image1;
 	}

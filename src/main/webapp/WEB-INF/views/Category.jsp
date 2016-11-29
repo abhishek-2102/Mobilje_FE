@@ -16,7 +16,8 @@ margin-left:20px;
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-<script>
+
+ <script>
 	var cat = ${catData}
 
 	angular.module('catModule', []).controller('catController',
