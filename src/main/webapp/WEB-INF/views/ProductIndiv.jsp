@@ -11,20 +11,22 @@
 padding:0px 10px 25px 10px;
 }
 #big{
-padding:25px 50px 25px 0px;
+padding:25px 0px 25px 0px;
 width:500px;
 }
+
 </style>
 </head>
 
 <body>
 <div class="container">
 	<cw:forEach items="${indivData}" var="iData">
-	<div class="col-sm-6 panel panel-default" style="margin-top:40px">
+	<div class="col-sm-6 panel panel-default " style="margin-top:40px">
+	
 			<div class="col-sm-10 col-sm-offset-1" id="big">
 				<img class="img-responsive" src="upimg/${iData.image1}" id="imgb">
 			</div><!-- end top image -->
-			
+	
 		<div class="row">
 		<h6 align="center" style="color:grey">Click to change image</h6>
 			<div class="col-sm-4" id="small">
@@ -40,18 +42,23 @@ width:500px;
 			</div>
 		</div><!-- end bottom image -->
 	</div><!-- End Col for outter box-->
-		<div class="col-sm-6" style="margin-top:30px" >
+	
+		<div class="col-sm-6" style="margin-top:30px">
+			<h6 style="color:grey">${category}</h6>
 			<h1>${iData.p_name}</h1>
 			<h4 style="color:red">Rs.${iData.p_price}/-</h4>
+			
 			<a class="btn btn-lg btn-success" href="#">
 		 	 	Buy Now <i class="fa fa-truck"></i></a>
 		 	 	
-			<a class="btn btn-lg btn-warning" href="#">
-		  		Add to cart <i class="fa fa-tags "></i></a>
+			<a class="btn btn-lg btn-warning" href="tocart?pid=${iData.p_id}">
+		  		Add to cart <i class="fa fa-tags"></i></a>
 			
-			<h3>${iData.p_desc}</h3>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		</div>
+			<h4>Description:</h4>
+			
+			<pre style="font-family:candra; font-size:medium;">${description}</pre>
+			
+	</div>
 	</cw:forEach>
 </div>
 <script>

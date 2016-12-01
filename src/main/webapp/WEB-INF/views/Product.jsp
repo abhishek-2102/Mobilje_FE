@@ -149,11 +149,11 @@ margin-left:20px;
 
 				<div class="row">
 					<div class="col-sm-2 col-sm-offset-2"
-						style="text-align: right; margin-top: 6px">
+						style="text-align: right;">
 						<b>Product Desc:</b>
 					</div>
 					<div class="col-sm-4">
-						<form:input path="p_desc" class="form-control" type="text"
+						<form:input path="desc_text" class="file" type="file"
 							required="true"></form:input>
 					</div>
 				</div><!-- Product Description-->
@@ -266,7 +266,7 @@ margin-left:20px;
 						<b>Product Desc:</b>
 					</div>
 					<div class="col-sm-4">
-						<form:input path="p_desc" class="form-control" type="text"
+						<form:input path="desc_text" class="file" type="file"
 							required="true"></form:input>
 					</div>
 				</div>
@@ -307,7 +307,6 @@ margin-left:20px;
 					<th>Category</th>
 					<th>Supplier</th>
 					<th>Stock</th>
-					<th>Product Description</th>
 					<th>Image</th>
 					
 				</tr></thead>
@@ -319,7 +318,6 @@ margin-left:20px;
 					<td>{{pr.c_id}}</td>
 					<td>{{pr.s_id}}</td>
 					<td>{{pr.stock}}</td>
-					<td>{{pr.p_desc}}</td>
 					<td width="100px" ><img class="img-responsive" src="upimg/{{pr.image1}}" alt="No image" ></td>
 					<td><a class="btn btn-primary" id="b1" href="updateProd?pid={{pr.p_id}}"><i class="fa fa-pencil"></i></a></td>
 					<td><a class="btn btn-danger" id="b1" href="deleteProd?pid={{pr.p_id}}"><i class="fa fa-trash-o"></i></a></td>

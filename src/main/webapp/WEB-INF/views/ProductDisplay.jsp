@@ -45,7 +45,7 @@ padding:0px 10px 20px 10px;
 				
 				<a class="btn btn-success" href="#" >
 		 	 	Buy Now <i class="fa fa-truck"></i></a>
-				<a class="btn btn-warning" href="#">
+				<a class="btn btn-warning" href="tocart?pid=${iData.p_id}">
 		  		Add to cart <i class="fa fa-tags "></i></a>
 			
 			</div><!-- end panel footer -->

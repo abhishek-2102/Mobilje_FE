@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.niit.mobilje.appconfig.DescpText;
 import com.niit.mobilje.dao.ProductDao;
 
 @Controller
@@ -30,10 +31,18 @@ public class UserProduct {
 	public String dispIndiv(@RequestParam("pid") String pid,Model m,Map<String,Object> map)
 	{	
 		System.out.println("Product ID from jsp"+pid);
+		
+		String display=DescpText.DisplText(pid);
+		if(display!=null){
+			m.addAttribute("description",display);
+		}
+		else{
+			m.addAttribute("description","Description comming soon");
+		}
+		
 		m.addAttribute("indivProduct",1);
 		List<String> prod=this.prod.dispIndiv(pid);
-		m.addAttribute("indivData",prod);	
-		System.out.println("Return Value"+prod);
+		m.addAttribute("indivData",prod);
 		return "index";
 	}
 }

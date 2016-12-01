@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.niit.mobilje.appconfig.DescpText;
 import com.niit.mobilje.dao.ProductDao;
 import com.niit.mobilje.trans.CategoryDetails;
 import com.niit.mobilje.trans.ProductDetails;
@@ -80,6 +81,10 @@ public class Product {
 			p.setImage2(p.getP_id()+"_2.jpg");
 			p.setImage3(p.getP_id()+"_3.jpg");
 			prod.saveProduct(p);
+			
+			@SuppressWarnings("unused")
+			DescpText upoad =new DescpText(p);
+			
 			System.out.println("No of images got "+p.getImage().size());
 			for( MultipartFile img:p.getImage())
 			{	
@@ -152,6 +157,8 @@ public class Product {
 			m.addAttribute("delete",true);
 			String path="E:\\maven workspace\\MobiljeFrontEnd\\src\\main\\webapp\\WEB-INF\\resources\\Uploads\\";
 			
+			DescpText.DeleteText(pid);
+			
 			for(int j=1;j<=3;j++)
 			{
 			String photoName=pid+"_"+j+".jpg";
@@ -162,7 +169,6 @@ public class Product {
 			
 			if(f.exists()){
 				f.delete();
-				System.out.println("Delted photo "+j);
 				}//end delete if
 			}//end for loop
 			
@@ -229,6 +235,7 @@ public class Product {
 				m.addAttribute("proMessage", "updated succesfully");
 				m.addAttribute("update", true);
 				
+				
 				String path="E:\\maven workspace\\MobiljeFrontEnd\\src\\main\\webapp\\WEB-INF\\resources\\Uploads\\";
 	
 				int i = 1;
@@ -243,6 +250,9 @@ public class Product {
 							break;
 						}//end try catch
 				}//end for loop for upload image to database
+				
+				@SuppressWarnings("unused")
+				DescpText upoad =new DescpText(p);
 				
 				this.prod.updateProduct(p);
 				

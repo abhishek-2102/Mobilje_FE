@@ -61,6 +61,10 @@
 <jsp:include page="ProductIndiv.jsp"/>
 </c:when>
 
+<c:when test="${toCart == 1}">  				<!-- Add to cart page -->
+<jsp:include page="AddtoCart.jsp"/>
+</c:when>
+
 <c:otherwise>
 <jsp:include page="home.jsp"/>					<!-- Default Page -->
 </c:otherwise>

@@ -1,0 +1,1 @@
+Mobilje is about a single page e-commerce application designed around sales of furniture. There are basically two module:Adm, inUser Framework used is spring framework with mvc architecture. Used bootstrap css to style the content of view. Database engine used is H2
