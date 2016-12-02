@@ -103,12 +103,23 @@ public class ProductImpl implements ProductDao{
 		}//end display to user
 
 		public List<String> dispIndiv(String id) {
-			System.out.println("Prod ID"+id);
+			
 			String hpl="from ProductDetails where p_id='"+id+"'";
 			Query que=sessionFactory.getCurrentSession().createQuery(hpl);
 			@SuppressWarnings("unchecked")
 			List<String> indivPro=que.list();
-			System.out.println("Impl value:"+indivPro);
 			return indivPro;
 		}//end individual display
+
+	
+		public List<ProductDetails> searchProd(String srch) {
+			String s="from ProductDetails where p_name like '%"+srch+"%'";
+			Query que = sessionFactory.getCurrentSession().createQuery(s);
+			
+			@SuppressWarnings("unchecked")
+			List<ProductDetails> plist= que.list();
+			return plist;
+		}
+		
+		
 }

@@ -34,9 +34,6 @@ public class ProductDetails {
 	@Column
 	private int stock;
 	
-	@Column
-	private String p_desc;
-	
 	@Transient
 	private List<MultipartFile> image;
 	
@@ -139,15 +136,5 @@ public class ProductDetails {
 
 	public void setStock(int stock) {
 		this.stock = stock;
-	}
-
-	public String getP_desc() {
-		return p_desc;
-	}
-
-	public void setP_desc(String p_desc) {
-		this.p_desc = p_desc;
-	}
-
-	
+	}	
 }

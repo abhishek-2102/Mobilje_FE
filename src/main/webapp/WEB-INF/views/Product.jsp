@@ -28,6 +28,15 @@ margin-left:20px;
 				$scope.prod = prod;
 			});
 	
+	
+			$(function(){
+				$('#upper').on('keyup',function(){
+					var t=$(this).val().toUpperCase();
+					
+					$('#upper').val(t);
+				});
+			});
+	
 </script>
 
 </head>
@@ -83,7 +92,7 @@ margin-left:20px;
 					</div>
 					<div class="col-sm-4">
 						<form:input path="p_name" class="form-control" type="text"
-							required="true"></form:input>
+							required="true" id="upper"></form:input>
 					</div>
 				</div>
 				<!-- Product name-->
@@ -199,7 +208,7 @@ margin-left:20px;
 					</div>
 					<div class="col-sm-4">
 						<form:input path="p_name" class="form-control" type="text"
-							required="true"></form:input>
+							required="true" id="upper"></form:input>
 					</div>
 				</div>
 				<!-- Product name-->

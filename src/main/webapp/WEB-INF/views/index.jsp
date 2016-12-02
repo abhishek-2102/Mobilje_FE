@@ -65,11 +65,20 @@
 <jsp:include page="AddtoCart.jsp"/>
 </c:when>
 
+<c:when test="${toHome == 1}">  				<!-- to home -->
+<jsp:include page="home.jsp"/>
+</c:when>
+
+
 <c:otherwise>
 <jsp:include page="home.jsp"/>					<!-- Default Page -->
 </c:otherwise>
 </c:choose>
 
 <jsp:include page="Footer.jsp"/>				<!-- Include Footer -->
+
+<script>
+
+</script>
 </body>
 </html>

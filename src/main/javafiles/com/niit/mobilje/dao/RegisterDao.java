@@ -10,4 +10,7 @@ public interface RegisterDao {
 	public boolean isValidUser(LoginDetails log);
 	//to check whether it is user or admin
 	public String isRole();
+	
+	//get user details
+	public Register getUserDetails(String username);
 }

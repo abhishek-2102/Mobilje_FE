@@ -17,6 +17,7 @@ import com.niit.mobilje.trans.LoginDetails;
 @Controller
 @RequestMapping(value="/login_page")
 public class Login {
+	
 	@Autowired
 	RegisterDao reg;
 	
@@ -44,6 +45,7 @@ public class Login {
 				m.addAttribute("logError","login successful");
 				//admin
 				//if the person is admin or end user
+				
 				if(reg.isRole().equals("admin")){
 					m.addAttribute("onclickAdminHome",1);
 					return "AdminHome";

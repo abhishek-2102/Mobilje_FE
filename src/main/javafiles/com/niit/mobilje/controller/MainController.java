@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.niit.mobilje.dao.CategoryDao;
+import com.niit.mobilje.dao.RegisterDao;
 import com.niit.mobilje.trans.CategoryDetails;
 
 
@@ -20,12 +21,14 @@ public class MainController {
 	@Autowired
 	CategoryDetails c;
 	
+	@Autowired
+	RegisterDao reg;
+	
 	@RequestMapping("/")
 	public String gotohome(Model m,HttpSession sess)
 	{	
-		
-		String cList=cat.catList(c);      
-		sess.setAttribute("categoryData", cList); //send list to jsp
+		String cList=cat.catList(c);
+		sess.setAttribute("categoryData", cList);
 		return "index";
 	}
 	

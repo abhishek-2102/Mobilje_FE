@@ -16,9 +16,7 @@ public class DescpText {
 	public DescpText(ProductDetails p){
 		String path="E:\\maven workspace\\MobiljeFrontEnd\\src\\main\\webapp\\WEB-INF\\resources\\Uploads\\";
 		String textname=p.getP_id()+".txt";
-		p.setP_desc(textname);
 		String filename=path+textname;
-		System.out.println("Process Upload start");
 		File f=new File(filename);
 		
 		try {
@@ -54,7 +52,6 @@ public class DescpText {
 	public static String DisplText(String id){
 		String path="E:\\maven workspace\\MobiljeFrontEnd\\src\\main\\webapp\\WEB-INF\\resources\\Uploads\\";
 		String filename=path+id+".txt";
-		System.out.println("Filename:"+filename);
 		File f=new File(filename);
 		StringBuffer sb =new StringBuffer();
 		String text=null;
@@ -71,4 +68,3 @@ public class DescpText {
 		return sb.toString();
 	}//end disp
 }
-

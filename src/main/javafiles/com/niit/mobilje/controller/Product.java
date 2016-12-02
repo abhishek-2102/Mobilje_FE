@@ -1,10 +1,5 @@
 package com.niit.mobilje.controller;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -16,9 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.niit.mobilje.appconfig.DescpText;
+import com.niit.mobilje.appconfig.Images;
 import com.niit.mobilje.dao.ProductDao;
 import com.niit.mobilje.trans.CategoryDetails;
 import com.niit.mobilje.trans.ProductDetails;
@@ -29,6 +24,8 @@ public class Product {
 	
 	@Autowired
 	ProductDao prod;
+	
+	Images img=new Images();
 	
 	@RequestMapping(value="productPage",method = RequestMethod.GET)
 	public String viewProdPage(Map<String,Object> model,Model m,HttpSession sess)
@@ -59,13 +56,7 @@ public class Product {
 			m.addAttribute("entry", true);
 			m.addAttribute("proMessage", "Product entred succesfully");
 			
-			String path="E:\\maven workspace\\MobiljeFrontEnd\\src\\main\\webapp\\WEB-INF\\resources\\Uploads\\";
-			System.out.println("No of images "+p.getImage().size());
-			
-			int i = 1;
-			
-			
-		/*	for (int j = 1; j <= number; j++) {
+			/*for (int j = 1; j <= number; j++) {
 				String photoName=p.getP_id()+"_"+j+".jpg";
 					try {
 						p.getClass().getMethod("setImage"+j,String.class).invoke(p,photoName);
@@ -76,44 +67,17 @@ public class Product {
 					}//end try catch
 			}//end for loop for upload image to database
 			*/
-			
 			p.setImage1(p.getP_id()+"_1.jpg");
 			p.setImage2(p.getP_id()+"_2.jpg");
 			p.setImage3(p.getP_id()+"_3.jpg");
+			
 			prod.saveProduct(p);
 			
-			@SuppressWarnings("unused")
-			DescpText upoad =new DescpText(p);
-			
-			System.out.println("No of images got "+p.getImage().size());
-			for( MultipartFile img:p.getImage())
-			{	
-				
-				System.out.println("Storing images");
-				String photoName=p.getP_id()+"_"+i+".jpg";
-				
-				String filename=path+photoName;
-				System.out.println(filename);
-				File f=new File(filename);
-				try {
-					
-					byte[] byt= img.getBytes();
-					BufferedOutputStream bos=new BufferedOutputStream(new FileOutputStream(f));
-					bos.write(byt);
-					bos.close();
-					System.out.println("No of image "+i);
-				}
-				catch (FileNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				} catch (SecurityException e) {
-					e.printStackTrace();
-				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
-				} 
-				i++;//
-			}//end for loop	
+			if(prod.saveProduct(p)){
+				img.DisplMultiImage(p);
+				@SuppressWarnings("unused")
+				DescpText upoad =new DescpText(p);
+			}
 			
 			String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 			String supData=this.prod.supplierList(new SupplierDetails());   //instance variable
@@ -155,23 +119,9 @@ public class Product {
 			m.addAttribute("onclickProduct",1);
 			m.addAttribute("proMessage","Product Deleted");
 			m.addAttribute("delete",true);
-			String path="E:\\maven workspace\\MobiljeFrontEnd\\src\\main\\webapp\\WEB-INF\\resources\\Uploads\\";
 			
 			DescpText.DeleteText(pid);
-			
-			for(int j=1;j<=3;j++)
-			{
-			String photoName=pid+"_"+j+".jpg";
-			
-			String filename=path+photoName;
-			System.out.println(filename);
-			File f=new File(filename);
-			
-			if(f.exists()){
-				f.delete();
-				}//end delete if
-			}//end for loop
-			
+			img.DeleteImg(pid);
 			String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 			String supData=this.prod.supplierList(new SupplierDetails());  //instance variable
 			String prodData=this.prod.productList(new ProductDetails());  //instance variable
@@ -234,55 +184,20 @@ public class Product {
 				m.addAttribute("onclickProduct",1);
 				m.addAttribute("proMessage", "updated succesfully");
 				m.addAttribute("update", true);
+			
+			
+				p.setImage1(p.getP_id()+"_1.jpg");
+				p.setImage2(p.getP_id()+"_2.jpg");
+				p.setImage3(p.getP_id()+"_3.jpg");
 				
+				prod.updateProduct(p);
 				
-				String path="E:\\maven workspace\\MobiljeFrontEnd\\src\\main\\webapp\\WEB-INF\\resources\\Uploads\\";
-	
-				int i = 1;
-				
-				int number=p.getImage().size();
-				for (int j = 1; j <= number; j++) {
-					String photoName=p.getP_id()+"_"+j+".jpg";
-						try {
-							p.getClass().getMethod("setImage"+j,String.class).invoke(p,photoName);
-						} catch (Exception e) {
-							e.printStackTrace();
-							break;
-						}//end try catch
-				}//end for loop for upload image to database
-				
-				@SuppressWarnings("unused")
-				DescpText upoad =new DescpText(p);
-				
-				this.prod.updateProduct(p);
-				
-				for( MultipartFile img:p.getImage())
-				{	
-					System.out.println(img);
-					System.out.println("Storing images");
-					String photoName=p.getP_id()+"_"+i+".jpg";
-					
-					String filename=path+photoName;
-					System.out.println(filename);
-					File f=new File(filename);
-					try {
-						byte[] byt= img.getBytes();
-						BufferedOutputStream bos=new BufferedOutputStream(new FileOutputStream(f));
-						bos.write(byt);
-						bos.close();
-					} 
-					catch (FileNotFoundException e) {
-						e.printStackTrace();
-					} catch (IOException e) {
-						e.printStackTrace();
-					} catch (SecurityException e) {
-						e.printStackTrace();
-					} catch (IllegalArgumentException e) {
-						e.printStackTrace();
-					} 
-					
-					i++;
-				}//end for loop	
+				if(prod.updateProduct(p)){
+					img.DeleteImg(p.getP_id());
+					img.DisplMultiImage(p);
+					@SuppressWarnings("unused")
+					DescpText upoad =new DescpText(p);
+				}
 				
 				String cateData=this.prod.categoryList(new CategoryDetails());  //instance variable
 				String supData=this.prod.supplierList(new SupplierDetails());  //instance variable

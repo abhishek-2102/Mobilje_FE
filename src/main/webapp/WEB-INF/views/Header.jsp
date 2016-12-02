@@ -13,6 +13,15 @@
 		angular.module('onloadModule',[]).controller('onloadController',function($scope){
 					$scope.cate=cate;
 				});
+		
+		$(function(){
+			$('#upper').on('keyup',function(){
+				var t=$(this).val().toUpperCase();
+				
+				$('#upper').val(t);
+			});
+		});
+
 	</script>
 <style>
 body {
@@ -43,6 +52,7 @@ body {
 		<a class="brand" href="home"><img src="img/insta.gif" alt="Brand"></a>
 		</div><!-- End logo -->
 		<div class="col-sm-8">
+			
 		</div>
 	</div>
 
@@ -69,12 +79,16 @@ body {
 						<li><a href="contact_us">Contact Us</a></li>
 					</ul>
 					<!-- End left side navbar -->
-					<form class="navbar-form navbar-left">
-						<div class="form-group">
-
-							<input type="text" class="form-control" placeholder="Search..">
-						</div>
-					</form>
+				<div class="col-sm-4">
+			        <form class="navbar-form" action="product" method="post">
+			        <div class="input-group">
+			            <input type="text" class="form-control" placeholder="Search" name="search" id="upper">
+			            <div class="input-group-btn">
+			                <button class="btn btn-default" type="submit" style="height: 34px"><i class="glyphicon glyphicon-search"></i></button>
+			            </div>
+			        </div>
+			        </form>
+			    </div><!-- End search -->
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="reg_page"><span
 								class="glyphicon glyphicon-user"></span> Sign Up</a></li>

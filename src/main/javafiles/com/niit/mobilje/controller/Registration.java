@@ -35,7 +35,7 @@ public class Registration {
 			m.addAttribute("onclickReg",1);
 			reg.saveRegister(u);
 			System.out.println("Data received");
-		return "index";
+			return "index";
 	}//end post
 	
 	

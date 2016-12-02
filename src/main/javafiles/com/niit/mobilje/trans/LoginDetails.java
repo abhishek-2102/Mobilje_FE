@@ -5,8 +5,6 @@ public class LoginDetails {
 private String login_email;
 private String login_password;
 
-
-
 public String getLogin_email() {
 	return login_email;
 }

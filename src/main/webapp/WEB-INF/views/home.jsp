@@ -15,6 +15,8 @@
   </style>
 </head>
 <body>
+<br>
+<h2>${searchText}</h2>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -48,5 +50,7 @@
       <span class="sr-only">Next</span>
     </a>
   </div>							<!-- End Corousel -->
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
 </body>
 </html>

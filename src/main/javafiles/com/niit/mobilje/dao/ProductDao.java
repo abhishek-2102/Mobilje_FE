@@ -27,4 +27,7 @@ public interface ProductDao {
 	
 	//display individual products
 	public List<String> dispIndiv(String id);
+	
+	//search products
+	public List<ProductDetails> searchProd(String srch);
 }

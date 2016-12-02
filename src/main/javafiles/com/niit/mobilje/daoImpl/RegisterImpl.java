@@ -67,6 +67,11 @@ public class RegisterImpl implements RegisterDao {
 	{
 		return r;
 	}
+
+	public Register getUserDetails(String username) {
+		
+		return (Register) sessionFactory.getCurrentSession().get(Register.class,username);
+	}
 		
 	
 	
