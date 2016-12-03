@@ -21,10 +21,6 @@ background-repeat:no-repeat;
 <br><br>
 <div class="jumbotron">
 <h3 style="text-align:center; color:white">Login to shop</h3>
-	<c:if test="${error == true}">
-	<p style="color:white; text-align:center">${logError}</p>
-	<br>
-			</c:if>
 
 <form:form action="login_page" class="form-group" method="post" commandName="login_form">
 <div class="row">	

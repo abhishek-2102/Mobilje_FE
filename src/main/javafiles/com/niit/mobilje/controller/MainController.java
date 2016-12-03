@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.niit.mobilje.dao.CategoryDao;
 import com.niit.mobilje.dao.RegisterDao;
 import com.niit.mobilje.trans.CategoryDetails;
+import com.niit.mobilje.trans.LoginVals;
 
 
 @Controller
@@ -24,11 +25,23 @@ public class MainController {
 	@Autowired
 	RegisterDao reg;
 	
+	@Autowired
+	LoginVals lg;
+	
 	@RequestMapping("/")
 	public String gotohome(Model m,HttpSession sess)
 	{	
 		String cList=cat.catList(c);
 		sess.setAttribute("categoryData", cList);
+		
+		lg.setSignIn("Sign In");
+		lg.setSignUp("Sign Up");
+		
+		sess.setAttribute("username"," ");
+		
+		sess.setAttribute("SignIn", lg.getSignIn());
+		sess.setAttribute("SignUp", lg.getSignUp());
+		
 		return "index";
 	}
 	

@@ -22,6 +22,8 @@ public class RegisterImpl implements RegisterDao {
 	
 	String r;
 	
+	String name;
+	
 	public RegisterImpl(SessionFactory sess) {
 		super();
 		this.sessionFactory=sess;
@@ -40,7 +42,6 @@ public class RegisterImpl implements RegisterDao {
 		}
 	}
 	
-	
 	public boolean isValidUser(LoginDetails log) {
 		
 		String email=log.getLogin_email();
@@ -55,6 +56,7 @@ public class RegisterImpl implements RegisterDao {
 		if(reg!=null){
 			for(Register r:reg){
 				this.r=r.getRole();
+				this.name=r.getName();
 			}
 			return true;
 		}
@@ -62,21 +64,20 @@ public class RegisterImpl implements RegisterDao {
 			return false;
 			}
 	}
-
+	
 	public String isRole()
-	{
+	{	
 		return r;
+	}
+	
+	public String userName()
+	{	
+		System.out.println("Username"+name);
+		return name;
 	}
 
 	public Register getUserDetails(String username) {
 		
 		return (Register) sessionFactory.getCurrentSession().get(Register.class,username);
 	}
-		
-	
-	
-	
-	
-
-	
 }

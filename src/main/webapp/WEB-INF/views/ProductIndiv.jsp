@@ -48,11 +48,17 @@ width:500px;
 			<h1>${iData.p_name}</h1>
 			<h4 style="color:red">Rs.${iData.p_price}/-</h4>
 			
+			<form action="tocart">
+			<input class="form-control" type="number" name="quantity" />
+			
+			<br>
+			<br>
 			<a class="btn btn-lg btn-success" href="#">
 		 	 	Buy Now <i class="fa fa-truck"></i></a>
 		 	 	
-			<a class="btn btn-lg btn-warning" href="tocart?pid=${iData.p_id}">
-		  		Add to cart <i class="fa fa-tags"></i></a>
+			<button  type="submit"  class="btn btn-lg btn-warning" >
+		  		Add to cart <i class="fa fa-tags"></i></button>
+		  	</form>	
 			
 			<h4>Description:</h4>
 			

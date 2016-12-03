@@ -20,6 +20,8 @@ public class UserProduct {
 	@Autowired
 	ProductDao prod;
 	
+	String pid=null;
+	
 	@RequestMapping(value="/product",method=RequestMethod.GET)
 	public String dispProduct(@RequestParam("cid") String cid,Model m)
 	{	
@@ -48,9 +50,9 @@ public class UserProduct {
 	}
 	
 	@RequestMapping(value="/indivProdDisp")
-	public String dispIndiv(@RequestParam("pid") String pid,Model m,Map<String,Object> map)
+	public String dispIndiv(@RequestParam("pid")String id,Model m,Map<String,Object> map)
 	{	
-		
+		this.pid=id;
 		String display=DescpText.DisplText(pid);
 		
 		if(display!=null){
@@ -65,4 +67,10 @@ public class UserProduct {
 		m.addAttribute("indivData",prod);
 		return "index";
 	}
+	@RequestMapping(value="/tocart")
+	public String dispCartPage(@RequestParam("quantity") String q,Model m){
+		System.out.println(q+""+pid);
+		m.addAttribute("toCart",1);
+		return "index";
+	}//display cart page
 }

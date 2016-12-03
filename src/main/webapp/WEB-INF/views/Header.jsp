@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <html>
 <head>
 <meta charset="utf-8">
@@ -52,7 +53,7 @@ body {
 		<a class="brand" href="home"><img src="img/insta.gif" alt="Brand"></a>
 		</div><!-- End logo -->
 		<div class="col-sm-8">
-			
+				<h5><%=session.getAttribute("username") %></h5>
 		</div>
 	</div>
 
@@ -91,9 +92,9 @@ body {
 			    </div><!-- End search -->
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="reg_page"><span
-								class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+								class="glyphicon glyphicon-user"></span> <%=session.getAttribute("SignUp") %></a></li>
 						<li><a href="login_page"><span
-								class="glyphicon glyphicon-log-in"></span> Login</a></li>
+								class="glyphicon glyphicon-log-in"></span> <%=session.getAttribute("SignIn") %></a></li>
 					</ul>
 					<!-- End Right side navbar -->
 				</div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <html>
 <head>
 <meta charset="utf-8">
@@ -29,7 +30,12 @@
   <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
 <div class="container-fluid" style="background-color:white; height:180px;">
+  <div class="col-sm-4">
   <a class="brand" href="home"><img src="img/insta.gif" alt="Brand"></a>
+  </div>
+  <div class="col-sm-8">
+  		<%=session.getAttribute("username") %></h5>
+	</div>
   </div>
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
   <div class="container-fluid">

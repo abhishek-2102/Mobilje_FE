@@ -24,8 +24,7 @@ public class CartImpl implements CartDao{
 	
 	public String addtoCart(CartDetails cart) {
 		
-		String hql="insert into cart (p_id,status,u_id) values('"+cart.getP_id()+"','"+cart.getStatus()+"','"+cart.getU_id()+"')";
-		System.out.println("Query:"+hql);
+		
 		return "";
 	}
 	
