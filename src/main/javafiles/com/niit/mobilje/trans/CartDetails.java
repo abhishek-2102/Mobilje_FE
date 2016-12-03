@@ -1,7 +1,5 @@
 package com.niit.mobilje.trans;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -30,9 +28,8 @@ public class CartDetails {
 	private int price;
 	
 	@Column
-	private Date date;
+	private String date;
 
-	
 	
 	public String getCt_id() {
 		return ct_id;
@@ -74,11 +71,12 @@ public class CartDetails {
 		this.price = price;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
+
 }

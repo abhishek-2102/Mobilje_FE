@@ -1,5 +1,7 @@
 package com.niit.mobilje.daoImpl;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,11 +23,16 @@ public class CartImpl implements CartDao{
 		this.sessionFactory=sess;
 	}
 	
-	
-	public String addtoCart(CartDetails cart) {
+	public boolean addtoCart(CartDetails cart) {
 		
+	    sessionFactory.getCurrentSession().saveOrUpdate(cart);
+	    
+	    return true;
+	}
+
+	public List<CartDetails> getList() {
 		
-		return "";
+		return null;
 	}
 	
 	
