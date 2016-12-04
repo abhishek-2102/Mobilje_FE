@@ -23,6 +23,9 @@ line-height:70%;
 padding:0px 10px 20px 10px;
 }
 </style>
+<script>
+
+</script>
 </head>
 <body>
 
@@ -43,7 +46,7 @@ padding:0px 10px 20px 10px;
 				<p style="color:blue"><span><b>Rs.${prod.p_price}</b></span></p>
 				<p style="color:green"><span><b>Stock:${prod.stock}</b></span></p>
 				
-				<a class="btn btn-warning" href="tocart?pid=${prod.p_id}">
+				<a id="onclick-add" class="btn btn-warning" href="tocart?pid=${prod.p_id}">
 		  		Add to cart <i class="fa fa-tags "></i></a>
 				<a class="btn btn-success" href="#" >
 		 	 	Buy Now <i class="fa fa-truck"></i></a>

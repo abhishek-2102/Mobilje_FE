@@ -48,43 +48,38 @@ public class Login {
 		System.out.println(l.getLogin_email());
 		System.out.println(l.getLogin_password());
 		
-		
-			if(reg.isValidUser(l))
-				{
-				lg.setSignIn("Log Out");
-				lg.setSignUp("Sign Up");
+		if(reg.isValidUser(l))
+			{
+			lg.setSignIn("Log Out");
+			lg.setSignUp("Sign Up");
 				
-				sess.setAttribute("SignIn", lg.getSignIn());
-				sess.setAttribute("SignUp", lg.getSignUp());
+			sess.setAttribute("SignIn", lg.getSignIn());
+			sess.setAttribute("SignUp", lg.getSignUp());
 				
-				String name=reg.userName();
-				
-				
-				sess.setAttribute("username","Welcome "+name);
-				
-				//admin
-				//if the person is admin or end user
-				
-				if(reg.isRole().equals("admin"))
-				{
-					m.addAttribute("onclickAdminHome",1);
-					return "AdminHome";
-				}
-				else{
-					
+			String name=reg.regDetails().getName();
+			
+			String id=reg.regDetails().getEmail();
+			
+			sess.setAttribute("userEmail", id);
+			
+			sess.setAttribute("username","Welcome "+name);
+			
+			if(reg.regDetails().getRole().equals("admin"))
+			{
+				m.addAttribute("onclickAdminHome",1);
+				return "AdminHome";
+				}else{
 					m.addAttribute("toHome",1);
 					m.addAttribute("error",true);
 					return "index";
-				}
-			}//error message
-			
-			else{
-				m.addAttribute("onclicklogin",1);
-				
-				m.addAttribute("error",true);
-				m.addAttribute("logError","Username and password do not match");
-				return "index";
-				}
-	}//end login
-}
+				}//end if-else for role validation
+			}//end validation
+		else{
+			m.addAttribute("onclicklogin",1);
+			m.addAttribute("error",true);
+			m.addAttribute("logError","Username and password do not match");
+			return "index";
+			}
+		}//end login
+	}
 

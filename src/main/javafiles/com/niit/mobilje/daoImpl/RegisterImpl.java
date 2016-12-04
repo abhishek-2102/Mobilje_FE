@@ -24,6 +24,8 @@ public class RegisterImpl implements RegisterDao {
 	
 	String name;
 	
+	Register reg;
+	
 	public RegisterImpl(SessionFactory sess) {
 		super();
 		this.sessionFactory=sess;
@@ -55,8 +57,7 @@ public class RegisterImpl implements RegisterDao {
 		
 		if(reg!=null){
 			for(Register r:reg){
-				this.r=r.getRole();
-				this.name=r.getName();
+				this.reg=r;
 			}
 			return true;
 		}
@@ -65,19 +66,7 @@ public class RegisterImpl implements RegisterDao {
 			}
 	}
 	
-	public String isRole()
-	{	
-		return r;
-	}
-	
-	public String userName()
-	{	
-		System.out.println("Username"+name);
-		return name;
-	}
-
-	public Register getUserDetails(String username) {
-		
-		return (Register) sessionFactory.getCurrentSession().get(Register.class,username);
+	public Register regDetails(){
+		return reg;
 	}
 }

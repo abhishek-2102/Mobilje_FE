@@ -8,10 +8,6 @@ public interface RegisterDao {
 	public boolean saveRegister(Register user);
 	//to check if the login user matches with the database
 	public boolean isValidUser(LoginDetails log);
-	//to check whether it is user or admin
-	public String isRole();
-	//to get name
-	public String userName();
-	//get user details
-	public Register getUserDetails(String username);
+	//
+	public Register regDetails();
 }

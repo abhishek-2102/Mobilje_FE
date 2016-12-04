@@ -18,7 +18,10 @@ background-repeat:no-repeat;
 </head>
 <body>
 <div class="container">
-<br><br>
+<c:if test="${cartText == true}">
+	<h3 class="alert alert-danger text-center">Login before add to cart</h3>
+</c:if>
+
 <div class="jumbotron">
 <h3 style="text-align:center; color:white">Login to shop</h3>
 

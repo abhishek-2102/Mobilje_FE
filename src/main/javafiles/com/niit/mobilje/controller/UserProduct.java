@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.niit.mobilje.appconfig.DescpText;
 import com.niit.mobilje.dao.CartDao;
 import com.niit.mobilje.dao.ProductDao;
+import com.niit.mobilje.dao.RegisterDao;
 import com.niit.mobilje.trans.CartDetails;
+import com.niit.mobilje.trans.LoginDetails;
 import com.niit.mobilje.trans.ProductDetails;
 
 @Controller
@@ -30,7 +32,8 @@ public class UserProduct {
 	@Autowired
 	CartDao cart;
 	
-	
+	@Autowired
+	RegisterDao reg;
 	
 	@RequestMapping(value="/product",method=RequestMethod.GET)
 	public String dispProduct(@RequestParam("cid") String cid,Model m)
@@ -78,34 +81,44 @@ public class UserProduct {
 		return "index";
 	}//end displaying individual 
 	
-	
 	@RequestMapping(value="/tocart")
-	public String dispCartPage(@RequestParam("pid") String pid,Model m,HttpSession sess){
+	public String dispCartPage(@RequestParam("pid") String pid,Model m,HttpSession sess,Map<String, Object> model){
 		
-		Date d = new Date( );
-	    SimpleDateFormat fmt=new SimpleDateFormat ("yyyy.MM.dd");
-	    String date= fmt.format(d);
+		if(sess.getAttribute("username").equals(" ")){
+			System.out.println("No email Id");
+			m.addAttribute("cartText",true);
+			m.addAttribute("onclicklogin",1);
+			LoginDetails login = new LoginDetails();
+			model.put("login_form",login);
+			
+		}//end if
 		
-	    ProductDetails p=prod.getProduct(pid);
-	    
-		int q=1;
-		
-	    int iP=p.getP_price();
-	    int price=q*iP;
-	    
-	    CartDetails cat=new CartDetails();
-		String uID = UUID.randomUUID().toString();
-		
-		cat.setCt_id(uID);
-		cat.setDate(date);
-		cat.setP_id(p.getP_id());
-		cat.setQuantity(q);
-		cat.setU_id("");
-		cat.setPrice(price);
-		
-		cart.addtoCart(cat);
-		
-		m.addAttribute("toCart",1);
+		else{
+			Date d = new Date( );
+		    SimpleDateFormat fmt=new SimpleDateFormat ("yyyy.MM.dd");
+		    String date= fmt.format(d);
+			
+		    ProductDetails p=prod.getProduct(pid);
+		    
+			int q=1;
+			
+		    int iP=p.getP_price();
+		    int price=q*iP;
+		    
+		    CartDetails cat=new CartDetails();
+			String uID = UUID.randomUUID().toString();
+			
+			cat.setCt_id(uID);
+			cat.setDate(date);
+			cat.setP_id(p.getP_id());
+			cat.setQuantity(q);
+			cat.setU_id(reg.regDetails().getEmail());
+			cat.setPrice(price);
+			
+			cart.addtoCart(cat);
+			
+			m.addAttribute("toCart",1);
+		}//end else
 		return "index";
 	}//display cart page
 }

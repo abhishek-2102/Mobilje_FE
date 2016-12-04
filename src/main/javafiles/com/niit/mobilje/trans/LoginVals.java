@@ -10,7 +10,6 @@ public class LoginVals {
 	private String signUp;
 
 	
-
 	public String getSignIn() {
 		return signIn;
 	}

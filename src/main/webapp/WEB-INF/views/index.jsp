@@ -24,6 +24,22 @@
 	integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
 	crossorigin="anonymous">
 
+<style>
+#add-img{
+height:50px; 
+width:100px;
+}
+</style>
+<script>
+	$(function(){
+		$('#on-top').hover(function(){
+			var pos="1255px";
+				$(this).animate({left:pos});
+		},function(){$(this).animate({left:"1340px"});
+		});//end on hover event
+	});//end main function
+</script>
+
 </head>
 <body>
 <jsp:include page="Header.jsp"/> 				<!-- Include Header -->
@@ -74,11 +90,7 @@
 <jsp:include page="home.jsp"/>					<!-- Default Page -->
 </c:otherwise>
 </c:choose>
-
+<a href="#" id="on-top" style=" position:fixed; top:120px; left:1340px" ><img class="img-rounded" style="border:2px solid #48494C;" src="img/beforeadd.png" id="add-img"></a>
 <jsp:include page="Footer.jsp"/>				<!-- Include Footer -->
-
-<script>
-
-</script>
 </body>
 </html>
