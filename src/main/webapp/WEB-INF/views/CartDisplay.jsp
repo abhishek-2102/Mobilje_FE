@@ -4,11 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add to cart</title>
+<title>Cart</title>
 </head>
 <body>
-
-
-
+<div class="container">
+			<table class="table table-hover">
+				<thead><tr>
+					<th>Image</th>
+					<th>Product Name</th>
+					<th>Quantity</th>
+					<th>Price</th>
+					<th>Date</th>
+				</tr></thead>
+			</table>
+			
+</div>
 </body>
 </html>

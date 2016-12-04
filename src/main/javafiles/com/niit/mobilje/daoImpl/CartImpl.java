@@ -2,6 +2,7 @@ package com.niit.mobilje.daoImpl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,16 +25,17 @@ public class CartImpl implements CartDao{
 	}
 	
 	public boolean addtoCart(CartDetails cart) {
-		
-	    sessionFactory.getCurrentSession().saveOrUpdate(cart);
-	    
+		sessionFactory.getCurrentSession().saveOrUpdate(cart);
 	    return true;
 	}
 
-	public List<CartDetails> getList() {
+	public List<CartDetails> getList(String username) {
 		
-		
-		return null;
+		String hql="from CartDetails where u_id='"+username+"'";
+		Query que=sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<CartDetails> cartl=que.list();
+		return cartl;
 	}
 	
 	

@@ -8,6 +8,6 @@ public interface CartDao {
 	//add to cart
 	public boolean addtoCart(CartDetails cart);
 	//get from cart table
-	public List<CartDetails> getList();
+	public List<CartDetails> getList(String username);
 	
 }

@@ -38,6 +38,7 @@ public class MainController {
 		lg.setSignUp("Sign Up");
 		
 		sess.setAttribute("username"," ");
+		sess.setAttribute("size","0" );
 		
 		sess.setAttribute("SignIn", lg.getSignIn());
 		sess.setAttribute("SignUp", lg.getSignUp());

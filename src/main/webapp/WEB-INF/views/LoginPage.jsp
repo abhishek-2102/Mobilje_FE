@@ -21,7 +21,7 @@ background-repeat:no-repeat;
 <c:if test="${cartText == true}">
 	<h3 class="alert alert-danger text-center">Login before add to cart</h3>
 </c:if>
-
+<br>
 <div class="jumbotron">
 <h3 style="text-align:center; color:white">Login to shop</h3>
 
@@ -32,21 +32,17 @@ background-repeat:no-repeat;
                </div>
                </div><!-- end user name -->
                <br>
-               
 <div class="row">	
 <div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px; color:white"><b>Password:</b></div>     
 <div class="col-sm-4"><form:input path="login_password" class="form-control" type="password" required="true"></form:input>
                </div>
                </div><!-- end user name -->
                <br>
-               
 <div class="col-sm-2 col-sm-offset-5">
 <form:button type="submit" class="btn btn-success">Start Shopping</form:button> 
 </div>
 </form:form><!-- End form tag -->
 <br>
-
-
 </div><!-- End jumbotron -->
 </div><!-- End Container -->
 </body>

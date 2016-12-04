@@ -32,11 +32,20 @@ width:100px;
 </style>
 <script>
 	$(function(){
+		var list="<%=session.getAttribute("Cart")%>";
+		alert(list);
+		if(list== "null" || list=="[]" ){
+			$('#on-top').attr('style','position:fixed; top:120px; left:1340px');
 		$('#on-top').hover(function(){
 			var pos="1255px";
 				$(this).animate({left:pos});
 		},function(){$(this).animate({left:"1340px"});
 		});//end on hover event
+		}
+		else{
+			$('#on-top').attr('style','position:fixed; top:120px; left:1255px');
+			$('#add-img').attr('src','img/afteradd.png');
+		}
 	});//end main function
 </script>
 
@@ -77,20 +86,22 @@ width:100px;
 <jsp:include page="ProductIndiv.jsp"/>
 </c:when>
 
-<c:when test="${toCart == 1}">  				<!-- Add to cart page -->
-<jsp:include page="AddtoCart.jsp"/>
-</c:when>
-
 <c:when test="${toHome == 1}">  				<!-- to home -->
 <jsp:include page="home.jsp"/>
 </c:when>
 
+<c:when test="${oncartDisp == 1}">  			<!-- to cart display page-->
+<jsp:include page="CartDisplay.jsp"/>
+</c:when>
 
 <c:otherwise>
 <jsp:include page="home.jsp"/>					<!-- Default Page -->
 </c:otherwise>
 </c:choose>
-<a href="#" id="on-top" style=" position:fixed; top:120px; left:1340px" ><img class="img-rounded" style="border:2px solid #48494C;" src="img/beforeadd.png" id="add-img"></a>
+
+<a href="tocartdisp?username=<%=session.getAttribute("userEmail")%>" id="on-top"><span class="label label-warning" style="margin-bottom:100px"><%=session.getAttribute("size")%></span><img class="img-rounded" style="border:2px solid #48494C;" src="img/beforeadd.png" id="add-img">
+</a>
+
 <jsp:include page="Footer.jsp"/>				<!-- Include Footer -->
 </body>
 </html>

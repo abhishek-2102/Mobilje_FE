@@ -63,9 +63,8 @@ public class UserProduct {
 	}
 	
 	@RequestMapping(value="/indivProdDisp")
-	public String dispIndiv(@RequestParam("pid")String pid,Model m,Map<String,Object> map)
+	public String dispIndiv(@RequestParam("pid")String pid, Model m,Map<String,Object> map)
 	{	
-		
 		String display=DescpText.DisplText(pid);
 		
 		if(display!=null){
@@ -82,7 +81,7 @@ public class UserProduct {
 	}//end displaying individual 
 	
 	@RequestMapping(value="/tocart")
-	public String dispCartPage(@RequestParam("pid") String pid,Model m,HttpSession sess,Map<String, Object> model){
+	public String dispCartPage(@RequestParam("pid") String pid,@RequestParam("pname") String prodname,Model m,HttpSession sess,Map<String, Object> model){
 		
 		if(sess.getAttribute("username").equals(" ")){
 			System.out.println("No email Id");
@@ -114,11 +113,28 @@ public class UserProduct {
 			cat.setQuantity(q);
 			cat.setU_id(reg.regDetails().getEmail());
 			cat.setPrice(price);
+			cat.setP_name(prodname);
 			
 			cart.addtoCart(cat);
 			
-			m.addAttribute("toCart",1);
+			List<CartDetails> cartlist=cart.getList(reg.regDetails().getEmail());
+			sess.setAttribute("Cart", cartlist);
+			
+			int size=cartlist.size();
+			sess.setAttribute("Size",size );
+			
+			m.addAttribute("userProduct",1);
 		}//end else
 		return "index";
-	}//display cart page
+	}//add to cart
+	
+	@RequestMapping("/tocartdisp")
+	public String displayCart(@RequestParam("username") String username,Model m){
+		
+		@SuppressWarnings("unused")
+		List<CartDetails> cartlist=cart.getList(username);
+		
+		m.addAttribute("oncartDisp",1);
+		return "index";
+	}//display cart
 }

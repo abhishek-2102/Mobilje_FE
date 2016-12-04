@@ -52,7 +52,7 @@ width:500px;
 			<a class="btn btn-lg btn-success" href="#">
 		 	 	Buy Now <i class="fa fa-truck"></i></a>
 		 	 	
-			<a class="btn btn-lg btn-warning" id="onclick-add" href="tocart?pid=${iData.p_id}">
+			<a class="btn btn-lg btn-warning" id="onclick-add" href="tocart?pid=${iData.p_id}&pname=${iData.p_name}">
 		  		Add to cart <i class="fa fa-tags"></i></a>
 		  	
 			<h4>Description:</h4>
