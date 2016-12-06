@@ -105,7 +105,7 @@ margin-left:20px;
 					</div>
 					<div class="col-sm-4">
 						<form:input path="p_price" class="form-control" type="number"
-							required="true"></form:input>
+							required="true" min="0"></form:input>
 					</div>
 				</div>
 				<!-- Product price-->
@@ -150,7 +150,7 @@ margin-left:20px;
 					</div>
 					<div class="col-sm-4">
 						<form:input path="stock" class="form-control" type="number"
-							required="true"></form:input>
+							required="true" min="0"></form:input>
 					</div>
 				</div>
 				<!-- Stock -->

@@ -30,6 +30,13 @@ padding:0px 10px 20px 10px;
 <body>
 
 <div class="container-fluid">
+
+<c:if test="${pMess == true}">
+<div class="row">
+<h4 class="alert alert-success text-center col-sm-6 col-sm-offset-3">Product Added to cart</h4>
+</div>
+</c:if>
+
 <c:forEach var="prod" items="${pData}">
 	<div class="col-sm-3 text-center" id="box">
 		<div class="panel panel-defualt">

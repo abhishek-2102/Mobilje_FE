@@ -33,7 +33,7 @@ width:100px;
 <script>
 	$(function(){
 		var list="<%=session.getAttribute("Cart")%>";
-		alert(list);
+		
 		if(list== "null" || list=="[]" ){
 			$('#on-top').attr('style','position:fixed; top:120px; left:1340px');
 		$('#on-top').hover(function(){
@@ -99,7 +99,7 @@ width:100px;
 </c:otherwise>
 </c:choose>
 
-<a href="tocartdisp?username=<%=session.getAttribute("userEmail")%>" id="on-top"><span class="label label-warning" style="margin-bottom:100px"><%=session.getAttribute("size")%></span><img class="img-rounded" style="border:2px solid #48494C;" src="img/beforeadd.png" id="add-img">
+<a href="tocartdisp?username=<%=session.getAttribute("userEmail")%>" id="on-top"><span class="label label-warning"><%=session.getAttribute("size")%></span><br><img class="img-rounded" style="border:2px solid #48494C;" src="img/beforeadd.png" id="add-img">
 </a>
 
 <jsp:include page="Footer.jsp"/>				<!-- Include Footer -->

@@ -9,5 +9,8 @@ public interface CartDao {
 	public boolean addtoCart(CartDetails cart);
 	//get from cart table
 	public List<CartDetails> getList(String username);
-	
+	//update quantity
+	public void upQuant(int q,String ctid);
+	//delete quantity
+	public void deleteCart(String id);
 }

@@ -35,12 +35,14 @@ public class UserProduct {
 	@Autowired
 	RegisterDao reg;
 	
+	String cid;
+	
 	@RequestMapping(value="/product",method=RequestMethod.GET)
 	public String dispProduct(@RequestParam("cid") String cid,Model m)
 	{	
 		m.addAttribute("userProduct",1);
-		
-		List<String> prod=this.prod.dispProduct(cid);
+		this.cid=cid;
+		List<String> prod=this.prod.dispProduct(this.cid);
 		m.addAttribute("pData",prod);
 		
 		return "index";
@@ -83,6 +85,9 @@ public class UserProduct {
 	@RequestMapping(value="/tocart")
 	public String dispCartPage(@RequestParam("pid") String pid,@RequestParam("pname") String prodname,Model m,HttpSession sess,Map<String, Object> model){
 		
+		@SuppressWarnings("unchecked")
+		List<CartDetails> cartList = (List<CartDetails>) sess.getAttribute("Cart");
+		
 		if(sess.getAttribute("username").equals(" ")){
 			System.out.println("No email Id");
 			m.addAttribute("cartText",true);
@@ -93,6 +98,22 @@ public class UserProduct {
 		}//end if
 		
 		else{
+			for(CartDetails c:cartList){
+				System.out.println(c);
+				if(c.getP_id().equals(pid)&&c.getU_id().equals(reg.regDetails().getEmail())){
+					System.out.println("Pid:"+c.getP_id());
+					System.out.println("Email:"+c.getU_id());
+					m.addAttribute("oncartDisp",1);
+					m.addAttribute("dupMessage",true);
+					
+					List<CartDetails> cartlist=cart.getList(reg.regDetails().getEmail());
+					
+					m.addAttribute("cart",cartlist);
+					
+					return "index";
+				}//end if
+			}//end enhanced for loop
+			
 			Date d = new Date( );
 		    SimpleDateFormat fmt=new SimpleDateFormat ("yyyy.MM.dd");
 		    String date= fmt.format(d);
@@ -121,7 +142,13 @@ public class UserProduct {
 			sess.setAttribute("Cart", cartlist);
 			
 			int size=cartlist.size();
-			sess.setAttribute("Size",size );
+			
+			sess.setAttribute("size",size );
+			
+			m.addAttribute("pMess",true);
+			
+			List<String> prod=this.prod.dispProduct(this.cid);
+			m.addAttribute("pData",prod);
 			
 			m.addAttribute("userProduct",1);
 		}//end else
@@ -131,10 +158,41 @@ public class UserProduct {
 	@RequestMapping("/tocartdisp")
 	public String displayCart(@RequestParam("username") String username,Model m){
 		
-		@SuppressWarnings("unused")
+		
 		List<CartDetails> cartlist=cart.getList(username);
+		
+		m.addAttribute("cart",cartlist);
 		
 		m.addAttribute("oncartDisp",1);
 		return "index";
 	}//display cart
+	
+	@RequestMapping(value="/updatequant",method=RequestMethod.POST)
+	public String updateQuant(int quant,String ctid,Model m){
+		
+		cart.upQuant(quant, ctid);
+		
+		List<CartDetails> cartlist=cart.getList(reg.regDetails().getEmail());
+		
+		m.addAttribute("cart",cartlist);
+		
+		m.addAttribute("oncartDisp",1);
+		m.addAttribute("upMessage",true);
+		return "index";
+	}//end update product
+	
+	@RequestMapping("/deletCart")
+	public String delCart(@RequestParam("ctid")String ctid,Model m,HttpSession sess){
+		
+		System.out.println("Cart id:"+ctid);
+		
+		cart.deleteCart(ctid);
+		List<CartDetails> cartlist=cart.getList(reg.regDetails().getEmail());
+		
+		m.addAttribute("cart",cartlist);
+		sess.setAttribute("size", cartlist.size());
+		m.addAttribute("oncartDisp",1);
+		m.addAttribute("delMessage",true);
+		return "index";
+	}//end delete quantity
 }
