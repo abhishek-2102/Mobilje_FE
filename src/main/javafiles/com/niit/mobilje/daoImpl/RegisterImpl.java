@@ -44,7 +44,7 @@ public class RegisterImpl implements RegisterDao {
 		}
 	}
 	
-	public boolean isValidUser(LoginDetails log) {
+	public Register isValidUser(LoginDetails log) {
 		
 		String email=log.getLogin_email();
 		String password=log.getLogin_password();
@@ -59,11 +59,8 @@ public class RegisterImpl implements RegisterDao {
 			for(Register r:reg){
 				this.reg=r;
 			}
-			return true;
 		}
-		else{
-			return false;
-			}
+		return this.reg;
 	}
 	
 	public Register regDetails(){

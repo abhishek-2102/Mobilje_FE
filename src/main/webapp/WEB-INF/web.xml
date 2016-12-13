@@ -5,7 +5,6 @@
  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
  http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
  
-
  <display-name>Archetype Created Web Application</display-name>
  
  <servlet>
@@ -24,7 +23,23 @@
    <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
  </context-param>
  
+<!--  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+</filter>
+ 
+<filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping> -->
+ <!-- ,/WEB-INF/springsecurity-servlet.xml -->
  <listener>
    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
  </listener>
-</web-app>
+ 
+<!--  <error-page>
+ 	<error-code>500</error-code>
+ 	<location>/resources/Error.jsp</location>
+ </error-page> -->
+ 
+ </web-app>

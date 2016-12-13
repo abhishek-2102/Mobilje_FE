@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+               			http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+               
+<var name="orderDetails"  class="com.niit.mobilje.trans.OrderDetails"/>  
+<var name="shippingAddress"  class="com.niit.mobilje.trans.ShippingAddress"/>  
+<var name="billingAddress"  class="com.niit.mobilje.trans.BillingAddress"/>  
+
+<on-start>
+	  <evaluate expression="checkOutFlow.orderSet()" result="flowScope.orderDetails"/>
+
+</on-start>
+
+<view-state id="flowExecutor" view="shipping" model="shippingAddress">
+	<transition on="saveship" to="shippingSave"/>   
+</view-state>
+
+<action-state id="shippingSave">
+	<evaluate expression="checkOutFlow.shippAddr(flowScope.orderDetails,shippingAddress)"></evaluate>
+	<transition on="shipsave" to="billingView" />
+</action-state>
+
+<view-state id="billingView" view="billing" model="billingAddress">
+	<transition on="savebill" to="billingSave"/>   
+</view-state>
+
+<action-state id="billingSave">
+	<evaluate expression="checkOutFlow.billAddr(flowScope.orderDetails,billingAddress)"></evaluate>
+	<transition on="billsave" to="billingSave" />
+</action-state>
+
+</flow>

@@ -89,18 +89,17 @@
 <br>
 					<p class="txt-railway" style="color:#0080ff;">Follow us</p>
 					
-					<a href="#"><span class="fa fa-facebook-square fa-2x" style="color:white" aria-hidden="true"></span></a> 
-					<a href="#"><span class="fa fa-linkedin-square fa-2x" style="color:white" aria-hidden="true"></span></a>
-					<a href="#"><span class="fa fa-twitter fa-2x" style="color:white" aria-hidden="true"></span></a>
-					<a href="#"><span class="fa fa-google-plus-official fa-2x" style="color:white" aria-hidden="true"></span></a>
+					<a href="https://www.facebook.com/abhishek.b.0221"><span class="fa fa-facebook-official fa-2x" style="color:white"></span></a> 
+					<a href="#"><span class="fa fa-steam fa-2x" style="color:white"></span></a>
+					<a href="https://github.com/abhishek-2102/Mobilje_FE.git"><span class="fa fa-github fa-2x" style="color:white"></span></a>
+					<a href="https://plus.google.com/u/0/108465920621098787961"><span class="fa fa-google-plus fa-2x" style="color:white"></span></a>
 	
 				</div>
 				<!-- end col-sm-2 -->
-
-</div>
+</div><!-- end container -->
 			</div>
 			<!-- end row -->
 		</div>
-		<!-- end container --> </footer>
+		<!-- end container fluid --> </footer>
 </body>
 </html>

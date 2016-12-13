@@ -18,8 +18,21 @@ background-repeat:no-repeat;
 </head>
 <body>
 <div class="container">
+
 <c:if test="${cartText == true}">
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
 	<h3 class="alert alert-danger text-center">Login before add to cart</h3>
+</div>
+</div>
+</c:if>
+
+<c:if test="${error == true}">
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+	<h3 class="alert alert-warning text-center">Incorrect Username and password</h3>
+</div>
+</div>
 </c:if>
 <br>
 <div class="jumbotron">

@@ -87,7 +87,7 @@ public class UserProduct {
 		
 		@SuppressWarnings("unchecked")
 		List<CartDetails> cartList = (List<CartDetails>) sess.getAttribute("Cart");
-		
+		System.out.println(cartList);
 		if(sess.getAttribute("username").equals(" ")){
 			System.out.println("No email Id");
 			m.addAttribute("cartText",true);
@@ -185,11 +185,11 @@ public class UserProduct {
 	public String delCart(@RequestParam("ctid")String ctid,Model m,HttpSession sess){
 		
 		System.out.println("Cart id:"+ctid);
-		
 		cart.deleteCart(ctid);
 		List<CartDetails> cartlist=cart.getList(reg.regDetails().getEmail());
 		
 		m.addAttribute("cart",cartlist);
+		sess.setAttribute("Cart",cartlist);
 		sess.setAttribute("size", cartlist.size());
 		m.addAttribute("oncartDisp",1);
 		m.addAttribute("delMessage",true);

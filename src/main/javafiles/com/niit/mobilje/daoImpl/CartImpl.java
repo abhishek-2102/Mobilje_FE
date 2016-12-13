@@ -44,10 +44,12 @@ public class CartImpl implements CartDao{
 	//update quantity in the table
 	public void upQuant(int q,String ctid) {
 		CartDetails cart=(CartDetails)sessionFactory.getCurrentSession().get(CartDetails.class, ctid);
-		int price=cart.getPrice();
+		
+		int previous=cart.getPrice();
+		int indiv=previous/cart.getQuantity();
 		
 		cart.setQuantity(q);
-		cart.setPrice(q*price);
+		cart.setPrice(q*indiv);
 		sessionFactory.getCurrentSession().update(cart);
 	}
 	

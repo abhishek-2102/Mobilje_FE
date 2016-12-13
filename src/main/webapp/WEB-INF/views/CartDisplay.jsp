@@ -26,7 +26,7 @@
 		<h4 class="alert alert-danger text-center col-sm-6 col-sm-offset-3">Product removed from cart</h4>
 	</div>
 </c:if>
-
+<br><br>
 <div class="col-sm-10 col-sm-offset-1">
 	<div class="table-responsive">
 			<table class="table">
@@ -68,16 +68,17 @@
 		</div><!-- end table responsive -->		
 
 </div><!-- end col span -->
-
-
+<br><br>
 	<div class="">
 		<a href="" class="btn btn-primary col-sm-3">Continue Shopping</a>
 	</div>
 	<div class="">
-		<a href="" class="btn btn-warning col-sm-3 col-sm-offset-6">Proceed to Checkout</a>
+		<a href="checkout" class="btn btn-warning col-sm-3 col-sm-offset-6">Proceed to Checkout</a>
 	</div>
-</div>
 
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 </div><!-- end container -->
 </body>
 </html>

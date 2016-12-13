@@ -7,7 +7,7 @@ public interface RegisterDao {
 	//for user register
 	public boolean saveRegister(Register user);
 	//to check if the login user matches with the database
-	public boolean isValidUser(LoginDetails log);
+	public Register isValidUser(LoginDetails log);
 	//
 	public Register regDetails();
 }

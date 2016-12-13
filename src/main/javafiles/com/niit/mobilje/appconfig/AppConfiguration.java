@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.mobilje.trans.CartDetails;
 import com.niit.mobilje.trans.CategoryDetails;
+import com.niit.mobilje.trans.OrderDetails;
 import com.niit.mobilje.trans.ProductDetails;
 import com.niit.mobilje.trans.Register;
 import com.niit.mobilje.trans.SupplierDetails;
@@ -53,6 +54,7 @@ import com.niit.mobilje.trans.SupplierDetails;
 			session.addAnnotatedClass(SupplierDetails.class);
 			session.addAnnotatedClass(ProductDetails.class);
 			session.addAnnotatedClass(CartDetails.class);
+			session.addAnnotatedClass(OrderDetails.class);
 			
 			return session.buildSessionFactory();
 		}

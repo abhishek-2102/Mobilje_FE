@@ -56,11 +56,12 @@ public class Login {
 	@RequestMapping(method =RequestMethod.POST)
 	public String perfLogin(@ModelAttribute("login_form") LoginDetails l,Map<String, Object> model,Model m,HttpSession sess)
 	{
-		if(reg.isValidUser(l))
+		if(reg.isValidUser(l) != null)
 			{
+		
 			lg.setSignIn("Log Out");
 			lg.setSignUp("Sign Up");
-				
+			
 			sess.setAttribute("SignIn", lg.getSignIn());
 			sess.setAttribute("SignUp", lg.getSignUp());
 				
@@ -87,13 +88,12 @@ public class Login {
 					m.addAttribute("error",true);
 					return "index";
 				}//end if-else for role validation
-			}//end validation
+		}//end validation
+		
 		else{
 			m.addAttribute("onclicklogin",1);
 			m.addAttribute("error",true);
-			m.addAttribute("logError","Username and password do not match");
 			return "index";
 			}
 		}//end login
 	}
-

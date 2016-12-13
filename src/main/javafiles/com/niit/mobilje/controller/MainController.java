@@ -2,6 +2,7 @@ package com.niit.mobilje.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.exception.JDBCConnectionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,21 +30,26 @@ public class MainController {
 	LoginVals lg;
 	
 	@RequestMapping("/")
-	public String gotohome(Model m,HttpSession sess)
+	public String gotohome(Model m,HttpSession sess) 
 	{	
-		String cList=cat.catList(c);
-		sess.setAttribute("categoryData", cList);
-		
-		lg.setSignIn("Sign In");
-		lg.setSignUp("Sign Up");
-		
-		sess.setAttribute("username"," ");
-		sess.setAttribute("size","0" );
-		
-		sess.setAttribute("SignIn", lg.getSignIn());
-		sess.setAttribute("SignUp", lg.getSignUp());
-		
-		return "index";
+		try {
+			String cList=cat.catList(c);
+			sess.setAttribute("categoryData", cList);
+			
+			lg.setSignIn("Sign In");
+			lg.setSignUp("Sign Up");
+			
+			sess.setAttribute("username"," ");
+			sess.setAttribute("size","0" );
+			
+			sess.setAttribute("SignIn", lg.getSignIn());
+			sess.setAttribute("SignUp", lg.getSignUp());
+			
+			return "index";
+		} catch (JDBCConnectionException e) {
+	
+			return "Error";
+		}
 	}
 	
 	@RequestMapping("/home")
@@ -73,7 +79,4 @@ public class MainController {
 		m.addAttribute("onclickContact",1);
 		return"index";
 	}
-	
-	
-	
 }
