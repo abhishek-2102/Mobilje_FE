@@ -1,0 +1,64 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<security:http auto-config="true" use-expressions="true">
+
+		 <security:intercept-url pattern="/home**"
+			access="hasRole('ROLE_USER')" /> 
+			
+			<!-- model lo
+		<security:intercept-url pattern="/myord**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/cartdisplay**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/buy"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/categoryrequest**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/subcategoryrequest**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/supplierrequest**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/subcategoryrequest**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/productrequest**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/adminrequest**"
+			access="hasRole('ROLE_ADMIN')" />
+			-->
+			
+		<security:form-login login-page="/login_page"
+			login-processing-url="/login_success"
+			authentication-success-forward-url="/login_success"
+			username-parameter="login_email" 
+			password-parameter="login_password"
+			/>
+			
+			
+		<security:csrf disabled="true" />
+
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="dataStructure"
+				users-by-username-query="select email,password,'true' as enabled from register where email=?"
+				authorities-by-username-query="select email, role from register  where email =?" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+</beans:beans>

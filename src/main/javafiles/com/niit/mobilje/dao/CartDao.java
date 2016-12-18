@@ -13,4 +13,6 @@ public interface CartDao {
 	public void upQuant(int q,String ctid);
 	//delete quantity
 	public void deleteCart(String id);
+	
+	public List<String> totalPrice(String uid);
 }

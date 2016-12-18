@@ -37,7 +37,7 @@ public class Register {
 	public String gender;
 	
 	@Column
-	public String role="user";
+	public String role="ROLE_USER";
 	
 	
 	//getter setters

@@ -138,6 +138,10 @@ public class UserProduct {
 			
 			cart.addtoCart(cat);
 			
+			Object[] total=cart.totalPrice(reg.regDetails().getEmail()).toArray();
+			
+			sess.setAttribute("total",total[0]);
+			
 			List<CartDetails> cartlist=cart.getList(reg.regDetails().getEmail());
 			sess.setAttribute("Cart", cartlist);
 			
@@ -158,7 +162,6 @@ public class UserProduct {
 	@RequestMapping("/tocartdisp")
 	public String displayCart(@RequestParam("username") String username,Model m){
 		
-		
 		List<CartDetails> cartlist=cart.getList(username);
 		
 		m.addAttribute("cart",cartlist);
@@ -167,10 +170,15 @@ public class UserProduct {
 		return "index";
 	}//display cart
 	
+	
+
 	@RequestMapping(value="/updatequant",method=RequestMethod.POST)
-	public String updateQuant(int quant,String ctid,Model m){
+	public String updateQuant(int quant,String ctid,Model m,HttpSession sess){
 		
 		cart.upQuant(quant, ctid);
+		
+		Object[] total=cart.totalPrice(reg.regDetails().getEmail()).toArray();
+		sess.setAttribute("total",total[0]);
 		
 		List<CartDetails> cartlist=cart.getList(reg.regDetails().getEmail());
 		
@@ -186,8 +194,11 @@ public class UserProduct {
 		
 		System.out.println("Cart id:"+ctid);
 		cart.deleteCart(ctid);
-		List<CartDetails> cartlist=cart.getList(reg.regDetails().getEmail());
 		
+		Object[] total=cart.totalPrice(reg.regDetails().getEmail()).toArray();
+		sess.setAttribute("total",total[0]);
+		
+		List<CartDetails> cartlist=cart.getList(reg.regDetails().getEmail());
 		m.addAttribute("cart",cartlist);
 		sess.setAttribute("Cart",cartlist);
 		sess.setAttribute("size", cartlist.size());

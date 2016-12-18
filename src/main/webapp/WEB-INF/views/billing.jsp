@@ -18,7 +18,7 @@
 <div class="container">
 <br>
 <div class="jumbotron">
-<h3 style="text-align:center">Shipping Address</h3>
+<h3 style="text-align:center">Billing Address</h3>
 
 <form:form class="form-group" method="post" commandName="billingAddress">
 
@@ -63,12 +63,14 @@
                </div>
                </div><!-- end line2 -->
                <br>
-	<form:button type="submit" name="_eventId_savebill">Next</form:button>
+               <% String name=(String)session.getAttribute("userEmail"); %>
+               <form:input path="userid" type="hidden" value="<%=name %>"></form:input>
+	<a href="" class="btn btn-primary col-sm-3">Back</a><form:button class="btn btn-success col-sm-3 col-sm-offset-6" type="submit" name="_eventId_savebill">Next</form:button>
 </form:form><!-- End form tag -->
 <br>
 
 <div class="">
-		<a href="" class="btn btn-primary col-sm-3">Back</a>
+	
 	</div>
 	<div class="">
 	<!-- 	<a name="_eventId_saveship" type="submit" class="btn btn-warning col-sm-3 col-sm-offset-6">Next</a>

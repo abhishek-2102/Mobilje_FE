@@ -63,17 +63,18 @@
                </div>
                </div><!-- end line2 -->
                <br>
-	<form:button type="submit" name="_eventId_saveship">Next</form:button>
+	<a href="" class="btn btn-primary col-sm-3">Back</a>
+	<form:button class="btn btn-success col-sm-3 col-sm-offset-6" type="submit" name="_eventId_saveship">Next</form:button>
 </form:form><!-- End form tag -->
 <br>
 
 <div class="">
-		<a href="" class="btn btn-primary col-sm-3">Back</a>
+		
 	</div>
 	<div class="">
 	<!-- 	<a name="_eventId_saveship" type="submit" class="btn btn-warning col-sm-3 col-sm-offset-6">Next</a>
 	 --></div>
-	<br>
+	
 </div><!-- End jumbotron -->
 </div><!-- End Container -->
 

@@ -15,7 +15,7 @@ public class BillingAddress implements Serializable{
 	private String city;
 	private String pin;
 	private String state;
-	
+	private String userid;
 	
 	public String getHno() {
 		return hno;
@@ -56,6 +56,13 @@ public class BillingAddress implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	
 	
 	
 }

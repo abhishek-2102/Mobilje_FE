@@ -62,11 +62,10 @@
 									<i class="fa fa-times-circle"></i></a></td>
 					</tr>
 				</tbody>
-				
 		</c:forEach>
 			</table>
-		</div><!-- end table responsive -->		
-
+			<div class="jumbotron text-right" style="padding:10px;"><b>Total:<%=session.getAttribute("total") %></b></div>
+		</div><!-- end table responsive -->
 </div><!-- end col span -->
 <br><br>
 	<div class="">

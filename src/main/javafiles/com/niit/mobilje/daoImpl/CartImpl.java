@@ -61,4 +61,16 @@ public class CartImpl implements CartDao{
 		sessionFactory.getCurrentSession().delete(cart);
 		System.out.println("Product deleted from cart");
 	}
+	
+	//total price
+	public List<String> totalPrice(String uid){
+		String total="select sum(price) from CartDetails where u_id='"+uid+"'";
+		Query q=sessionFactory.getCurrentSession().createQuery(total);
+	
+		
+		@SuppressWarnings("unchecked")
+		List<String> t=q.list();
+		System.out.println(t);
+		return t;
+	}
 }

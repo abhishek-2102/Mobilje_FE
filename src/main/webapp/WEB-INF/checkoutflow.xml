@@ -7,10 +7,11 @@
 <var name="orderDetails"  class="com.niit.mobilje.trans.OrderDetails"/>  
 <var name="shippingAddress"  class="com.niit.mobilje.trans.ShippingAddress"/>  
 <var name="billingAddress"  class="com.niit.mobilje.trans.BillingAddress"/>  
+  
 
 <on-start>
 	  <evaluate expression="checkOutFlow.orderSet()" result="flowScope.orderDetails"/>
-
+		
 </on-start>
 
 <view-state id="flowExecutor" view="shipping" model="shippingAddress">
@@ -28,7 +29,12 @@
 
 <action-state id="billingSave">
 	<evaluate expression="checkOutFlow.billAddr(flowScope.orderDetails,billingAddress)"></evaluate>
-	<transition on="billsave" to="billingSave" />
+	<transition on="billsave" to="orderView" />
 </action-state>
+
+<view-state id="orderView" view="orderdetails" >
+	<!-- <transition on="" to=""/>    -->
+</view-state>
+
 
 </flow>

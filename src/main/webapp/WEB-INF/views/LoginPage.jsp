@@ -38,23 +38,23 @@ background-repeat:no-repeat;
 <div class="jumbotron">
 <h3 style="text-align:center; color:white">Login to shop</h3>
 
-<form:form action="login_page" class="form-group" method="post" commandName="login_form">
+<form action="login_success" class="form-group" method="post" >
 <div class="row">	
 <div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px; color:white"><b>Email:</b></div>     
-<div class="col-sm-4"><form:input path="login_email" class="form-control" type="text" required="true"></form:input>
+<div class="col-sm-4"><input name="login_email" class="form-control" type="text" required="true"></input>
                </div>
                </div><!-- end user name -->
                <br>
 <div class="row">	
 <div class="col-sm-2 col-sm-offset-2" style="text-align:right; margin-top:6px; color:white"><b>Password:</b></div>     
-<div class="col-sm-4"><form:input path="login_password" class="form-control" type="password" required="true"></form:input>
+<div class="col-sm-4"><input name="login_password" class="form-control" type="password" required="true"></input>
                </div>
                </div><!-- end user name -->
                <br>
 <div class="col-sm-2 col-sm-offset-5">
-<form:button type="submit" class="btn btn-success">Start Shopping</form:button> 
+<button type="submit" class="btn btn-success">Start Shopping</button> 
 </div>
-</form:form><!-- End form tag -->
+</form><!-- End form tag -->
 <br>
 </div><!-- End jumbotron -->
 </div><!-- End Container -->

@@ -1,11 +1,14 @@
 package com.niit.mobilje.controller;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,7 +22,7 @@ import com.niit.mobilje.trans.LoginDetails;
 import com.niit.mobilje.trans.LoginVals;
 
 @Controller
-@RequestMapping(value="/login_page")
+@RequestMapping
 public class Login {
 	
 	@Autowired
@@ -31,7 +34,7 @@ public class Login {
 	@Autowired
 	CartDao cart;
 	
-	@RequestMapping(method =RequestMethod.GET)
+	@RequestMapping(value="/login_page")
 	public String viewLoginPage(Map<String, Object> model,Model m,HttpSession sess)
 	{
 		lg.setSignIn("Sing In");
@@ -44,8 +47,9 @@ public class Login {
 		
 		m.addAttribute("onclicklogin",1);
 		LoginDetails login = new LoginDetails();
-		model.put("login_form",login);
 		
+		/*model.put("login_form",login);*/
+		System.out.println("Login Get");
 		sess.setAttribute("Cart","null");
 		
 		sess.setAttribute("size","0");
@@ -53,31 +57,45 @@ public class Login {
 		return"index";
 	}
 	
-	@RequestMapping(method =RequestMethod.POST)
-	public String perfLogin(@ModelAttribute("login_form") LoginDetails l,Map<String, Object> model,Model m,HttpSession sess)
+	@RequestMapping(value="/login_success",method =RequestMethod.POST)
+	public String perfLogin(Map<String, Object> model,Model m,HttpSession sess)
 	{
-		if(reg.isValidUser(l) != null)
+		String userid = SecurityContextHolder.getContext().getAuthentication().getName();
+		
+		System.out.println("user:"+userid);
+		Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+		System.out.println("Authorities:"+authorities);
+		
+		for (GrantedAuthority authority : authorities) {
+			if(authority.getAuthority().equals("ROLE_USER")){
+				lg.setSignIn("Log Out");
+				lg.setSignUp("Sign Up");
+				
+				sess.setAttribute("SignIn", lg.getSignIn());
+				sess.setAttribute("SignUp", lg.getSignUp());
+					
+				String name=reg.regDetails().getName();
+				
+				String id=reg.regDetails().getEmail();
+				
+				sess.setAttribute("userEmail", id);
+				
+				List<CartDetails> cartlist=cart.getList(id);
+				
+				Object[] total=cart.totalPrice(reg.regDetails().getEmail()).toArray();
+				sess.setAttribute("total",total[0]);
+				
+				sess.setAttribute("Cart", cartlist);
+				sess.setAttribute("size",cartlist.size());
+				sess.setAttribute("username","Welcome "+name);
+			}
+			
+		}
+		
+		/*if(reg.isValidUser(l) != null)
 			{
 		
-			lg.setSignIn("Log Out");
-			lg.setSignUp("Sign Up");
 			
-			sess.setAttribute("SignIn", lg.getSignIn());
-			sess.setAttribute("SignUp", lg.getSignUp());
-				
-			String name=reg.regDetails().getName();
-			
-			String id=reg.regDetails().getEmail();
-			
-			sess.setAttribute("userEmail", id);
-			
-			List<CartDetails> cartlist=cart.getList(id);
-			
-			sess.setAttribute("Cart", cartlist);
-			
-			sess.setAttribute("size",cartlist.size());
-			
-			sess.setAttribute("username","Welcome "+name);
 			
 			if(reg.regDetails().getRole().equals("admin"))
 			{
@@ -89,11 +107,12 @@ public class Login {
 					return "index";
 				}//end if-else for role validation
 		}//end validation
-		
 		else{
+			System.out.println("Error text!");
 			m.addAttribute("onclicklogin",1);
 			m.addAttribute("error",true);
-			return "index";
-			}
+			return "index";*/
+			
+		return "index";
 		}//end login
 	}
