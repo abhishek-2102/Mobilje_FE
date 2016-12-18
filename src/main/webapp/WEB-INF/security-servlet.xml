@@ -16,32 +16,28 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<security:http auto-config="true" use-expressions="true">
 
-		 <security:intercept-url pattern="/home**"
-			access="hasRole('ROLE_USER')" /> 
+		 
 			
-			<!-- model lo
-		<security:intercept-url pattern="/myord**"
+			 
+		<security:intercept-url pattern="/productPage**"
+			access="hasRole('ROLE_ADMIN')" /> 
+		<security:intercept-url pattern="/supplierPage**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/categoryPage**"
+			access="hasRole('ROLE_ADMIN')" />
+			
+		<security:intercept-url pattern="/tocartdisp**"
 			access="hasRole('ROLE_USER')" />
-		<security:intercept-url pattern="/cartdisplay**"
+		<security:intercept-url pattern="/product**"
 			access="hasRole('ROLE_USER')" />
-		<security:intercept-url pattern="/buy"
-			access="hasRole('ROLE_USER')" />
-		<security:intercept-url pattern="/categoryrequest**"
-			access="hasRole('ROLE_ADMIN')" />
-		<security:intercept-url pattern="/subcategoryrequest**"
-			access="hasRole('ROLE_ADMIN')" />
-		<security:intercept-url pattern="/supplierrequest**"
-			access="hasRole('ROLE_ADMIN')" />
-		<security:intercept-url pattern="/subcategoryrequest**"
-			access="hasRole('ROLE_ADMIN')" />
-		<security:intercept-url pattern="/productrequest**"
-			access="hasRole('ROLE_ADMIN')" />
-		<security:intercept-url pattern="/adminrequest**"
-			access="hasRole('ROLE_ADMIN')" />
-			-->
+		<security:intercept-url pattern="/checkout**"
+			access="hasRole('ROLE_USER')" />	
+
+
 			
 		<security:form-login login-page="/login_page"
 			login-processing-url="/login_success"
+			authentication-failure-forward-url="/login_page?error"
 			authentication-success-forward-url="/login_success"
 			username-parameter="login_email" 
 			password-parameter="login_password"
