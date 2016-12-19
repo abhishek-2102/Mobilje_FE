@@ -94,6 +94,10 @@ width:100px;
 <jsp:include page="CartDisplay.jsp"/>
 </c:when>
 
+<c:when test="${onNoAccess == 1}">  			<!-- to access denied page-->
+<jsp:include page="AccessDenied.jsp"/>
+</c:when>
+
 <c:otherwise>
 <jsp:include page="home.jsp"/>					<!-- Default Page -->
 </c:otherwise>

@@ -65,7 +65,8 @@
                <br>
                <% String name=(String)session.getAttribute("userEmail"); %>
                <form:input path="userid" type="hidden" value="<%=name %>"></form:input>
-	<a href="" class="btn btn-primary col-sm-3">Back</a><form:button class="btn btn-success col-sm-3 col-sm-offset-6" type="submit" name="_eventId_savebill">Next</form:button>
+	<input name="_eventId_back" class="btn btn-primary col-sm-3" value="Cancel" type="submit">
+	<form:button class="btn btn-success col-sm-3 col-sm-offset-6" type="submit" name="_eventId_savebill">View Products</form:button>
 </form:form><!-- End form tag -->
 <br>
 
@@ -76,6 +77,7 @@
 	<!-- 	<a name="_eventId_saveship" type="submit" class="btn btn-warning col-sm-3 col-sm-offset-6">Next</a>
 	 --></div>
 	<br>
+	
 </div><!-- End jumbotron -->
 </div><!-- End Container -->
 

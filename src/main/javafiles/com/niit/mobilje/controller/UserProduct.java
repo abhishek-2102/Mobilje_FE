@@ -183,7 +183,7 @@ public class UserProduct {
 		List<CartDetails> cartlist=cart.getList(reg.regDetails().getEmail());
 		
 		m.addAttribute("cart",cartlist);
-		
+		sess.setAttribute("Cart", cartlist);
 		m.addAttribute("oncartDisp",1);
 		m.addAttribute("upMessage",true);
 		return "index";

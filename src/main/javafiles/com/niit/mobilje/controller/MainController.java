@@ -30,7 +30,7 @@ public class MainController {
 	LoginVals lg;
 	
 	@RequestMapping("/")
-	public String gotohome(Model m,HttpSession sess) 
+	public String goToHome(Model m,HttpSession sess) 
 	{	
 		try {
 			String cList=cat.catList(c);
@@ -53,30 +53,35 @@ public class MainController {
 	}
 	
 	@RequestMapping("/home")
-	public String gotoindex(Model m)
+	public String goToIndex(Model m)
 	{
 		m.addAttribute("onclickhome",1);
 		return "index";
 	}
 	
 	@RequestMapping("/adminHome")
-	public String gotoadmin(Model m)
+	public String goToAdmin(Model m)
 	{
 		m.addAttribute("onclickAdminHome",1);
 		return "AdminHome";
 	}
 	
 	@RequestMapping("/about_us")
-	public String gotoaboutus(Model m)
+	public String gotoAboutUs(Model m)
 	{
 		m.addAttribute("onclickAbout_Us",1);
 		return"index";
 	}
 	
 	@RequestMapping("/contact_us")
-	public String gotocontactus(Model m)
+	public String goToContactUs(Model m)
 	{
 		m.addAttribute("onclickContact",1);
 		return"index";
+	}
+	
+	@RequestMapping("/403")
+	public String goToAccess(Model m){
+		return "AccessDenied";
 	}
 }

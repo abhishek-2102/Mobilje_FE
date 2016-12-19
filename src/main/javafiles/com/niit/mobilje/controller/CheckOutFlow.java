@@ -19,10 +19,20 @@ public class CheckOutFlow {
 	@Autowired
 	OrderDao orderdao;
 	
+	/*@Autowired
+	HttpSession session;
+	*/
+	
 	String email;
 	
 	
 	
+	/*public CheckOutFlow(HttpSession sess) {
+		super();
+		this.session=sess;
+	}*/
+
+
 	public OrderDetails orderSet(){
 		return new OrderDetails();
 	}//end order set
@@ -59,9 +69,12 @@ public class CheckOutFlow {
 		return "billsave";
 	}//end set billing
 	
-	public String billView(){
+	public void setInSession(){
 		
+	}
+	
+	public String orderdisp(){
 		
-		return "orderview";
-	}//
+		return "order";
+	}
 }

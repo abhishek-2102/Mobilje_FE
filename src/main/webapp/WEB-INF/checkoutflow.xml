@@ -11,7 +11,6 @@
 
 <on-start>
 	  <evaluate expression="checkOutFlow.orderSet()" result="flowScope.orderDetails"/>
-		
 </on-start>
 
 <view-state id="flowExecutor" view="shipping" model="shippingAddress">
@@ -20,7 +19,7 @@
 
 <action-state id="shippingSave">
 	<evaluate expression="checkOutFlow.shippAddr(flowScope.orderDetails,shippingAddress)"></evaluate>
-	<transition on="shipsave" to="billingView" />
+	<transition on="shipsave" to="billingView"/>
 </action-state>
 
 <view-state id="billingView" view="billing" model="billingAddress">
@@ -29,12 +28,24 @@
 
 <action-state id="billingSave">
 	<evaluate expression="checkOutFlow.billAddr(flowScope.orderDetails,billingAddress)"></evaluate>
-	<transition on="billsave" to="orderView" />
+	<transition on="billsave" to="orderView"/>
 </action-state>
 
-<view-state id="orderView" view="orderdetails" >
-	<!-- <transition on="" to=""/>    -->
+<view-state id="orderView" view="orderdetails">
+	<transition on="payment" to="topayment"/>  
 </view-state>
+
+<view-state id="topayment" view="paymentmode">
+	  <transition on="end" to="exit"/>
+</view-state>
+
+
+
+<view-state id="back" view="index"/>
+
+<global-transitions>
+	<transition on="back" to="back"/>
+</global-transitions>
 
 
 </flow>

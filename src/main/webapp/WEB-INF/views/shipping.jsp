@@ -63,8 +63,8 @@
                </div>
                </div><!-- end line2 -->
                <br>
-	<a href="" class="btn btn-primary col-sm-3">Back</a>
-	<form:button class="btn btn-success col-sm-3 col-sm-offset-6" type="submit" name="_eventId_saveship">Next</form:button>
+	<input name="_eventId_back" class="btn btn-primary col-sm-3" value="Cancel" type="submit">
+	<form:button class="btn btn-success col-sm-3 col-sm-offset-6" type="submit" name="_eventId_saveship">Billing</form:button>
 </form:form><!-- End form tag -->
 <br>
 

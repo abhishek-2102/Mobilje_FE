@@ -64,7 +64,7 @@
 				</tbody>
 		</c:forEach>
 			</table>
-			<div class="jumbotron text-right" style="padding:10px;"><b>Total:<%=session.getAttribute("total") %></b></div>
+			<div class="jumbotron text-right" style="padding:10px; color:green; font-size:20px;"><b>Total:<%=session.getAttribute("total") %></b></div>
 		</div><!-- end table responsive -->
 </div><!-- end col span -->
 <br><br>
